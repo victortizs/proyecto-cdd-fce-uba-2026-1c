@@ -33,10 +33,6 @@ Completar con texto
 
 Completar con texto
 
-## Benchmark
-
-Completar con texto y links a fuentes de info y/o indicadores
-
 ## Descripción de ETL (Extract, Transform, Load)
 
 Completar con texto y quizá imágenes y pequeños ejemplos
@@ -65,3 +61,7 @@ proyecto/
 │   └── guia_readme.md
 └── README.md              # Descripción del proyecto y guía del repositorio
 ```
+
+## Benchmark
+
+Completar con texto y links a fuentes de info y/o indicadores
