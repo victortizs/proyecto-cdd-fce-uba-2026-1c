@@ -45,23 +45,23 @@ Completar con texto y links a fuentes de info y/o indicadores
 
 ```
 proyecto/
-├── raw/                   # Bases originales de (completar)
-├── auxiliar/              # Proyecciones de (completar)
-├── input/                 # Bases procesadas y listas para análisis
+├── raw/                     # Bases originales de (completar)
+├── auxiliar/                # Proyecciones de (completar)
+├── input/                   # Bases procesadas y listas para análisis
 ├── output/
-│   ├── tablas/            # Tablas de resultados exportadas
-│   └── graficos/          # Visualizaciones generadas
-├── scripts/               # Instrucciones (código) con objetivo específico
+│   ├── tablas/              # Tablas de resultados exportadas
+│   └── graficos/            # Visualizaciones generadas
+├── scripts/                 # Instrucciones (código) con objetivo específico
 │   ├── 01_limpieza.R
 │   ├── 02_exploratorio.R
 │   ├── 03_analisis.R
 │   └── 04_visualizaciones.R
-├── utils/                 # Funciones propias (un script por función)
+├── utils/                   # Funciones propias (un script por función)
 │   └── prueba_filtro_empresa.R
-├── instructivo/           # Info sobre lo solicitado para el TP
+├── instructivo-tp/          # Info sobre lo solicitado para el TP
 │   ├── checklist_entregas.md 
 │   ├── consignas_trabajo_final.md
 │   ├── cronograma_cdd_econ_y_neg_2026_1c.xlsx
 │   └── guia_readme.md
-└── README.md              # Descripción del proyecto y guía del repositorio
+└── README.md                # Descripción del proyecto y guía del repositorio
 ```
