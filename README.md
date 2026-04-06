@@ -1,4 +1,4 @@
-# Acá va el título
+# Producción de Hidrocarburos en Argentina
 
 ## Integrantes
 
@@ -55,7 +55,7 @@ proyecto/
 │   ├── 03_analisis.R
 │   └── 04_visualizaciones.R
 ├── utils/              # Funciones propias (un script por función)
-│   └── ejemplo.R
+│   └── prueba_filtro_empresa.R
 ├── instructivo/        # Info oficial sobre lo solicitado para el TP
 │   ├── consignas_trabajo_final.md
 │   └── guia_readme.md
