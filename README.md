@@ -2,7 +2,7 @@
 
 ## Integrantes
 
-| Nombre y Apellido | Nro. de Registro |
+| Nombre y apellido | Nro. de registro |
 |:---|---:|
 | Ariana Patricia Tello Senmache | 916327 |
 | Carolina Alejandra Rios Otoya | 903196 |
@@ -29,7 +29,9 @@ Completar con texto
 
 ## Variables principales
 
-Completar con tabla (nombre | tipo)
+| Nombre | Clase | Detalle |
+|:---|:---:|:---:|
+| completar | completar| completar |
 
 ## Benchmark
 
