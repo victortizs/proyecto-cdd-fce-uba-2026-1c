@@ -37,6 +37,10 @@ Completar con texto
 
 Completar con texto y quizá imágenes y pequeños ejemplos
 
+## Benchmark
+
+Completar con texto y links a fuentes de info y/o indicadores
+
 ## Estructura del repositorio
 
 ```
@@ -61,7 +65,3 @@ proyecto/
 │   └── guia_readme.md
 └── README.md              # Descripción del proyecto y guía del repositorio
 ```
-
-## Benchmark
-
-Completar con texto y links a fuentes de info y/o indicadores
