@@ -56,8 +56,10 @@ proyecto/
 │   └── 04_visualizaciones.R
 ├── utils/              # Funciones propias (un script por función)
 │   └── prueba_filtro_empresa.R
-├── instructivo/        # Info oficial sobre lo solicitado para el TP
+├── instructivo/        # Info sobre lo solicitado para el TP
+│   ├── checklist_entregas.md 
 │   ├── consignas_trabajo_final.md
+│   ├── cronograma_cdd_econ_y_neg_2026_1c.xlsx
 │   └── guia_readme.md
 └── README.md           # Descripción del proyecto y guía del repositorio
 ```
