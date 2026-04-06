@@ -1,9 +1,9 @@
-# Producción de Hidrocarburos en Argentina
+# Producción Argentina de Hidrocarburos
 
 ## Integrantes
 
 | Nombre y Apellido | Nro. de Registro |
-|:---|:---|
+|:---|---:|
 | Ariana Patricia Tello Senmache | 916327 |
 | Carolina Alejandra Rios Otoya | 903196 |
 | Victor Adrian Ortiz Solis | 895568 |
@@ -15,7 +15,7 @@ Completar con texto
 ## Datos
 
 - **Fuente principal:**
-    Completar
+    <a href="https://datos.gob.ar/dataset/energia-perforacion-pozos-petroleo-gas" target="_blank" rel="noopener noreferrer">Perforación de pozos de petróleo y gas en Argentina</a>
 - **Fuente complementaria:**
     Completar
 - **Período:**
@@ -35,7 +35,7 @@ Completar con tabla (nombre | tipo)
 
 Completar con texto y links a fuentes de info y/o indicadores
 
-## Detalle de extracción, limpieza y carga
+## Descripción de ETL (Extract, Transform, Load)
 
 Completar con texto y quizá imágenes y pequeños ejemplos
 
