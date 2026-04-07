@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Completar con texto
+Comparación de extracción y perforación de hidrocarburos en las principales cuencas, la situación de las provincias entre 2009 y 2025.
 
 ## Integrantes
 
@@ -16,10 +16,15 @@ Completar con texto
 
 - **Fuente principal:**
     <a href="https://datos.gob.ar/dataset/energia-perforacion-pozos-petroleo-gas" target="_blank" rel="noopener noreferrer">Perforación de pozos de petróleo y gas en Argentina</a>
+    
 - **Fuente complementaria:**
-    Completar
+    <a href="https://fund.ar/wp-content/uploads/2025/12/Fundar_Comodoro-Rivadavia-y-el-fin-de-un-ciclo_CC-BY-NC-ND-4.0-1.pdf" target="_blank" rel="noopener noreferrer">Comodoro Rivadavia y el fin de un ciclo</a>
+    
+    Falta agregar citas y/o créditos al paper/trabajo del profe y compañía
+
 - **Período:**
-    Completar
+    2009–2025
+
 - **Unidad de análisis:**
     Completar
 
@@ -31,7 +36,8 @@ Completar con texto
 
 ## Hipótesis
 
-Completar con texto
+Futuro de demás cuencas, subsistencia al mínimo o cierre. Si se mantienen al mínimo, ¿para qué? ¿y cuáles?
+¿Cuál es el fin de las inversiones y, por tanto, la producción de Vaca Muerta (consumo local/externo)?
 
 ## Descripción de ETL (Extract, Transform, Load)
 
