@@ -17,5 +17,5 @@ Actualizado: 2026-04-08
   3. [ ] **miércoles:** cerrar descripción de ETL
   4. [ ] **jueves:** meeting 21.30 h para discutir lo que se presentará en la primera instancia
 
-> **Nota:** Sugerir cambios a gusto, se aceptarán con el ok del resto del team.
+> **Nota:** sugerir cambios a gusto, se aceptarán con el ok del resto del team.
 
