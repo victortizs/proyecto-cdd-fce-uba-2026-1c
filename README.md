@@ -15,17 +15,19 @@ Comparación de extracción y perforación de hidrocarburos en las principales c
 ## Datos
 
 - **Fuente principal:**
-    <a href="https://datos.gob.ar/dataset/energia-perforacion-pozos-petroleo-gas" target="_blank" rel="noopener noreferrer">Perforación de pozos de petróleo y gas en Argentina</a>
-    
+
+    <a href="https://datos.gob.ar/dataset/energia-perforacion-pozos-petroleo-gas" target="_blank" rel="noopener noreferrer">Perforación de pozos de petróleo y gas en Argentina</a> – Secretaría de Energía.
+
 - **Fuente complementaria:**
-    <a href="https://fund.ar/wp-content/uploads/2025/12/Fundar_Comodoro-Rivadavia-y-el-fin-de-un-ciclo_CC-BY-NC-ND-4.0-1.pdf" target="_blank" rel="noopener noreferrer">Comodoro Rivadavia y el fin de un ciclo</a>
-    
-    Falta agregar citas y/o créditos al paper/trabajo del profe y compañía
+
+    Sidicaro, N.; Aneise, A. J.; Argoitia, J. M.; della Paolera, Carola; Freytes, C. y Schteingart, D. (2025).<br><a href="https://fund.ar/wp-content/uploads/2025/12/Fundar_Comodoro-Rivadavia-y-el-fin-de-un-ciclo_CC-BY-NC-ND-4.0-1.pdf" target="_blank" rel="noopener noreferrer">Comodoro Rivadavia y el fin de un ciclo. Hacia una transición productiva justa para la Cuenca del Golfo San Jorge.</a> Fundar.
 
 - **Período:**
+
     2009–2025
 
 - **Unidad de análisis:**
+
     Completar
 
 ## Variables principales
