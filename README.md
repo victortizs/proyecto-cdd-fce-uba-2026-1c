@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Comparativa de las extracciones de hidrocarburos y perforaciones de pozos en las principales cuencas del país y su situación en las provincias energéticas entre los años 2009–2025.
+Comparar las extracciones de hidrocarburos y perforaciones de pozos en las principales cuencas del país y su situación en las provincias energéticas entre los años 2009–2025.
 
 ## Integrantes
 
