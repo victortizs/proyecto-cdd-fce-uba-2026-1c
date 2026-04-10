@@ -1,11 +1,11 @@
 # Calendario de tareas
 
-Actualizado: 2026-04-09
+Actualizado: 2026-04-10
 
 * Semana: lunes 6 a domingo 12
 
   1. [x] **miércoles:** proponer objetivo e hipótesis
-  2. [ ] **jueves:** meeting 21.30 h para cerrar objetivo e hipótesis y discutir y mostrar posibles bases complementarias
+  2. [x] **jueves:** meeting 21.30 h para cerrar objetivo e hipótesis y discutir y mostrar posibles bases complementarias
   3. [ ] **viernes:** pedir feedback de objetivo, hipótesis y bases complementarias a profe tras clase
   4. [ ] **viernes:** definir bases complementarias, como el *paper* del profe, y quizá datos de COMEX de hidrocarburos
   5. [ ] **finde:** definir variables principales y sus tipos, más benchmark de comparación
