@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Comparación de extracción y perforación de hidrocarburos en las principales cuencas, la situación de las provincias entre 2009 y 2025.
+Comparativa de las extracciones de hidrocarburos y perforaciones de pozos en las principales cuencas del país y su situación en las provincias energéticas entre los años 2009–2025.
 
 ## Integrantes
 
@@ -35,8 +35,7 @@ Comparación de extracción y perforación de hidrocarburos en las principales c
 
 ## Hipótesis
 
-Futuro de demás cuencas, subsistencia al mínimo o cierre. Si se mantienen al mínimo, ¿para qué? ¿y cuáles?
-¿Cuál es el fin de las inversiones y, por tanto, la producción de Vaca Muerta (consumo local/externo)?
+El motivo del redireccionamiento de las inversiones hacia Vaca Muerta no es solo la mayor capacidad de producción, sino también las proyecciones de aumento en la exclusividad para la venta al extranjero. Por lo tanto, en las demás cuencas, se mantendría la inversión mínima suficiente para abastecer el consumo local.
 
 ## Descripción de ETL (Extract, Transform, Load)
 
