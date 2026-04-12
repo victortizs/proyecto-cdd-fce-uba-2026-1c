@@ -14,7 +14,7 @@ Actualizado: 2026-04-12
 
   1. [ ] **lunes:** realizar ETL (extracción, tranformación y carga) de datos
   2. [ ] **martes:** pedir supervisión/corrección general —tranqui— a profe tras clase
-  3. [ ] **miércoles:** cerrar descripción de ETL
+  3. [ ] **miércoles:** cerrar descripción de ETL, variables principales y sus tipos
   4. [ ] **jueves:** definir benchmark de comparación
   5. [ ] **sábado:** realizar meeting para discutir lo que se presentará en la primera instancia
 
