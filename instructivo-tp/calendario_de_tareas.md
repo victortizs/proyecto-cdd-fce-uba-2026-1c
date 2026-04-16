@@ -7,7 +7,7 @@ Actualizado: 2026-04-12
   1. [x] **miércoles:** proponer objetivo e hipótesis
   2. [x] **jueves:** meeting 21.30 h para cerrar objetivo e hipótesis, y discutir y mostrar posibles bases complementarias
   3. [x] **viernes:** pedir feedback de objetivo, hipótesis y bases complementarias a profe tras clase
-  4. [x] **viernes:** definir bases complementarias, como el *paper* del profe, y quizá datos de COMEX de hidrocarburos. (Esperando feedback de correo enviado el sábado 11 de abril)
+  4. [x] **viernes:** definir bases complementarias, como el *paper* del profe, y quizá datos de COMEX de hidrocarburos
 
 * Semana: lunes 13 a domingo 19
 
