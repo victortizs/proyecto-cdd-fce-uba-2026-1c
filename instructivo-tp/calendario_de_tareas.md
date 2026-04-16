@@ -1,6 +1,6 @@
 # Calendario de tareas
 
-Actualizado: 2026-04-12
+Actualizado: 2026-04-16
 
 * Semana: lunes 6 a domingo 12
 
