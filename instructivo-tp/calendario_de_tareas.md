@@ -1,6 +1,6 @@
 # Calendario de tareas
 
-Actualizado: 2026-04-16
+Actualizado: 2026-04-19
 
 * Semana: lunes 6 a domingo 12
 
@@ -12,9 +12,13 @@ Actualizado: 2026-04-16
 * Semana: lunes 13 a domingo 19
 
   1. [x] **miércoles:** asignar datasets y comenzar a definir las variables principales y sus tipos
-  2. [ ] **jueves:** definir variables relevantes y realizar ETL (extracción, tranformación y carga) de datos
-  3. [ ] **viernes:** cerrar descripción de ETL, variables principales y sus tipos
-  4. [ ] **sábado:** definir benchmark de comparación
-  5. [ ] **sábado:** realizar meeting para discutir lo que se presentará en la primera instancia
+  2. [x] **domingo:** definir variables relevantes
 
+* Semana: lunes 20 a domingo 26
+
+  1. [ ] **lunes:** definir benchmark de comparación
+  2. [ ] **martes:** cerrar descripción de ETL 
+  3. [ ] **martes:** preguntar al profesor (2 preguntas + benchmark)
+  4. [ ] **miércoles:** llenar el formulario (meet a definir)
+  
 > **Nota:** sugerir cambios a gusto, se aceptarán con el ok del resto del team.

@@ -6,8 +6,8 @@ En esta primera entrega se espera que cada grupo presente:
 - [x] 2. **Base de datos seleccionada** del listado de fuentes disponibles.
 - [x] 3. **Temática a desarrollar.** Por ejemplo, si eligen el PBG Provincial podrían plantearse explorar la divergencia económica entre provincias o realizar un análisis comparativo entre dos provincias con características similares.
 - [x] 4. **Hipótesis de trabajo.** Una conjetura sobre lo que esperan encontrar al finalizar el análisis. Esta hipótesis debe servir como guía para las etapas sucesivas del trabajo.
-- [ ] 5. **Variables principales** que planean utilizar, indicando el tipo de cada una (numérica, categórica, temporal, etc.).
-- [ ] 6. **Bases de datos complementarias**, si consideran que pueden enriquecer el análisis.
+- [x] 5. **Variables principales** que planean utilizar, indicando el tipo de cada una (numérica, categórica, temporal, etc.).
+- [x] 6. **Bases de datos complementarias**, si consideran que pueden enriquecer el análisis.
 - [ ] 7. **Benchmarks de comparación** que resulten útiles para contextualizar los resultados. Por ejemplo, la evolución del PIB nacional si trabajan con datos provinciales.
 - [ ] 8. **Descripción del proceso de limpieza** necesario para llevar la base de datos en su formato crudo (tal como se descarga) al formato requerido para el análisis ¿es necesario llevarlo a tabla larga? ¿hay que eliminar variables?.
 
