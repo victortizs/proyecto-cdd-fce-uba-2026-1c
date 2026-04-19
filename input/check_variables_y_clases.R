@@ -12,7 +12,7 @@ class(pozos_en_perf$cuenca)
 pozos_terminados = read_csv(r"(raw\pozos-terminados.csv)", show_col_types = FALSE)
 glimpse(pozos_terminados)
 names(pozos_terminados)
-unique(pozos_terminados$indice_tiempo)
+unique(pozos_terminados$tipodepozoterminado)
 unique(pozos_terminados$concepto)
 class(pozos_terminados$cuenca)
 
@@ -21,7 +21,7 @@ metros_por_cuenca = read_csv(r"(raw\metros-perforados-por-cuenca.csv)", show_col
 glimpse(metros_por_cuenca)
 names(metros_por_cuenca)
 unique(metros_por_cuenca$indice_tiempo)
-unique(metros_por_cuenca$cuenca)
+unique(metros_por_cuenca$concepto_metros)
 class(metros_por_cuenca$cuenca)
 
 # Metros perforados por empresa
@@ -45,9 +45,11 @@ unique(prod_petroleo$indice_tiempo)
 # Resolución 2057 - Inversiones previstas año actual
 inv_anio_actual = read_csv(r"(raw\resolucin-2057-inversiones-previstas-ao-actual.csv)", show_col_types = FALSE)
 glimpse(inv_anio_actual)
-unique(inv_anio_actual$"Año de presentación de la DDJJ")
+unique(inv_anio_actual$"Millones u$s Exploracion")
+class(inv_anio_actual$"Fecha Fin Tareas")
 
 # Resolución 2057 - Inversiones realizadas año anterior
 inv_anios_previos = read_csv(r"(raw\resolucin-2057-inversiones-realizadas-ao-anterior.csv)", show_col_types = FALSE)
 glimpse(inv_anios_previos)
-unique(inv_anios_previos$"Año de presentación de la DDJJ")
+unique(inv_anios_previos$"indice_tiempo")
+class(inv_anios_previos$"indice_tiempo")
