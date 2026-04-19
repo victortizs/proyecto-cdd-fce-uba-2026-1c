@@ -1,4 +1,12 @@
 library(readr)
+library(dplyr)
+
+# Pozos en perforación
+pozos_en_perf = read_csv(r"(raw\pozos-en-perforacin.csv)", show_col_types = FALSE)
+glimpse(pozos_en_perf)
+names(pozos_en_perf)
+unique(pozos_en_perf$indice_tiempo)
+class(pozos_en_perf$cuenca)
 
 # Pozos terminados
 pozos_terminados = read_csv(r"(raw\pozos-terminados.csv)", show_col_types = FALSE)
@@ -7,13 +15,6 @@ names(pozos_terminados)
 unique(pozos_terminados$indice_tiempo)
 unique(pozos_terminados$concepto)
 class(pozos_terminados$cuenca)
-
-# Pozos en perforación
-pozos_en_perf = read_csv(r"(raw\pozos-en-perforacin.csv)", show_col_types = FALSE)
-glimpse(pozos_en_perf)
-names(pozos_en_perf)
-unique(pozos_en_perf$indice_tiempo)
-class(pozos_en_perf$cuenca)
 
 # Metros perforados por cuenca
 metros_por_cuenca = read_csv(r"(raw\metros-perforados-por-cuenca.csv)", show_col_types = FALSE)
@@ -40,3 +41,13 @@ prod_petroleo = read_csv(r"(raw\produccin-de-petrleo-por-yacimiento.csv)", show_
 glimpse(prod_petroleo)
 unique(prod_petroleo$concepto)
 unique(prod_petroleo$indice_tiempo)
+
+# Resolución 2057 - Inversiones previstas año actual
+inv_anio_actual = read_csv(r"(raw\resolucin-2057-inversiones-previstas-ao-actual.csv)", show_col_types = FALSE)
+glimpse(inv_anio_actual)
+unique(inv_anio_actual$"Año de presentación de la DDJJ")
+
+# Resolución 2057 - Inversiones realizadas año anterior
+inv_anios_previos = read_csv(r"(raw\resolucin-2057-inversiones-realizadas-ao-anterior.csv)", show_col_types = FALSE)
+glimpse(inv_anios_previos)
+unique(inv_anios_previos$"Año de presentación de la DDJJ")
