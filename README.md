@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Descubrir cambios en la política de extracción y exploración a nivel de empresa, su presencia en las principales cuencas del país y su producción en ellas.
+Descubrir cambios en la política de extracción y exploración a nivel de empresa, su presencia en las principales cuencas del país y la producción en ellas.
 
 ## Integrantes
 
