@@ -18,7 +18,7 @@ Actualizado: 2026-04-19
 
   1. [ ] **lunes:** definir benchmark de comparación
   2. [ ] **martes:** cerrar descripción de ETL 
-  3. [ ] **martes:** preguntar al profesor (2 preguntas + benchmark)
+  3. [ ] **martes:** preguntar al profesor (2 dudas + benchmark + feedback de variables)
   4. [ ] **miércoles:** llenar el formulario (meet a definir)
   
 > **Nota:** sugerir cambios a gusto, se aceptarán con el ok del resto del team.

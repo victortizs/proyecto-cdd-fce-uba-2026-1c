@@ -97,29 +97,30 @@ Descubrir cambios en la política de extracción y exploración a nivel de empre
 
 | Nombre | Clase | Detalle |
 |:---|:---:|:---:|
-| anio | numeric | NA |
-| mes | numeric | NA |
-| empresa | character | NA |
-| cuenca | character | NA |
-| tipodepozoterminado | character | tipo de actividad |
-| concepto | character | tipo de producción (pozos terminados) |
-| cantidad | numeric | pozos terminados |
-| concepto | character | tipo de pozo en perforación |
-| cantidad | numeric | pozos perforación |
-| concepto_metros | character | finalidad de exploración |
-| metros_perforados | numeric | cantidad |
-| cantidad | numeric | Mm3 de gas |
-| concepto | character | finalidad de producción de gas |
-| cantidad | numeric | m3 de petróleo |
-| concepto | character | finalidad de producción de petróleo |
-| Fecha Inicio Tareas | date | inversiones previstas |
-| Fecha Fin Tareas | date | inversiones previstas |
-| Empresa informante | character | inversiones previstas |
-| Millones u$s Explotacion | numeric | valores previstos de inversión |
-| Millones u$s Exploracion | numeric | valores previstos de inversión |
-| indice_tiempo | character | valores reales de inversión (año-mes) |
-| Millones u$s Explotacion | numeric | valores reales de inversión |
-| Millones u$s Exploracion | numeric | valores reales de inversión |
+| `anio` | `numeric` | `n/a` |
+| `mes` | `numeric` | `n/a` |
+| `empresa` | `character` | `n/a` |
+| `cuenca` | `character` | `n/a` |
+| `tipodepozoterminado` | `character` | actividad prevista |
+| `concepto` | `character` | tipo de producción pozos terminados |
+| `cantidad` | `numeric` | pozos terminados |
+| `concepto` | `character` | actividad prevista pozos en perforación |
+| `cantidad` | `numeric` | pozos perforación |
+| `concepto_metros` | `character` | finalidad de perforación |
+| `metros_perforados` | `numeric` | cantidad |
+| `cantidad` | `numeric` | Mm3 de gas |
+| `concepto` | `character` | finalidad de producción de gas |
+| `cantidad` | `numeric` | m3 de petróleo |
+| `concepto` | `character` | finalidad de producción de petróleo |
+| `Fecha Inicio Tareas` | `date` | inversiones previstas |
+| `Fecha Fin Tareas` | `date` | inversiones previstas |
+| `Empresa informante` | `character` | inversiones previstas |
+| `Millones u$s Explotacion` | `numeric` | valores previstos de inversión |
+| `Millones u$s Exploracion` | `numeric` | valores previstos de inversión |
+| `indice_tiempo` | `character` | año-mes inversiones reales |
+| `Empresa informante` | `character` | inversiones reales |
+| `Millones u$s Explotacion` | `numeric` | valores reales de inversión |
+| `Millones u$s Exploracion` | `numeric` | valores reales de inversión |
 
 ## Hipótesis
 
