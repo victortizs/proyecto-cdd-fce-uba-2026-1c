@@ -17,7 +17,7 @@ Identificar cambios en las políticas de extracción y exploración a nivel empr
 <ul>
     <li>
         <b>Fuente principal:</b>
-            <a href="https://datos.gob.ar/dataset/energia-perforacion-pozos-petroleo-gas" target="_blank" rel="noopener noreferrer">Perforación de pozos de petróleo y gas</a> – Secretaría de Energía
+            <a href="https://datos.gob.ar/dataset/energia-perforacion-pozos-petroleo-gas" target="_blank" rel="noopener noreferrer">Perforación de pozos de petróleo y gas</a>
             <details>
                 <summary>Datasets</summary>
                 <ul>
