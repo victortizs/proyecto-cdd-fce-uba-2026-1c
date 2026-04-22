@@ -77,7 +77,7 @@ Identificar cambios en las políticas de extracción y exploración a nivel empr
 
 ## Hipótesis
 
-Entre 2015 y 2025, empresas representativas del sector mostrarán una disminución significativa en la extracción de hidrocarburos en las principales cuencas, acompañada de un aumento de la producción en cuencas menos convencionales.
+Hacia 2025, empresas representativas del sector mostrarán una disminución significativa en la extracción de hidrocarburos en las principales cuencas, acompañada de un aumento de la producción en cuencas menos convencionales.
 
 ## Descripción de ETL (Extract, Transform, Load)
 
@@ -114,7 +114,7 @@ Completar con texto y quizá imágenes y pequeños ejemplos
 
 ## Benchmark
 
-Actividad y nivel de las principales empresas en los años previos a 2015. Siendo que el boom de inversiones en Vaca Muerta comenzó tras los descubrimientos de 2010–2011 y se consolidó entre 2012 y 2014 (con la nacionalización de YPF en 2012 y grandes acuerdos/inversiones de compañías como Chevron y rig contracts en 2014).
+Actividad y nivel de las principales empresas en los años previos a 2015. Siendo que el boom de inversiones en Vaca Muerta comenzó tras los descubrimientos de 2010–2011 y se consolidó entre 2012 y 2014 (con la nacionalización de YPF en 2012 y grandes acuerdos/inversiones de compañías como Chevron y *rig contracts* en 2014).
 
 ## Estructura del repositorio
 
