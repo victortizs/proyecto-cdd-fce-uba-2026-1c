@@ -96,8 +96,6 @@ Completar con texto y quizá imágenes y pequeños ejemplos
 | `cantidad` | `numeric` | pozos terminados |
 | `concepto` | `character` | actividad prevista pozos en perforación |
 | `cantidad` | `numeric` | pozos perforación |
-| `concepto_metros` | `character` | finalidad de perforación |
-| `metros_perforados` | `numeric` | cantidad |
 | `cantidad` | `numeric` | Mm3 de gas |
 | `concepto` | `character` | finalidad de producción de gas |
 | `cantidad` | `numeric` | m3 de petróleo |

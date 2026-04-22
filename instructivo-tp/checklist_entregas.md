@@ -8,7 +8,7 @@ En esta primera entrega se espera que cada grupo presente:
 - [x] 4. **Hipótesis de trabajo.** Una conjetura sobre lo que esperan encontrar al finalizar el análisis. Esta hipótesis debe servir como guía para las etapas sucesivas del trabajo.
 - [x] 5. **Variables principales** que planean utilizar, indicando el tipo de cada una (numérica, categórica, temporal, etc.).
 - [x] 6. **Bases de datos complementarias**, si consideran que pueden enriquecer el análisis.
-- [ ] 7. **Benchmarks de comparación** que resulten útiles para contextualizar los resultados. Por ejemplo, la evolución del PIB nacional si trabajan con datos provinciales.
+- [x] 7. **Benchmarks de comparación** que resulten útiles para contextualizar los resultados. Por ejemplo, la evolución del PIB nacional si trabajan con datos provinciales.
 - [ ] 8. **Descripción del proceso de limpieza** necesario para llevar la base de datos en su formato crudo (tal como se descarga) al formato requerido para el análisis ¿es necesario llevarlo a tabla larga? ¿hay que eliminar variables?.
 
 ### Instancia 2 — Métodos estadísticos (26/05)
