@@ -81,7 +81,7 @@ Hacia 2025, empresas representativas del sector mostrarán una disminución sign
 
 ## Descripción de ETL (Extract, Transform, Load)
 
-Completar con texto y quizá imágenes y pequeños ejemplos
+Luego de extraer los datos en su formato crudo *(raw)*, se filtran los datasets con las variables relevantes para el análisis, es decir, eliminando las variables redundantes. Los datos originales ya se hallan en formato tidy, por lo cual no requieren transformación extra para su manipulación, aunque posteriormente se agruparán las variables en una sola base.
 
 ## Variables principales
 
@@ -109,6 +109,8 @@ Completar con texto y quizá imágenes y pequeños ejemplos
 | `Empresa informante` | `character` | inversiones reales |
 | `Millones u$s Explotacion` | `numeric` | valores reales de inversión |
 | `Millones u$s Exploracion` | `numeric` | valores reales de inversión |
+| `Millones u$s Exploracion` | `numeric` | valores reales de inversión |
+| `Tipo de explotación` | `character` | referente a inversión |
 
 ## Benchmark
 

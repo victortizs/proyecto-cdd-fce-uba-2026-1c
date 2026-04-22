@@ -1,6 +1,6 @@
 # Calendario de tareas
 
-Actualizado: 2026-04-19
+Actualizado: 2026-04-22
 
 * Semana: lunes 6 a domingo 12
 
@@ -16,9 +16,9 @@ Actualizado: 2026-04-19
 
 * Semana: lunes 20 a domingo 26
 
-  1. [ ] **lunes:** definir benchmark de comparación
-  2. [ ] **martes:** cerrar descripción de ETL 
-  3. [ ] **martes:** preguntar al profesor (2 dudas + benchmark + feedback de variables)
-  4. [ ] **miércoles:** llenar el formulario (meet a definir)
+  1. [x] **lunes:** definir benchmark de comparación
+  2. [x] **martes:** preguntar al profesor (2 dudas + benchmark + feedback de variables)
+  3. [x] **martes:** cerrar descripción de ETL 
+  4. [ ] **miércoles:** llenar el formulario mañana en meeting 8 pm
   
 > **Nota:** sugerir cambios a gusto, se aceptarán con el ok del resto del team.
