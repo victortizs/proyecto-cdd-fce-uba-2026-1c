@@ -12,7 +12,7 @@ Los estudiantes eligen una base de datos de un [listado de 20 fuentes disponible
 
 | Fecha | Evento |
 |---|---|
-| 17/04 | **Instancia 1** — Validación de base de datos e hipótesis |
+| 23/04 | **Instancia 1** — Validación de base de datos e hipótesis |
 | 26/05 | **Instancia 2** — Validación de métodos estadísticos |
 | 12/06 | **Instancia 3** — Validación de visualizaciones |
 | 23/06 | **Entrega final del TP** |
@@ -25,7 +25,7 @@ Los estudiantes eligen una base de datos de un [listado de 20 fuentes disponible
 
 Las tres instancias intermedias son de carácter formativo: permiten recibir devolución del docente y corregir el rumbo antes de la entrega final. Son obligatorias y forman parte de la nota final.
 
-### Instancia 1 — Base de datos e hipótesis (17/04)
+### Instancia 1 — Base de datos e hipótesis (23/04)
 
 En esta primera entrega se espera que cada grupo presente:
 
@@ -36,7 +36,7 @@ En esta primera entrega se espera que cada grupo presente:
 5. **Variables principales** que planean utilizar, indicando el tipo de cada una (numérica, categórica, temporal, etc.).
 6. **Bases de datos complementarias**, si consideran que pueden enriquecer el análisis.
 7. **Benchmarks de comparación** que resulten útiles para contextualizar los resultados. Por ejemplo, la evolución del PIB nacional si trabajan con datos provinciales.
-8. **Descripción del proceso de limpieza** necesario para llevar la base de datos en su formato crudo (tal como se descarga) al formato requerido para el análisis ¿es necesario llevarlo a tabla larga? ¿hay que eliminar variables?.
+8. **Descripción del proceso de limpieza** necesario para llevar la base de datos en su formato crudo (tal como se descarga) al formato requerido para el análisis ¿es necesario llevarlo a tabla larga? ¿hay que eliminar variables?
 
 ### Instancia 2 — Métodos estadísticos (26/05)
 
