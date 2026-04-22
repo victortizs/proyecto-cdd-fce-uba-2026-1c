@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Descubrir cambios en la política de extracción y exploración a nivel de empresa, su presencia en las principales cuencas del país y la producción en ellas.
+Identificar cambios en las políticas de extracción y exploración a nivel empresarial, su presencia en las principales cuencas del país (Golfo San Jorge y Neuquina) y la evolución de la producción en ellas.
 
 ## Integrantes
 
@@ -17,7 +17,7 @@ Descubrir cambios en la política de extracción y exploración a nivel de empre
 <ul>
     <li>
         <b>Fuente principal:</b><br>
-            <a href="https://datos.gob.ar/dataset/energia-perforacion-pozos-petroleo-gas" target="_blank" rel="noopener noreferrer">Perforación de pozos de petróleo y gas</a>
+            <a href="https://datos.gob.ar/dataset/energia-perforacion-pozos-petroleo-gas" target="_blank" rel="noopener noreferrer">Perforación de pozos de petróleo y gas</a> – Secretaría de Energía
             <details>
                 <summary>Datasets</summary>
                 <ul>
@@ -26,25 +26,7 @@ Descubrir cambios en la política de extracción y exploración a nivel de empre
                     </li>
                     <li>
                         <a href="https://datos.gob.ar/dataset/energia-perforacion-pozos-petroleo-gas/archivo/energia_a2ce14af-5c56-45c2-9b9c-c7a1e5156dff" target="_blank" rel="noopener noreferrer">Pozos terminados</a> – Secretaría de Energía  
-                    </li>
-                    <li>
-                        <a href="https://datos.gob.ar/dataset/energia-perforacion-pozos-petroleo-gas/archivo/energia_30aeeccd-97cf-45ef-9713-2045cc3786d2" target="_blank" rel="noopener noreferrer">Metros perforados por cuenca</a> – Secretaría de Energía  
-                    </li>
-                    <li>
-                        <a href="https://datos.gob.ar/dataset/energia-perforacion-pozos-petroleo-gas/archivo/energia_3b6b2a2d-7917-4772-a433-216aa07cb86b" target="_blank" rel="noopener noreferrer">Metros perforados por empresa</a> – Secretaría de Energía  
-                    </li>
-                    <li>
-                        <a href="http://datos.energia.gob.ar/dataset/produccion-de-petroleo-y-gas-tablas-dinamicas/archivo/ce479c85-2e8b-441e-9c68-9681597b3694" target="_blank" rel="noopener noreferrer">Producción de gas por yacimiento</a> – Secretaría de Energía  
-                    </li>
-                    <li>
-                        <a href="http://datos.energia.gob.ar/dataset/produccion-de-petroleo-y-gas-tablas-dinamicas/archivo/745facdc-73dc-46d8-83d5-d027bdaa3210" target="_blank" rel="noopener noreferrer">Producción de petróleo por yacimiento</a> – Secretaría de Energía  
-                    </li>
-                    <li>
-                        <a href="http://datos.energia.gob.ar/dataset/inversiones-en-mercado-de-hidrocarburos-upstream/archivo/8ab4098a-842b-42f7-bf1a-b7b3637d226d" target="_blank" rel="noopener noreferrer">Resolución 2057 - Inversiones previstas año actual</a> – Secretaría de Energía  
-                    </li>
-                    <li>
-                        <a href="http://datos.energia.gob.ar/dataset/inversiones-en-mercado-de-hidrocarburos-upstream/archivo/285d45e5-1b88-4dae-8e5c-c01843c7c8c0" target="_blank" rel="noopener noreferrer">Resolución 2057 - Inversiones realizadas año anterior</a> – Secretaría de Energía  
-                    </li>                             
+                    </li>                       
                 </ul>
             </details>
     </li>
@@ -93,6 +75,14 @@ Descubrir cambios en la política de extracción y exploración a nivel de empre
     </li>
 </ul>
 
+## Hipótesis
+
+Entre 2015 y 2025, empresas representativas del sector mostrarán una disminución significativa en la extracción de hidrocarburos en las principales cuencas, acompañada de un aumento de la producción en cuencas menos convencionales.
+
+## Descripción de ETL (Extract, Transform, Load)
+
+Completar con texto y quizá imágenes y pequeños ejemplos
+
 ## Variables principales
 
 | Nombre | Clase | Detalle |
@@ -122,17 +112,9 @@ Descubrir cambios en la política de extracción y exploración a nivel de empre
 | `Millones u$s Explotacion` | `numeric` | valores reales de inversión |
 | `Millones u$s Exploracion` | `numeric` | valores reales de inversión |
 
-## Hipótesis
-
-Tendencia negativa de algunas empresas en la extracción de hidrocarburos en determinadas cuencas por sus costos asociados elevados, derivando en la migración hacia cuencas donde los costos sean menores.
-
-## Descripción de ETL (Extract, Transform, Load)
-
-Completar con texto y quizá imágenes y pequeños ejemplos
-
 ## Benchmark
 
-Completar con texto y links a fuentes de info y/o indicadores
+Actividad y nivel de las principales empresas en los años previos a 2015. Siendo que el boom de inversiones en Vaca Muerta comenzó tras los descubrimientos de 2010–2011 y se consolidó entre 2012 y 2014 (con la nacionalización de YPF en 2012 y grandes acuerdos/inversiones de compañías como Chevron y rig contracts en 2014).
 
 ## Estructura del repositorio
 
