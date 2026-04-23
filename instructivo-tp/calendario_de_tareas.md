@@ -44,4 +44,4 @@ Actualizado: 2026-04-23
     1. [ ] A determinar...
   </details>
   
-> **Nota:** sugerir cambios a gusto, se aceptarán con ok de resto del team.
+> **Nota:** sugerir cambios a gusto, se aceptarán con ok del resto del team.
