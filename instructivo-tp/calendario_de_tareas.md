@@ -24,7 +24,7 @@ Actualizado: 2026-04-23
   4. [x] **miércoles:** llenar formulario de instancia #1 mañana en meeting
   5. [ ] **viernes:** confirmar meeting para tratar/definir próximos pasos de TP
 
-  * Semana: lunes 27 a domingo 3
+* Semana: lunes 27 a domingo 3
 
   1. [ ] To be determined...
   
