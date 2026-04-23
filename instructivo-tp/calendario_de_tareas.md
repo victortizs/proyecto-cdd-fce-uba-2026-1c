@@ -25,6 +25,7 @@ Actualizado: 2026-04-23
   5. [ ] **viernes:** confirmar meeting para tratar/definir próximos pasos de TP
 
   * Semana: lunes 27 a domingo 3
+
   1. [ ] To be determined...
   
 > **Nota:** sugerir cambios a gusto, se aceptarán con ok de resto del team.
