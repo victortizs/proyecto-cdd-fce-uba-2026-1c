@@ -12,7 +12,7 @@ Actualizado: 2026-04-25
     1. [x] **miércoles:** proponer objetivo e hipótesis
     2. [x] **jueves:** meeting 21.30 h para cerrar objetivo e hipótesis, y discutir y mostrar posibles bases complementarias
     3. [x] **viernes:** pedir feedback de objetivo, hipótesis y bases complementarias a profe tras clase
-    4. [x] **viernes:** definir bases e info complementarias, como el *paper* del profe
+    4. [x] **viernes:** definir bases e info complementarias, como *paper* del profe
   </details>
 
 * Semana: lunes 13 a domingo 19
@@ -42,7 +42,7 @@ Actualizado: 2026-04-25
   <details open>
     <summary>Ver</summary>
 
-    1. [ ] **martes:** ver dudas de input (`agrupar_datasets`) con profe 
+    1. [ ] **martes:** ver dudas de input (`agrupar_datasets.R`) con profe 
     2. [ ] **martes:** meeting para avanzar con correción del profe
   </details>
   
