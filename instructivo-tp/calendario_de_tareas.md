@@ -34,7 +34,7 @@ Actualizado: 2026-04-24
     3. [x] **martes:** cerrar descripción de ETL 
     4. [x] **miércoles:** llenar formulario de instancia #1 mañana en meeting
     5. [x] **viernes:** confirmar meeting para tratar/definir próximos pasos de TP
-    6. [ ] **sábado:** meeting 16 h para definir próximos pasos (ej.: consolidar una sola base, ver distribuciones, etc.)
+    6. [ ] **sábado:** meeting 16 h para definir próximos pasos (consolidar una sola base, ver distribuciones, etc.)
   </details>
 
 * Semana: lunes 27 a domingo 3
