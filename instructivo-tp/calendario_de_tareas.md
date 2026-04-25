@@ -1,6 +1,6 @@
 # Calendario de tareas
 
-Actualizado: 2026-04-23
+Actualizado: 2026-04-24
 
 ## Abril
 
@@ -33,7 +33,8 @@ Actualizado: 2026-04-23
     2. [x] **martes:** preguntar al profe 2 dudas + benchmark + feedback de variables
     3. [x] **martes:** cerrar descripción de ETL 
     4. [x] **miércoles:** llenar formulario de instancia #1 mañana en meeting
-    5. [ ] **viernes:** confirmar meeting para tratar/definir próximos pasos de TP
+    5. [x] **viernes:** confirmar meeting para tratar/definir próximos pasos de TP
+    6. [ ] **sábado:** meeting 16 h para definir y comunicar próximos pasos (ej.: consolidar una sola base, ver distribuciones y estadísticos)
   </details>
 
 * Semana: lunes 27 a domingo 3
