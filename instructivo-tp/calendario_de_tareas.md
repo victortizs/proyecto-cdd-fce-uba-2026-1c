@@ -1,6 +1,6 @@
 # Calendario de tareas
 
-Actualizado: 2026-04-24
+Actualizado: 2026-04-25
 
 ## Abril
 
@@ -26,7 +26,7 @@ Actualizado: 2026-04-24
 
 * Semana: lunes 20 a domingo 26
 
-  <details open>
+  <details>
     <summary>Ver</summary>
 
     1. [x] **lunes:** definir benchmark de comparación
@@ -34,15 +34,16 @@ Actualizado: 2026-04-24
     3. [x] **martes:** cerrar descripción de ETL 
     4. [x] **miércoles:** llenar formulario de instancia #1 mañana en meeting
     5. [x] **viernes:** confirmar meeting para tratar/definir próximos pasos de TP
-    6. [ ] **sábado:** meeting 16 h para definir próximos pasos (consolidar una sola base, ver distribuciones, etc.)
+    6. [x] **sábado:** meeting 17 h para definir próximos pasos (consolidar una sola base, ver distribuciones, etc.)
   </details>
 
 * Semana: lunes 27 a domingo 3
 
-  <details>
+  <details open>
     <summary>Ver</summary>
 
-    1. [ ] A determinar...
+    1. [ ] **martes:** ver dudas de input (`agrupar_datasets`) con profe 
+    2. [ ] **martes:** meeting para avanzar con correción del profe
   </details>
   
 > **Nota:** sugerir cambios a gusto, se aceptarán con ok del resto del team.
