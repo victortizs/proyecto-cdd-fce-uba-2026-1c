@@ -1,6 +1,6 @@
 # Calendario de tareas
 
-Actualizado: 2026-05-14
+Actualizado: 2026-05-15
 
 ## Abril
 
@@ -14,7 +14,7 @@ Actualizado: 2026-05-14
 
     1. [x] **miércoles:** proponer objetivo e hipótesis
     2. [x] **jueves:** meeting 21.30 h para cerrar objetivo e hipótesis, y discutir y mostrar posibles bases complementarias
-    3. [x] **viernes:** pedir feedback de objetivo, hipótesis y bases complementarias a profe tras clase
+    3. [x] **viernes:** pedir feedback de objetivo, hipótesis y bases complementarias al profe tras clase
     4. [x] **viernes:** definir bases e info complementarias, como *paper* del profe
   </details>
 
@@ -60,7 +60,9 @@ Actualizado: 2026-05-14
     <summary>Ver</summary>
 
     1. [x] **martes:** meeting 21 h para terminar de filtrar datasets de pozos
-    2. [ ] **jueves**: meeting 21.30 h para terminar de filtrar datasets de inversión
+    2. [x] **jueves**: meeting 21.30 h para terminar de filtrar datasets de inversión
+    3. [ ] **viernes**: preguntar al profe dudas de filtros de inversión tras clase
+    4. [ ] **viernes**: definir meeting(s) para el fin de semana
   </details>
 </details>
 

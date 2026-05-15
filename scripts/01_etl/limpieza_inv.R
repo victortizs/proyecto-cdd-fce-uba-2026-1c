@@ -1,75 +1,47 @@
 library(readr)
 library(dplyr)
 library(tidyr)
+library(stringr)
 
-# ---filtro de pozos en perforación---
-df_1 = read_csv(r"(raw\pozos-en-perforacin.csv)")
+# filtro de inversión prevista
+df_1 = read_csv(r"(raw\resolucin-2057-inversiones-previstas-ao-actual.csv)")
 glimpse(df_1)
 
-pozos_en_perf = df_1 |>
-    select(anio, mes, empresa, cuenca, concepto, cantidad) |>
-    group_by(anio, mes, cuenca, empresa, concepto) |>
-    summarise(
-        cant_pozos_en_perf = sum(cantidad)
-    ) |>
-    filter_out(cant_pozos_en_perf == 0) # equivalente a filter(cant_pozos_en_perf != 0)
+inv_prev_anio_actual = df_1 |>
+    select("Año de presentación de la DDJJ", "Empresa informante", "Cuenca", "Millones u$s Exploracion", "Millones u$s Explotacion", "Tipo de explotación", "Fecha Inicio Tareas", "Fecha Fin Tareas")
 
-# ---filtro de pozos terminados---
-df_2 = read_csv(r"(raw\pozos-terminados.csv)")
+temp_1 = inv_prev_anio_actual |>
+    select("Año de presentación de la DDJJ", "Fecha Inicio Tareas", "Fecha Fin Tareas") |>
+    rename(
+        anio_presentacion_ddjj = "Año de presentación de la DDJJ",
+        inicio_tareas = "Fecha Inicio Tareas") |>
+    mutate(
+        "check_anio_inicio_tareas" = as.numeric(str_sub(inicio_tareas, 1, 4)),
+        "coincide_anio_ddjj_con_inicio_tareas" = ifelse(check_anio_inicio_tareas == anio_presentacion_ddjj, "sí", "no")
+    )
+
+temp_2 = temp_1 |>
+    filter_out(check_anio_inicio_tareas == 1900) |>
+    filter(is.na(coincide_anio_ddjj_con_inicio_tareas)) # coincide_anio_ddjj_con_inicio_tareas == "sí" y coincide_anio_ddjj_con_inicio_tareas == "no" 
+
+dim(temp_1)
+head(temp_1)
+
+dim(temp_2)
+head(temp_2)
+
+# 10899 no son de año 1900 en inicio de tareas (se descartan 10305 cuyo año en la fecha de inicio de tareas es 1900)
+# de esas, 9474 coincide año de inicio de tareas con año de presentación de ddjj (87% de los datos)
+# de esas, 8 no coincide año de inicio de tareas con año de presentación de ddjj
+# de esas, 1417 no coincide año de inicio de tareas con año de presentación de ddjj (todas ellas porque no presentaron fecha de inicio de tareas, son NA)
+
+# filtro de inversión real
+df_2 = read_csv(r"(raw\resolucin-2057-inversiones-realizadas-ao-anterior.csv)")
 glimpse(df_2)
 
-pozos_term = df_2 |>
-    select(anio, mes, empresa, cuenca, tipodepozoterminado, concepto, cantidad) |>
-    rename(
-        "concepto" = "tipodepozoterminado",
-        "finalidad" = "concepto"
-    ) |>
-    filter(finalidad != "Improductivos" & finalidad != "Servicio") |>
-    group_by(anio, mes, cuenca, empresa, concepto, finalidad) |>
-    summarise(
-        cantidad = sum(cantidad)
-    ) |>
-    pivot_wider(names_from = "finalidad", values_from = "cantidad", names_prefix = "cant_pozos_term_") |>
-    rename(
-        "cant_pozos_term_petroleo" = "cant_pozos_term_Productivos de Petróleo",
-        "cant_pozos_term_gas" = "cant_pozos_term_Productivos de Gas"
-    ) |>
-    filter_out(cant_pozos_term_gas == 0 & cant_pozos_term_petroleo == 0)
+inv_anios_ant = df_2 |>
+    select("Año de presentación de la DDJJ", "Empresa informante", "Cuenca", "Millones u$s Exploracion", "Millones u$s Explotacion", "Tipo de explotación", "indice_tiempo")
 
-# ---check---
-head(pozos_en_perf, 10)
-dim(pozos_en_perf)
-head(pozos_term, 10)
-dim(pozos_term)
-
-temp_1 = unique(pozos_en_perf$empresa)
-temp_2 = unique(pozos_term$empresa)
-
-glimpse(pozos_en_perf)
-glimpse(pozos_term)
-
-# ---observaciones con match en ambas tablas---
-pozos_term |> inner_join(pozos_en_perf, by = c("anio", "mes", "cuenca", "empresa", "concepto")) # 2383 filas
-
-# ---filas faltantes en pozos terminados---
-pozos_en_perf |> anti_join(pozos_term, by = c("anio", "mes", "cuenca", "empresa", "concepto")) # 2002 filas
-
-# ---filas faltantes en pozos en perforación---
-pozos_term |> anti_join(pozos_en_perf, by = c("anio", "mes", "cuenca", "empresa", "concepto")) # 1271 filas
-
-# ---unión de ambas tablas---
-pozos_term_y_en_perf = pozos_term |>
-    full_join(pozos_en_perf, by = c("anio", "mes", "cuenca", "empresa", "concepto")) |> # 5656 filas = 2383 + 2002 + 1271
-    mutate(across(where(is.numeric), ~ replace_na(.x, 0)))
-
-# ---check final---
-glimpse(pozos_term_y_en_perf)
-
-# ---creación de csv con dataset combinado
-write.csv(
-  pozos_term_y_en_perf,
-  file = "input/pozos_term_y_en_perf.csv",
-  quote = FALSE,
-  row.names = FALSE,
-  fileEncoding = "UTF-8"
-)
+# ¿consideramos indice_tiempo o año de ddjj en inversiones reales? si consideramos indice_tiempo tenemos además datos de meses
+# , pero no así en el dataset de inversiones previstas. ¿chequeamos si coincide la mayoría como en inv. previstas o...?
+# de tomar las ddjj, ¿debemos considerar su estado (abiertas o cerradas)?
