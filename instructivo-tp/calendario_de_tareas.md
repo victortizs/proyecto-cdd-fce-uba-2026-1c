@@ -1,9 +1,12 @@
 # Calendario de tareas
 
-Actualizado: 2026-04-25
+Actualizado: 2026-05-14
 
 ## Abril
 
+<details>
+  <summary>Abrir</summary>
+  
 * Semana: lunes 6 a domingo 12
 
   <details>
@@ -39,11 +42,27 @@ Actualizado: 2026-04-25
 
 * Semana: lunes 27 a domingo 3
 
+  <details>
+    <summary>Ver</summary>
+
+    1. [x] **martes:** ver dudas de input (`agrupar_datasets.R`) con profe
+  </details>
+</details>
+
+## Mayo
+
+<details open>
+<summary>Abrir</summary>
+
+* Semana: lunes 11 a domingo 17
+
   <details open>
     <summary>Ver</summary>
 
-    1. [ ] **martes:** ver dudas de input (`agrupar_datasets.R`) con profe 
-    2. [ ] **martes:** meeting para avanzar con correción del profe
+    1. [x] **martes:** meeting 21 h para terminar de filtrar datasets de pozos
+    2. [ ] **jueves**: meeting 21.30 h para terminar de filtrar datasets de inversión
   </details>
-  
+</details>
+
+---
 > **Nota:** sugerir cambios a gusto, se aceptarán con ok del resto del team.
