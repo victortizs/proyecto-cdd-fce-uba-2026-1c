@@ -65,4 +65,4 @@ Actualizado: 2026-05-14
 </details>
 
 ---
-> **Nota:** sugerir cambios a gusto, se aceptarán con ok del resto del team.
+> **Nota:** sugerir cambios a gusto, se aceptarán con el ok del resto del team.
