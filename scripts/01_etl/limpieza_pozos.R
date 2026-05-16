@@ -69,7 +69,7 @@ glimpse(pozos_term_y_en_perf)
 write.csv(
   pozos_term_y_en_perf,
   file = "input/pozos_term_y_en_perf.csv",
-  quote = FALSE,
+  quote = TRUE, # importante porque algunos nombres de empresas incluyen "," y eso causa problemas en la lectura del csv
   row.names = FALSE,
   fileEncoding = "UTF-8"
 )
