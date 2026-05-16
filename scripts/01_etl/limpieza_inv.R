@@ -84,6 +84,7 @@ paste0(round(dim(filter(no_1900_ni_na, coincide_anio_ddjj_con_inicio_tareas == "
 df_2 = read_csv(r"(raw\resolucin-2057-inversiones-realizadas-ao-anterior.csv)")
 glimpse(df_2) # tiene una columna más que 'df_1' (data frame de inversiones previstas): 'indice_tiempo'
 
+# selección de variables relevantes 
 inv_anios_ant = df_2 |>
     select("Año de presentación de la DDJJ", "Empresa informante", "Cuenca", "Millones u$s Exploracion", "Millones u$s Explotacion", "Tipo de explotación", "indice_tiempo")
 dim(inv_anios_ant) # 22832 filas, 7 columnas
@@ -97,6 +98,7 @@ sum(is.na(df_2$"Fecha Inicio Tareas")) # 13602 filas con NA // df_2[is.na(df_2$"
 sum(is.na(inv_anios_ant$"Año de presentación de la DDJJ")) # 0 filas con NA // inv_anios_ant[is.na(inv_anios_ant$"Año de presentación de la DDJJ"), ]
 sum(is.na(inv_anios_ant$"indice_tiempo")) # 0 filas con NA // inv_anios_ant[is.na(inv_anios_ant$"indice_tiempo"), ]
 
+# compruebo si coincide el año de 'indice_tiempo' con el de la ddjj
 temp_2 = inv_anios_ant |>
     select("Año de presentación de la DDJJ", "indice_tiempo") |>
     rename(anio_presentacion_ddjj = "Año de presentación de la DDJJ") |>
@@ -105,6 +107,7 @@ temp_2 = inv_anios_ant |>
         "coincide_anio_ddjj_con_indice_tiempo" = ifelse(check_anio_indice_tiempo == anio_presentacion_ddjj, "sí", "no")
     )
 glimpse(temp_2)
+
 sum(temp_2$coincide_anio_ddjj_con_indice_tiempo == "sí") # todos los años extraídos de la columna "indice_tiempo" coinciden con el de la ddjj
 unique(temp_2$"coincide_anio_ddjj_con_indice_tiempo") # check
 dim(filter(temp_2, coincide_anio_ddjj_con_indice_tiempo == "sí"))[1] # check doble
