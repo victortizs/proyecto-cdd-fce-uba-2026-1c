@@ -111,8 +111,8 @@ dim(filter(temp_2, coincide_anio_ddjj_con_indice_tiempo == "sí"))[1] # check do
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# dudas:
+# dudas/consideraciones:
 # 1. ¿consideramos indice_tiempo o año de ddjj en inversiones reales/anteriores? la variable 'indice_tiempo' tiene formato "yyyy-MM"
-# , pero todos los meses son enero, sin importar el año, por lo cual no parece relevante el mes
-# , sin embargo, el dato podría servir para comparar la suma anual real con la prevista
-# 2. de tomar el año de las ddjj, ¿debemos considerar también su estado: variable categórica `Estado de la DDJJ`, de dos valores (abierta, cerrada)?
+# , pero todos los meses son enero sin importar el año, por lo cual no parece relevante el mes
+# ; sin embargo, el dato podría servir para comparar la suma anual real con la prevista
+# 2. de tomar el año de las ddjj, ¿debemos considerar también su estado (variable categórica Estado de la DDJJ de dos valores: abierta o cerrada)?
