@@ -82,7 +82,7 @@ paste0(round(dim(filter(no_1900_ni_na, coincide_anio_ddjj_con_inicio_tareas == "
 
 # lectura de raw file de inversiones reales
 df_2 = read_csv(r"(raw\resolucin-2057-inversiones-realizadas-ao-anterior.csv)")
-glimpse(df_2)
+glimpse(df_2) # tiene una columna más que 'df_1' (data frame de inversiones previstas): 'indice_tiempo'
 
 inv_anios_ant = df_2 |>
     select("Año de presentación de la DDJJ", "Empresa informante", "Cuenca", "Millones u$s Exploracion", "Millones u$s Explotacion", "Tipo de explotación", "indice_tiempo")
@@ -93,9 +93,9 @@ unique(df_2$"Fecha Inicio Tareas")
 unique(inv_anios_ant$"Año de presentación de la DDJJ")
 unique(inv_anios_ant$"indice_tiempo")
 
-sum(is.na(df_2$"Fecha Inicio Tareas")) # 13602 filas con NA // df_2[is.na(df_2$"Fecha Inicio Tareas"), ]
+sum(is.na(df_2$"Fecha Inicio Tareas")) # 13602 filas con NA // df_2[is.na(df_2$"Fecha Inicio Tareas"), ] // por eso no considero esta variable para esta tabla
 sum(is.na(inv_anios_ant$"Año de presentación de la DDJJ")) # 0 filas con NA // inv_anios_ant[is.na(inv_anios_ant$"Año de presentación de la DDJJ"), ]
-sum(is.na(inv_anios_ant$"indice_tiempo")) # inv_anios_ant[is.na(inv_anios_ant$"indice_tiempo"), ]
+sum(is.na(inv_anios_ant$"indice_tiempo")) # 0 filas con NA // inv_anios_ant[is.na(inv_anios_ant$"indice_tiempo"), ]
 
 temp_2 = inv_anios_ant |>
     select("Año de presentación de la DDJJ", "indice_tiempo") |>
