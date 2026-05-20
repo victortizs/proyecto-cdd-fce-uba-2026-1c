@@ -75,7 +75,7 @@ Actualizado: 2026-05-19
     <summary>Ver</summary>
 
     1. [x] **martes**: avanzar dataset de inversiones
-    2. [ ] **miercoles**: meeting 21 h para terminar de filtrar datasets de producción
+    2. [ ] **miércoles**: meeting 21 h para terminar de filtrar datasets de producción
 
   </details>
 </details>
