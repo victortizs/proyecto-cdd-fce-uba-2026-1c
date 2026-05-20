@@ -26,7 +26,7 @@ La nota dependerá de la profundidad y justificación de cada uno de los puntos 
 
 En esta tercera entrega cada grupo debe presentar **al menos dos visualizaciones de datos** que incorporen los elementos de *storytelling* vistos en el curso. Para cada visualización se debe indicar:
 
-- [ ] 1. **¿Qué rol cumple dentro del trabajo?** ¿Describe la relación entre dos o más variables? ¿Presenta el resultado de una herramienta estadística? ¿Apoya las conclusiones? ¿Sirve para mostrar el tratamiento de valores nulos u *outliers*?
+- [ ] 1. **Qué rol cumple dentro del trabajo.** ¿Describe la relación entre dos o más variables? ¿Presenta el resultado de una herramienta estadística? ¿Apoya las conclusiones? ¿Sirve para mostrar el tratamiento de valores nulos u *outliers*?
 - [ ] 2. **En qué parte de la presentación final se ubicará** y cómo colabora en la construcción del argumento.
 
 Las visualizaciones deben ser funcionales al análisis, no meramente decorativas.
