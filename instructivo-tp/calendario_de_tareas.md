@@ -38,7 +38,7 @@ Actualizado: 2026-05-19
     2. [x] **martes:** preguntar al profe 2 dudas + benchmark + feedback de variables
     3. [x] **martes:** cerrar descripción de ETL 
     4. [x] **miércoles:** llenar formulario de instancia #1 en meeting
-    5. [x] **viernes:** confirmar meeting para tratar/definir próximos pasos de TP
+    5. [x] **viernes:** confirmar meeting para definir próximos pasos de TP
     6. [x] **sábado:** meeting 17 h para definir próximos pasos (consolidar una sola base, ver distribuciones, etc.)
 
   </details>
