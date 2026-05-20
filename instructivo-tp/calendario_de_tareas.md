@@ -74,7 +74,7 @@ Actualizado: 2026-05-19
   <details open>
     <summary>Ver</summary>
 
-    1. [x] **martes**: avanzar dataset de inversiones
+    1. [x] **martes**: concluir dataset consolidado de inversiones
     2. [ ] **miércoles**: meeting 21 h para terminar de filtrar datasets de producción
 
   </details>

@@ -26,8 +26,8 @@ La nota dependerá de la profundidad y justificación de cada uno de los puntos 
 
 En esta tercera entrega cada grupo debe presentar **al menos dos visualizaciones de datos** que incorporen los elementos de storytelling vistos en el curso. Para cada visualización se debe indicar:
 
-- [ ] **Qué rol cumple dentro del trabajo.** ¿Describe la relación entre dos o más variables? ¿Presenta el resultado de una herramienta estadística? ¿Apoya las conclusiones? ¿Sirve para mostrar el tratamiento de valores nulos u outliers?
-- [ ] **En qué parte de la presentación final se ubicará** y cómo colabora en la construcción del argumento.
+- [ ] 1. **¿Qué rol cumple dentro del trabajo?** ¿Describe la relación entre dos o más variables? ¿Presenta el resultado de una herramienta estadística? ¿Apoya las conclusiones? ¿Sirve para mostrar el tratamiento de valores nulos u outliers?
+- [ ] 2. **En qué parte de la presentación final se ubicará** y cómo colabora en la construcción del argumento.
 
 Las visualizaciones deben ser funcionales al análisis, no meramente decorativas.
 
@@ -36,9 +36,10 @@ Las visualizaciones deben ser funcionales al análisis, no meramente decorativas
 ## Entrega final (23/06 o 26/06)
 
 - [ ] La entrega final consta de dos componentes:
-  - Presentación:
+  
+  - [ ] 1. **Presentación:**
     Un archivo en formato **PowerPoint (.pptx) o PDF** con la presentación del trabajo completo.
     El docente podrá solicitar que los grupos expongan sus trabajos de forma oral. Esto puede requerirse para mejorar la nota necesaria para aprobar o para verificar que los estudiantes realizaron el trabajo comprendiendo los conceptos y no fue resultado exclusivo de herramientas de inteligencia artificial.
-  - Repositorio:
-    Un repositorio en **GitHub** con los códigos, datos y resultados del trabajo. El repositorio debe respetar la siguiente estructura de carpetas:
- 
+  
+  - [ ] 2. **Repositorio:**
+    Un repositorio en **GitHub** con los códigos, datos y resultados del trabajo. El repositorio debe respetar la estructura recomendada de carpetas.
