@@ -48,7 +48,7 @@ Actualizado: 2026-05-19
   <details>
     <summary>Ver</summary>
 
-    1. [x] **martes:** ver dudas de input (`agrupar_datasets.R`) con profe
+    1. [x] **martes:** ver dudas de input (`agrupar_datasets.R`) con el profe
 
   </details>
 </details>
