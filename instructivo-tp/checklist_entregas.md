@@ -39,6 +39,6 @@ La entrega final consta de dos componentes:
   
 - [ ] 1. **Presentación:**
   Un archivo en formato **PowerPoint (.pptx) o PDF** con la presentación del trabajo completo.
-  El docente podrá solicitar que los grupos expongan sus trabajos de forma oral. Esto puede requerirse para mejorar la nota necesaria para aprobar o para verificar que los estudiantes realizaron el trabajo comprendiendo los conceptos y no fue resultado exclusivo de herramientas de inteligencia artificial.
+  El docente podrá solicitar que los grupos expongan sus trabajos de forma oral; esto puede requerirse para mejorar la nota necesaria para aprobar o para verificar que los estudiantes realizaron el trabajo comprendiendo los conceptos y no fue resultado exclusivo de herramientas de inteligencia artificial.
 - [ ] 2. **Repositorio:**
   Un repositorio en **GitHub** con los códigos, datos y resultados del trabajo. El repositorio debe respetar la estructura recomendada de carpetas.
