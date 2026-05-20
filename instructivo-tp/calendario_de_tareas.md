@@ -1,6 +1,6 @@
 # Calendario de tareas
 
-Actualizado: 2026-05-15
+Actualizado: 2026-05-19
 
 ## Abril
 
@@ -56,13 +56,22 @@ Actualizado: 2026-05-15
 
 * Semana: lunes 11 a domingo 17
 
-  <details open>
+  <details>
     <summary>Ver</summary>
 
     1. [x] **martes:** meeting 21 h para terminar de filtrar datasets de pozos
     2. [x] **jueves**: meeting 21.30 h para terminar de filtrar datasets de inversión
-    3. [ ] **viernes**: preguntar al profe dudas de filtros de inversión tras clase
-    4. [ ] **viernes**: definir meeting(s) para el fin de semana
+    3. [x] **viernes**: preguntar al profe dudas de filtros de inversión tras clase
+  </details>
+</details>
+
+* Semana: lunes 18 a domingo 24
+
+  <details open>
+    <summary>Ver</summary>
+    
+    1. [x] **martes**: avanzar dataset de inversiones
+    2. [ ] **miercoles**: meeting 21 hs para terminar de filtrar datasets de produccion
   </details>
 </details>
 
