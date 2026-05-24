@@ -15,9 +15,9 @@ inv_prev_anio_actual = df_1 |>
         "Cuenca",
         "Millones u$s Exploracion",
         "Millones u$s Explotacion",
-        "Tipo de explotación",
         "Fecha Inicio Tareas",
-        "Fecha Fin Tareas"
+        "Fecha Fin Tareas",
+        "Tipo de explotación"
     )
 dim(inv_prev_anio_actual) # 21204 filas, 8 columnas
 glimpse(inv_prev_anio_actual)
@@ -87,11 +87,12 @@ glimpse(df_2) # tiene una columna más que 'df_1' (data frame de inversiones pre
 # selección de variables relevantes 
 inv_anios_ant = df_2 |>
     select(
-      "Año de presentación de la DDJJ", 
-      "Empresa informante", "Cuenca",
+      "Año de presentación de la DDJJ",
+      "Empresa informante",
+      "Cuenca",
       "Millones u$s Exploracion",
-      "Millones u$s Explotacion", 
-      "Tipo de explotación", 
+      "Millones u$s Explotacion",
+      "Tipo de explotación",
       "indice_tiempo"
     )
 dim(inv_anios_ant) # 22832 filas, 7 columnas
@@ -119,12 +120,12 @@ sum(temp_2$coincide_anio_ddjj_con_indice_tiempo == "sí") # todos los años extr
 unique(temp_2$"coincide_anio_ddjj_con_indice_tiempo") # check
 dim(filter(temp_2, coincide_anio_ddjj_con_indice_tiempo == "sí"))[1] # check doble
 
-
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------
 # dudas:
 # 1. ¿consideramos 'indice_tiempo' o año de ddjj en inversiones reales/anteriores? 
-# 2. de tomar el año de las ddjj, ¿debemos considerar también su estado (variable categórica 'Estado de la DDJJ' de dos valores: abierta o cerrada)?
-# 3. si consideramos 'Estado de la DDJJ', ¿filtramos por abiertas o cerradas? O si no lo hacemos, ¿debemos aclararlo como nota?
+# 2. de tomar el año de las ddjj, ¿debemos considerar también su estado (variable categórica 'Estado de la DDJJ'
+# de dos valores: abierta o cerrada)?
+# 3. si consideramos 'Estado de la DDJJ', ¿filtramos por abierta o cerrada? o si no lo hacemos, ¿debemos aclararlo como nota?
 
 # consideraciones:
 # la variable 'indice_tiempo' tiene formato "yyyy-MM"
@@ -132,7 +133,7 @@ dim(filter(temp_2, coincide_anio_ddjj_con_indice_tiempo == "sí"))[1] # check do
 # de igual modo, si continuamos con los años de las ddjj podría servirnos para comparar la suma anual real con la prevista
 # , conformándonos con un análisis no tan granular/desagrupado como a nivel mensual para la inversión.
 
-# respuestas (profesor 19/05/26):
+# respuestas (profe 2026-05-19):
 # 1. Solo consideramos año de la ddjj
 # 2. No
 # 3. No es necesario
@@ -149,6 +150,7 @@ glimpse(inv_anios_ant_v2)
 dim(inv_prev_anio_actual_v2 |>
   filter("Millones u$s Exploracion" == 0, "Millones u$s Explotacion" == 0)
 )
+
 dim(inv_anios_ant_v2 |>
   filter("Millones u$s Exploracion" == 0, "Millones u$s Explotacion" == 0)
 )
@@ -157,55 +159,68 @@ filtro_inv_prev = inv_prev_anio_actual_v2 |>
   rename(
     millones_usd_exploracion_prev = "Millones u$s Exploracion", 
     millones_usd_explotacion_prev = "Millones u$s Explotacion",
-    empresa_informante = "Empresa informante",
+    empresa = "Empresa informante",
     anio_presentacion_ddjj = "Año de presentación de la DDJJ",
     cuenca = "Cuenca",
-    tipo_de_explotacion = "Tipo de explotación"
+    tipo_explotacion = "Tipo de explotación"
     ) |>
-  group_by(anio_presentacion_ddjj, cuenca, empresa_informante, tipo_de_explotacion) |>
+  group_by(anio_presentacion_ddjj, cuenca, empresa, tipo_explotacion) |>
   summarise(
-    "millones_usd_exploracion_prev" = sum(millones_usd_exploracion_prev),
-    "millones_usd_explotacion_prev" = sum(millones_usd_explotacion_prev)
+    "millones_usd_exploracion_prev" = sum(millones_usd_exploracion_prev, na.rm = TRUE),
+    "millones_usd_explotacion_prev" = sum(millones_usd_explotacion_prev, na.rm = TRUE),
+    .groups = "drop"
   )
 glimpse(filtro_inv_prev)  
 
 filtro_inv_ant = inv_anios_ant_v2 |>
   rename(
-    millones_usd_exploracion_ant = "Millones u$s Exploracion", 
-    millones_usd_explotacion_ant = "Millones u$s Explotacion",
-    empresa_informante = "Empresa informante",
+    millones_usd_exploracion_real = "Millones u$s Exploracion", 
+    millones_usd_explotacion_real = "Millones u$s Explotacion",
+    empresa = "Empresa informante",
     anio_presentacion_ddjj = "Año de presentación de la DDJJ",
     cuenca = "Cuenca",
-    tipo_de_explotacion = "Tipo de explotación"
+    tipo_explotacion = "Tipo de explotación"
   ) |>
-  group_by(anio_presentacion_ddjj, cuenca, empresa_informante, tipo_de_explotacion) |>
+  group_by(anio_presentacion_ddjj, cuenca, empresa, tipo_explotacion) |>
   summarise(
-    "millones_usd_exploracion_ant" = sum(millones_usd_exploracion_ant),
-    "millones_usd_explotacion_ant" = sum(millones_usd_explotacion_ant)
+    "millones_usd_exploracion_real" = sum(millones_usd_exploracion_real, na.rm = TRUE),
+    "millones_usd_explotacion_real" = sum(millones_usd_explotacion_real, na.rm = TRUE),
+    .groups = "drop"
   )
 glimpse(filtro_inv_ant)
 
 # observaciones con match en ambas tablas
-filtro_inv_prev |> inner_join(filtro_inv_ant, by = c("anio_presentacion_ddjj", "cuenca", "empresa_informante", "tipo_de_explotacion")) # 936 filas
+filtro_inv_prev |>
+  inner_join(filtro_inv_ant, by = c("anio_presentacion_ddjj", "cuenca", "empresa", "tipo_explotacion")) # 936 filas
 
 # filas faltantes en inversiones anteriores
-filtro_inv_prev|> anti_join(filtro_inv_ant, by = c("anio_presentacion_ddjj", "cuenca", "empresa_informante", "tipo_de_explotacion")) # 200 filas
+filtro_inv_prev |>
+  anti_join(filtro_inv_ant, by = c("anio_presentacion_ddjj", "cuenca", "empresa", "tipo_explotacion")) # 200 filas
 
 # filas faltantes en inversiones previstas
-filtro_inv_ant |> anti_join(filtro_inv_prev, by = c("anio_presentacion_ddjj", "cuenca", "empresa_informante", "tipo_de_explotacion")) # 98 filas
+filtro_inv_ant |>
+  anti_join(filtro_inv_prev, by = c("anio_presentacion_ddjj", "cuenca", "empresa", "tipo_explotacion")) # 98 filas
 
 # unión de ambas tablas
-inv_prev_y_ant = filtro_inv_prev |>
-  full_join(filtro_inv_ant, by = c("anio_presentacion_ddjj", "cuenca", "empresa_informante", "tipo_de_explotacion")) |> # 1234 filas = 936 + 200 + 98
-  mutate(across(where(is.numeric), ~ replace_na(.x, 0)))
+inv_prev_y_real = filtro_inv_prev |>
+  full_join(filtro_inv_ant, by = c("anio_presentacion_ddjj", "cuenca", "empresa", "tipo_explotacion")) |> # 1234 filas = 936 + 200 + 98
+  mutate(across(where(is.numeric), ~ replace_na(.x, 0))) |>
+  relocate(millones_usd_exploracion_real, .after = "millones_usd_exploracion_prev")
+
 # check final
-glimpse(inv_prev_y_ant)
+glimpse(inv_prev_y_real)
 
 # creación de csv con datasets combinados
 write.csv(
-  inv_prev_y_ant,
-  file = "input/inv_prev_y_ant.csv",
+  inv_prev_y_real,
+  file = "input/inversion_prev_y_real.csv",
   quote = TRUE, # importante porque algunos nombres de empresas incluyen "," y eso causa problemas en la lectura del csv
   row.names = FALSE,
   fileEncoding = "UTF-8"
 )
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------
+# dudas:
+# 1. ¿deberíamos omitir las variables de inversión prevista y quedarnos solo con las reales (realizadas en año anterior)?
+# ¿o vale la pena investigar un posible desvío y tendencias a sobreestimar o subestimar, a nivel cuenca o empresa?
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -2,74 +2,155 @@ library(readr)
 library(dplyr)
 library(tidyr)
 
-# ---filtro de pozos en perforación---
-df_1 = read_csv(r"(raw\pozos-en-perforacin.csv)")
+# lectura de raw file de producción de gas
+df_1 = read_csv(r"(raw\produccin-de-gas-por-yacimiento.csv)")
 glimpse(df_1)
+unique(df_1$concepto)
 
-pozos_en_perf = df_1 |>
+prod_gas_yacim = df_1 |>
     select(anio, mes, empresa, cuenca, concepto, cantidad) |>
-    group_by(anio, mes, cuenca, empresa, concepto) |>
-    summarise(
-        cant_pozos_en_perf = sum(cantidad)
-    ) |>
-    filter_out(cant_pozos_en_perf == 0) # equivalente a filter(cant_pozos_en_perf != 0)
+    filter(concepto != "Equivalente calórico del gas (Kcal/m3)") |> # exclusión de indicador del contenido de energía, no indica volumen de producción y su unidad de medida es distinta
+    mutate(
+        categoria_flujo = case_when(
+            concepto %in% c(
+                "Gas de Alta Presión (Mm3)",
+                "Gas de Media Presión (Mm3)",
+                "Gas de Baja Presión (Mm3)"
+            ) ~ "Producción Convencional",
 
-# ---filtro de pozos terminados---
-df_2 = read_csv(r"(raw\pozos-terminados.csv)")
+            concepto == "Gas No Convencional (Mm3)" ~
+            "Producción No Convencional",
+
+            concepto %in% c(
+                "Inyectado a Formación (Mm3)",
+                "Inyección para Almacenamiento (Mm3)",
+                "Extraído del almacenamiento (Mm3)"
+            ) ~ "Operaciones / No Producción",
+
+            TRUE ~ NA_character_
+        ),
+        tipo_explotacion = case_when(
+            categoria_flujo == "Producción Convencional" ~
+            "Convencional",
+
+            categoria_flujo == "Producción No Convencional" ~
+            "No Convencional",
+            
+            TRUE ~ NA_character_
+        )
+    ) |>
+    relocate(cantidad, .after = last_col())
+
+# check previo a filtro
+glimpse(prod_gas_yacim)
+
+# filtro de producción de gas
+filtro_prod_gas = prod_gas_yacim |>
+    filter(
+        categoria_flujo %in% c(
+        "Producción Convencional",
+        "Producción No Convencional"
+        )
+    ) |>
+    group_by(anio, mes, cuenca, empresa, tipo_explotacion) |>
+    summarise(
+        cant_gas_Mm3 = sum(cantidad, na.rm = TRUE),
+        .groups = "drop"
+    )
+
+# check de filtro
+glimpse(filtro_prod_gas)
+
+# lectura de raw file de producción de petróleo
+df_2 = read_csv(r"(raw\produccin-de-petrleo-por-yacimiento.csv)")
 glimpse(df_2)
+unique(df_2$concepto)
 
-pozos_term = df_2 |>
-    select(anio, mes, empresa, cuenca, tipodepozoterminado, concepto, cantidad) |>
-    rename(
-        "concepto" = "tipodepozoterminado",
-        "finalidad" = "concepto"
+prod_petro_yacim = df_2 |>
+    select(anio, mes, empresa, cuenca, concepto, cantidad) |>
+    filter(concepto != "Densidad Media (Ton/m3)") |> # exclusión de indicador físico, no indica volumen de producción y su unidad de medida es distinta
+    mutate(
+        categoria_flujo = case_when(
+            concepto %in% c(
+                "Producción Primaria (m3)",
+                "Producción Secundaria (m3)",
+                "Producción por Recuperación Asistida (m3)"
+            ) ~ "Producción Convencional",
+
+            concepto == "Producción No Convencional (m3)" ~
+            "Producción No Convencional",
+
+            concepto %in% c(
+                "Producción de Condensado (m3)",
+                "Producción de Gasolina Estabilizada (m3)"
+            ) ~ "Coproductos / Líquidos Asociados",
+
+            concepto %in% c(
+                "Consumo en Yacimiento (m3)",
+                "Producción de Agua (m3)",
+                "Inyección de Agua (m3)"
+            ) ~ "Operaciones / No Producción",
+
+            TRUE ~ NA_character_
+        ),
+        tipo_explotacion = case_when(
+            categoria_flujo == "Producción Convencional" ~
+            "Convencional",
+
+            categoria_flujo == "Producción No Convencional" ~
+            "No Convencional",
+
+            TRUE ~ NA_character_
+        )
     ) |>
-    filter(finalidad != "Improductivos" & finalidad != "Servicio") |>
-    group_by(anio, mes, cuenca, empresa, concepto, finalidad) |>
+    relocate(cantidad, .after = last_col())
+
+# check previo a filtro
+glimpse(prod_petro_yacim)
+
+# filtro de producción de petróleo
+filtro_prod_petroleo = prod_petro_yacim |>
+    filter(
+        categoria_flujo %in% c(
+            "Producción Convencional",
+            "Producción No Convencional"
+        )
+    ) |>
+    group_by(anio, mes, cuenca, empresa, tipo_explotacion) |>
     summarise(
-        cantidad = sum(cantidad)
-    ) |>
-    pivot_wider(names_from = "finalidad", values_from = "cantidad", names_prefix = "cant_pozos_term_") |>
-    rename(
-        "cant_pozos_term_petroleo" = "cant_pozos_term_Productivos de Petróleo",
-        "cant_pozos_term_gas" = "cant_pozos_term_Productivos de Gas"
-    ) |>
-    filter_out(cant_pozos_term_gas == 0 & cant_pozos_term_petroleo == 0)
+        cant_petroleo_m3 = sum(cantidad, na.rm = TRUE),
+        .groups = "drop"
+    )
 
-# ---check---
-head(pozos_en_perf, 10)
-dim(pozos_en_perf)
-head(pozos_term, 10)
-dim(pozos_term)
+# check de filtro
+glimpse(filtro_prod_petroleo)
 
-temp_1 = unique(pozos_en_perf$empresa)
-temp_2 = unique(pozos_term$empresa)
+# observaciones con match en ambas tablas
+filtro_prod_petroleo |>
+    inner_join(filtro_prod_gas, by = c("anio", "mes", "cuenca", "empresa", "tipo_explotacion")) # 24699 filas
 
-glimpse(pozos_en_perf)
-glimpse(pozos_term)
+# filas faltantes en producción de gas
+filtro_prod_petroleo |>
+    anti_join(filtro_prod_gas, by = c("anio", "mes", "cuenca", "empresa", "tipo_explotacion")) # 394 filas
 
-# ---observaciones con match en ambas tablas---
-pozos_term |> inner_join(pozos_en_perf, by = c("anio", "mes", "cuenca", "empresa", "concepto")) # 2383 filas
+# filas faltantes en producción de petróleo
+filtro_prod_gas |>
+    anti_join(filtro_prod_petroleo, by = c("anio", "mes", "cuenca", "empresa", "tipo_explotacion")) # 113 filas
 
-# ---filas faltantes en pozos terminados---
-pozos_en_perf |> anti_join(pozos_term, by = c("anio", "mes", "cuenca", "empresa", "concepto")) # 2002 filas
+# unión de ambas tablas
+prod_gas_y_pretro = filtro_prod_petroleo |>
+    full_join(filtro_prod_gas, by = c("anio", "mes", "cuenca", "empresa", "tipo_explotacion")) |> # 25206 filas = 24699 + 394 + 113
+    mutate(across(where(is.numeric), ~ replace_na(.x, 0))) |>
+    relocate(cant_gas_Mm3, .before = cant_petroleo_m3)
 
-# ---filas faltantes en pozos en perforación---
-pozos_term |> anti_join(pozos_en_perf, by = c("anio", "mes", "cuenca", "empresa", "concepto")) # 1271 filas
+# check final
+glimpse(prod_gas_y_pretro)
 
-# ---unión de ambas tablas---
-pozos_term_y_en_perf = pozos_term |>
-    full_join(pozos_en_perf, by = c("anio", "mes", "cuenca", "empresa", "concepto")) |> # 5656 filas = 2383 + 2002 + 1271
-    mutate(across(where(is.numeric), ~ replace_na(.x, 0)))
-
-# ---check final---
-glimpse(pozos_term_y_en_perf)
-
-# ---creación de csv con dataset combinado
+# creación de csv con datasets combinados
 write.csv(
-  pozos_term_y_en_perf,
-  file = "input/pozos_term_y_en_perf.csv",
-  quote = FALSE,
+  prod_gas_y_pretro,
+  file = "input/produccion_gas_y_petro.csv",
+  quote = TRUE, # importante porque algunos nombres de empresas incluyen "," y eso causa problemas en la lectura del csv
   row.names = FALSE,
   fileEncoding = "UTF-8"
 )
