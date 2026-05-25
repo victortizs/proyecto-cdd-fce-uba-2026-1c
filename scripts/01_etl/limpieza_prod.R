@@ -46,7 +46,7 @@ glimpse(prod_gas_yacim)
 
 # filtro de producción de gas
 filtro_prod_gas = prod_gas_yacim |>
-    filter(
+    filter( # equivalente a filter(!is.na(tipo_explotacion))
         categoria_flujo %in% c(
         "Producción Convencional",
         "Producción No Convencional"
@@ -110,7 +110,7 @@ glimpse(prod_petro_yacim)
 
 # filtro de producción de petróleo
 filtro_prod_petroleo = prod_petro_yacim |>
-    filter(
+    filter( # equivalente a filter(!is.na(tipo_explotacion))
         categoria_flujo %in% c(
             "Producción Convencional",
             "Producción No Convencional"
