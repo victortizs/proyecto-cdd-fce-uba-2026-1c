@@ -7,7 +7,7 @@ Actualizado: 2026-05-27
 <details>
   <summary>Abrir</summary>
   
-* Lunes 6 a domingo 12
+* Lunes 06 a domingo 12
 
   <details>
     <summary>Ver</summary>
@@ -43,7 +43,7 @@ Actualizado: 2026-05-27
 
   </details>
 
-* Lunes 27 a domingo 3
+* Lunes 27 a domingo 03
 
   <details>
     <summary>Ver</summary>
@@ -97,7 +97,7 @@ Actualizado: 2026-05-27
 <details>
   <summary>Abrir</summary>
 
-* Lunes 1 a domingo 7
+* Lunes 01 a domingo 07
 
   <details>
     <summary>Ver</summary>
