@@ -1,6 +1,6 @@
 # Calendario de tareas
 
-Actualizado: 2026-05-19
+Actualizado: 2026-05-27
 
 ## Abril
 
@@ -56,7 +56,7 @@ Actualizado: 2026-05-19
 ## Mayo
 
 <details open>
-<summary>Abrir</summary>
+  <summary>Abrir</summary>
 
 * Semana: lunes 11 a domingo 17
 
@@ -64,18 +64,45 @@ Actualizado: 2026-05-19
     <summary>Ver</summary>
 
     1. [x] **martes:** meeting 21 h para terminar de filtrar datasets de pozos
-    2. [x] **jueves**: meeting 21.30 h para terminar de filtrar datasets de inversión
-    3. [x] **viernes**: preguntar al profe dudas de filtros de inversión tras clase
+    2. [x] **jueves:** meeting 21.30 h para terminar de filtrar datasets de inversión
+    3. [x] **viernes:** preguntar al profe dudas de filtros de inversión tras clase
 
   </details>
 
 * Semana: lunes 18 a domingo 24
 
-  <details open>
+  <details>
     <summary>Ver</summary>
 
-    1. [x] **martes**: concluir dataset consolidado de inversiones
-    2. [ ] **miércoles**: meeting 21 h para terminar de filtrar datasets de producción
+    1. [x] **martes:** meeting 21 h para concluir dataset consolidado de inversiones
+    2. [x] **jueves:** meeting 21.40 h para discutir posibles tests a aplicar
+    3. [x] **domingo:** enviar email al profe con dudas sobre los tests
+    4. [x] **domingo:** meeting 20.30 h para armar borrador de respuestas al formulario
+
+  </details>
+
+ * Semana: lunes 25 a domingo 31
+
+   <details open>
+    <summary>Ver</summary>
+
+    1. [x] **lunes:** llenar formulario de instancia #2 en meeting
+    2. [ ] **jueves:** meeting 21.10 h para comenzar a ver distribuciones de las variables
+
+  </details>
+</details>
+
+## Junio
+
+<details>
+  <summary>Abrir</summary>
+
+* Semana: lunes 1 a domingo 7
+
+  <details>
+    <summary>Ver</summary>
+
+    1. [ ] **A definir...**
 
   </details>
 </details>
