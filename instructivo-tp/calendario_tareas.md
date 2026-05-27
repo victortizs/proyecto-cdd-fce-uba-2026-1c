@@ -7,7 +7,7 @@ Actualizado: 2026-05-27
 <details>
   <summary>Abrir</summary>
   
-* Semana: lunes 6 a domingo 12
+* Lunes 6 a domingo 12
 
   <details>
     <summary>Ver</summary>
@@ -19,7 +19,7 @@ Actualizado: 2026-05-27
 
   </details>
 
-* Semana: lunes 13 a domingo 19
+* Lunes 13 a domingo 19
 
   <details>
     <summary>Ver</summary>
@@ -29,7 +29,7 @@ Actualizado: 2026-05-27
     
   </details>
 
-* Semana: lunes 20 a domingo 26
+* Lunes 20 a domingo 26
 
   <details>
     <summary>Ver</summary>
@@ -43,7 +43,7 @@ Actualizado: 2026-05-27
 
   </details>
 
-* Semana: lunes 27 a domingo 3
+* Lunes 27 a domingo 3
 
   <details>
     <summary>Ver</summary>
@@ -58,7 +58,7 @@ Actualizado: 2026-05-27
 <details open>
   <summary>Abrir</summary>
 
-* Semana: lunes 11 a domingo 17
+* Lunes 11 a domingo 17
 
   <details>
     <summary>Ver</summary>
@@ -69,7 +69,7 @@ Actualizado: 2026-05-27
 
   </details>
 
-* Semana: lunes 18 a domingo 24
+* Lunes 18 a domingo 24
 
   <details>
     <summary>Ver</summary>
@@ -81,7 +81,7 @@ Actualizado: 2026-05-27
 
   </details>
 
- * Semana: lunes 25 a domingo 31
+ * Lunes 25 a domingo 31
 
    <details open>
     <summary>Ver</summary>
@@ -97,7 +97,7 @@ Actualizado: 2026-05-27
 <details>
   <summary>Abrir</summary>
 
-* Semana: lunes 1 a domingo 7
+* Lunes 1 a domingo 7
 
   <details>
     <summary>Ver</summary>
