@@ -86,7 +86,7 @@ Luego de extraer los datos en su formato crudo *(raw)*, se filtran los datasets 
 ## Variables principales
 
 <details>
-    <summary>De filtro sobre <code>raw</code> (selección inicial)</summary>
+    <summary>De <code>raw</code> (selección inicial)</summary><br>
 
 | Nombre | Clase | Detalle |
 |:---|:---:|:---:|
@@ -115,10 +115,10 @@ Luego de extraer los datos en su formato crudo *(raw)*, se filtran los datasets 
 | `Millones u$s Exploracion` | `numeric` | valores reales de inversión |
 | `Tipo de explotación` | `character` | referente a inversión |
 
-</details>
+<br></details>
 
 <details>
-    <summary>De filtro sobre <code>input</code> (posterior a ETL)</summary>
+    <summary>De <code>input</code> (posterior a ETL)</summary><br>
 
 | Nombre | Clase | Detalle |
 |:---|:---:|:---:|
