@@ -115,7 +115,7 @@ Luego de extraer los datos en su formato crudo *(raw)*, se filtran los datasets 
 | `Millones u$s Exploracion` | `numeric` | valores reales de inversión |
 | `Tipo de explotación` | `character` | referente a inversión |
 
-<br></details>
+</details>
 
 <details>
     <summary>De <code>input</code> (posterior a ETL)</summary><br>
