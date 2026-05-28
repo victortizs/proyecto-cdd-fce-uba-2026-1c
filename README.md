@@ -85,12 +85,15 @@ Luego de extraer los datos en su formato crudo *(raw)*, se filtran los datasets 
 
 ## Variables principales
 
+<details>
+    <summary>De filtro sobre <code>raw</code> (selección inicial)</summary>
+
 | Nombre | Clase | Detalle |
 |:---|:---:|:---:|
 | `anio` | `numeric` | `n/a` |
 | `mes` | `numeric` | `n/a` |
-| `empresa` | `character` | `n/a` |
 | `cuenca` | `character` | `n/a` |
+| `empresa` | `character` | `n/a` |
 | `tipodepozoterminado` | `character` | actividad prevista |
 | `concepto` | `character` | tipo de producción pozos terminados |
 | `cantidad` | `numeric` | pozos terminados |
@@ -111,6 +114,41 @@ Luego de extraer los datos en su formato crudo *(raw)*, se filtran los datasets 
 | `Millones u$s Exploracion` | `numeric` | valores reales de inversión |
 | `Millones u$s Exploracion` | `numeric` | valores reales de inversión |
 | `Tipo de explotación` | `character` | referente a inversión |
+
+</details>
+
+<details>
+    <summary>De filtro sobre <code>input</code> (posterior a ETL)</summary>
+
+| Nombre | Clase | Detalle |
+|:---|:---:|:---:|
+| `anio` | `numeric` | `n/a` |
+| `mes` | `numeric` | `n/a` |
+| `cuenca` | `character` | `n/a` |
+| `empresa` | `character` | `n/a` |
+| `concepto` | `character` | exploración, explotación, etc. |
+| `cant_pozos_en_perf` | `numeric` | `n/a` |
+| `cant_pozos_term_gas` | `numeric` | `n/a` |
+| `cant_pozos_term_petroleo` | `numeric` | `n/a` |
+| `tipo_explotacion` | `character` | convencional o no convencional |
+| `cant_gas_Mm3` | `numeric` | `n/a` |
+| `cant_petroleo_m3` | `numeric` | `n/a` |
+| `anio_presentacion_ddjj` | `numeric` | `n/a` |
+| `millones_usd_exploracion_prev` | `numeric` | `n/a` |
+| `millones_usd_exploracion_real` | `numeric` | `n/a` |
+| `millones_usd_explotacion_prev` | `numeric` | `n/a` |
+| `millones_usd_explotacion_real` | `numeric` | `n/a` |
+
+<!-- TODO: agregar/reemplazar hipótesis principal y complementarias reformuladas -->
+<!-- TODO: cambiar nombre de var `concepto` a `tipo_actividad` -->
+<!-- TODO: reordenar filas de tabla de manera que queden las numéricas al final -->
+<!-- TODO: acortar nombres de archivos input de inversión y producción en `write.csv()` -->
+<!-- TODO: agregar columna, a ambas tablas de variables, de dataset de proveniencia -->
+<!-- TODO: agregar total de variables de ambas tablas antes o después de ellas -->
+<!-- ? Deberíamos filtrar solo exploración y explotación en `tipo_actividad`? -->
+<!-- TODO: si se filtra solo exploración y explotación debemos cambiar el detalle en la tabla de 'input' -->
+
+</details>
 
 ## Benchmark
 
