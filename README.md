@@ -77,7 +77,19 @@ Identificar cambios en las políticas de extracción y exploración a nivel empr
 
 ## Hipótesis
 
-Hacia 2025, empresas representativas del sector mostrarán una disminución significativa en la extracción de hidrocarburos en las principales cuencas, acompañada de un aumento de la producción en cuencas menos convencionales.
+### Principal
+
+Se plantea que existe un desvío de inversiones desde la cuenca del Golfo San Jorge (GSJ) hacia la cuenca Neuquina (NEU) por parte de las principales empresas del sector hidrocarburífero, y que este proceso genera diferencias en los niveles de producción de la cuenca GSJ.
+
+Para evaluar este fenómeno, se propone comparar:
+
+- Los niveles de producción de la cuenca GSJ en 2025 (último año con datos completos) respecto del período inmediatamente posterior al desvío de inversiones, con el objetivo de identificar si la producción alcanzó una etapa de estabilidad o un nuevo piso productivo.
+- Los niveles de producción de la cuenca GSJ en 2025 respecto del período previo al desvío de inversiones, a fin de analizar la magnitud del cambio productivo asociado a la reasignación de inversiones.
+
+### Complementarias
+
+1. Se propone comparar la evolución de los niveles de producción de la cuenca Neuquina tras la recepción de mayores inversiones con los niveles de producción observados en la cuenca GSJ durante el mismo período, con el objetivo de identificar posibles impactos diferenciales del desvío de inversiones sobre ambas cuencas.
+2. Los cambios en las tendencias de producción de las cuencas y empresas hidrocarburíferas pueden atribuirse a su relación de dependencia con el tipo de explotación predominante hacia el cual se orientan las inversiones, ya sea convencional o no convencional.
 
 ## Descripción de ETL (Extract, Transform, Load)
 
@@ -123,24 +135,22 @@ Luego de extraer los datos en su formato crudo *(raw)*, se filtran los datasets 
 | Nombre | Clase | Detalle |
 |:---|:---:|:---:|
 | `anio` | `numeric` | `n/a` |
+| `anio_presentacion_ddjj` | `numeric` | `n/a` |
 | `mes` | `numeric` | `n/a` |
 | `cuenca` | `character` | `n/a` |
 | `empresa` | `character` | `n/a` |
-| `concepto` | `character` | exploración, explotación, etc. |
+| `tipo_actividad` | `character` | exploración, explotación, etc. |
+| `tipo_explotacion` | `character` | convencional o no convencional |
 | `cant_pozos_en_perf` | `numeric` | `n/a` |
 | `cant_pozos_term_gas` | `numeric` | `n/a` |
 | `cant_pozos_term_petroleo` | `numeric` | `n/a` |
-| `tipo_explotacion` | `character` | convencional o no convencional |
 | `cant_gas_Mm3` | `numeric` | `n/a` |
 | `cant_petroleo_m3` | `numeric` | `n/a` |
-| `anio_presentacion_ddjj` | `numeric` | `n/a` |
 | `millones_usd_exploracion_prev` | `numeric` | `n/a` |
 | `millones_usd_exploracion_real` | `numeric` | `n/a` |
 | `millones_usd_explotacion_prev` | `numeric` | `n/a` |
 | `millones_usd_explotacion_real` | `numeric` | `n/a` |
 
-<!-- TODO: agregar/reemplazar hipótesis principal y complementarias reformuladas -->
-<!-- TODO: cambiar nombre de var `concepto` a `tipo_actividad` -->
 <!-- TODO: reordenar filas de tabla de manera que queden las numéricas al final -->
 <!-- TODO: acortar nombres de archivos input de inversión y producción en `write.csv()` -->
 <!-- TODO: agregar columna, a ambas tablas de variables, de dataset de proveniencia -->
