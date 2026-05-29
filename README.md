@@ -86,7 +86,7 @@ Luego de extraer los datos en su formato crudo *(raw)*, se filtran los datasets 
 ## Variables principales
 
 <details>
-    <summary>Selección inicial (<code>raw</code>)</summary><br>
+    <summary>Selección inicial: <code>raw</code></summary><br>
 
 | Nombre | Clase | Detalle |
 |:---|:---:|:---:|
@@ -118,7 +118,7 @@ Luego de extraer los datos en su formato crudo *(raw)*, se filtran los datasets 
 </details>
 
 <details>
-    <summary>Selección post-ETL (<code>input</code>)</summary><br>
+    <summary>Selección post-ETL: <code>input</code></summary><br>
 
 | Nombre | Clase | Detalle |
 |:---|:---:|:---:|
