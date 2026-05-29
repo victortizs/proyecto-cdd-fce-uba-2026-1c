@@ -14,7 +14,8 @@ pozos_en_perf = df_1 |>
         cant_pozos_en_perf = sum(cantidad, na.rm = TRUE),
         .groups = "drop"
     ) |>
-    filter(cant_pozos_en_perf > 0)
+    filter(cant_pozos_en_perf > 0) |>
+    rename(tipo_actividad = concepto)
 
 # lectura de raw file de pozos terminados
 df_2 = read_csv(r"(raw\pozos-terminados.csv)")
@@ -35,6 +36,7 @@ pozos_term = df_2 |>
     ) |>
     pivot_wider(names_from = "finalidad", values_from = "cantidad", names_prefix = "cant_pozos_term_") |>
     rename(
+        "tipo_actividad" = "concepto",
         "cant_pozos_term_petroleo" = "cant_pozos_term_Productivos de Petróleo",
         "cant_pozos_term_gas" = "cant_pozos_term_Productivos de Gas"
     ) |>
@@ -54,21 +56,21 @@ glimpse(pozos_term)
 
 # observaciones con match en ambas tablas
 pozos_term |>
-    inner_join(pozos_en_perf, by = c("anio", "mes", "cuenca", "empresa", "concepto")) # 2383 filas
+    inner_join(pozos_en_perf, by = c("anio", "mes", "cuenca", "empresa", "tipo_actividad")) # 2382 filas
 
 # filas faltantes en pozos en perforación
 pozos_term |>
-    anti_join(pozos_en_perf, by = c("anio", "mes", "cuenca", "empresa", "concepto")) # 1271 filas
+    anti_join(pozos_en_perf, by = c("anio", "mes", "cuenca", "empresa", "tipo_actividad")) # 1271 filas
 
 # filas faltantes en pozos terminados
 pozos_en_perf |>
-    anti_join(pozos_term, by = c("anio", "mes", "cuenca", "empresa", "concepto")) # 2002 filas
+    anti_join(pozos_term, by = c("anio", "mes", "cuenca", "empresa", "tipo_actividad")) # 2003 filas
 
 # unión de ambas tablas
 pozos_en_perf_y_term = pozos_term |>
-    full_join(pozos_en_perf, by = c("anio", "mes", "cuenca", "empresa", "concepto")) |> # 5656 filas = 2383 + 1271 + 2002
+    full_join(pozos_en_perf, by = c("anio", "mes", "cuenca", "empresa", "tipo_actividad")) |> # 5656 filas = 2382 + 1271 + 2003
     mutate(across(where(is.numeric), ~ replace_na(.x, 0))) |>
-    relocate(cant_pozos_en_perf, .after = concepto)
+    relocate(cant_pozos_en_perf, .after = tipo_actividad)
 
 # check final
 glimpse(pozos_en_perf_y_term)
