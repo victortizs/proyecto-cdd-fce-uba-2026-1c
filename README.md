@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Identificar cambios en las políticas de extracción y exploración a nivel empresarial, su presencia en las principales cuencas del país (Golfo San Jorge y Neuquina) y la evolución de la producción en ellas.
+Identificar cambios en las políticas de exploración, extracción e inversión de las empresas del sector; su presencia en las principales cuencas del país (Golfo San Jorge y Neuquina) y la evolución de las tendencias en ellas.
 
 ## Integrantes
 
@@ -16,7 +16,7 @@ Identificar cambios en las políticas de extracción y exploración a nivel empr
 
 <ul>
     <li>
-        <b>Fuente principal:</b><br>
+        <b>Fuente principal:</b>
             <a href="https://datos.gob.ar/dataset/energia-perforacion-pozos-petroleo-gas" target="_blank" rel="noopener noreferrer">Perforación de pozos de petróleo y gas</a>
             <details>
                 <summary>Datasets</summary>
@@ -67,11 +67,11 @@ Identificar cambios en las políticas de extracción y exploración a nivel empr
     </li>
     <li>
         <b>Período:</b>
-        2009–2025
+            2009–2025
     </li>
     <li>
         <b>Unidad de análisis:</b>
-        cuencas y empresas
+            Cuencas y empresas
     </li>
 </ul>
 
@@ -121,7 +121,7 @@ Luego de extraer los datos en su formato crudo *(raw)*, se filtran los datasets 
 <details>
     <summary>Selección post-ETL (<code>input</code>)</summary><br>
 
-| Nombre | Clase | Detalle | Dataset |
+| Nombre | Clase | Detalle | Dataset(s) |
 |:---|:---:|:---:|:---:|
 | `anio` | `numeric` | `n/a` | pozos y producción |
 | `mes` | `numeric` | `n/a` | pozos y producción |
