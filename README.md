@@ -79,12 +79,12 @@ Identificar cambios en las políticas de exploración, extracción e inversión 
 
 ### Principal
 
-A partir de 2017, la reasignación de inversiones hacia la cuenca Neuquina por parte de las principales empresas del sector hidrocarburífero se asocia con una tendencia descendente en la producción de la cuenca del Golfo San Jorge y con un crecimiento diferencial de la producción en la cuenca Neuquina.
+A partir de 2017, la reasignación de inversiones hacia la cuenca Neuquina por parte de las principales empresas del sector hidrocarburífero se asocia con una tendencia descendente en la producción de la cuenca del Golfo San Jorge y con un crecimiento diferencial en la producción de la cuenca Neuquina.
 
 ### Complementarias
 
-1. Se propone comparar la evolución de los niveles de producción de la cuenca Neuquina tras la recepción de mayores inversiones con los niveles de producción observados en la cuenca GSJ durante el mismo período, con el objetivo de identificar impactos diferenciales del desvío de inversiones sobre ambas cuencas.
-2. Los cambios en las tendencias de producción de las cuencas y empresas hidrocarburíferas pueden atribuirse a su relación de dependencia con el tipo de explotación predominante hacia el cual se orientan las inversiones, ya sea convencional o no convencional.
+1. El desvío de inversiones puede reflejarse en una mayor concentración de la inversión empresarial y en cambios en la composición de la producción y de la inversión en la cuenca Neuquina a lo largo del tiempo.
+2. Los cambios en las tendencias de producción de las cuencas y empresas hidrocarburíferas se relacionan con el tipo de explotación predominante hacia el cual se orientan las inversiones, convencional o no convencional.
 
 ## Descripción de ETL (Extract, Transform, Load)
 
