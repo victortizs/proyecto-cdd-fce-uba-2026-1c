@@ -83,7 +83,7 @@ A partir de 2017, la reasignación de inversiones hacia la cuenca Neuquina por p
 
 ### Complementarias
 
-1. Se propone comparar la evolución de los niveles de producción de la cuenca Neuquina tras la recepción de mayores inversiones con los niveles de producción observados en la cuenca GSJ durante el mismo período, con el objetivo de identificar los impactos diferenciales del desvío de inversiones sobre ambas cuencas.
+1. Se propone comparar la evolución de los niveles de producción de la cuenca Neuquina tras la recepción de mayores inversiones con los niveles de producción observados en la cuenca GSJ durante el mismo período, con el objetivo de identificar impactos diferenciales del desvío de inversiones sobre ambas cuencas.
 2. Los cambios en las tendencias de producción de las cuencas y empresas hidrocarburíferas pueden atribuirse a su relación de dependencia con el tipo de explotación predominante hacia el cual se orientan las inversiones, ya sea convencional o no convencional.
 
 ## Descripción de ETL (Extract, Transform, Load)
@@ -142,6 +142,7 @@ Tras extraer los datos en su forma original o cruda *—raw—*, se filtraron lo
 
 
 <!-- ? ¿usar `n/a` o `NA` en tablas de la sección "Variables principales"? -->
+<!-- TODO: cambiar la palabra "petroleo" a "petro" en el nombre de las variables que la contengan -->
 <!-- TODO: agregar total de variables de cada tabla antes o después de ellas -->
 <!-- TODO: agregar criterio usado para diferenciar variables (nombre, tipo y/o naturaleza del dato que describen)-->
 <!-- ? ¿cambiar de lugar columnas "Dataset(s)" y "Detalle" en tablas? -->
