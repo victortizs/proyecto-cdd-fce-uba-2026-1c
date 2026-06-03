@@ -70,7 +70,7 @@ Identificar cambios en las políticas de exploración, extracción e inversión 
             2009–2025
     </li>
     <li>
-        <strong>Unidad de análisis:</strong>
+        <strong>Unidades de análisis:</strong>
             cuencas y empresas
     </li>
 </ul>
