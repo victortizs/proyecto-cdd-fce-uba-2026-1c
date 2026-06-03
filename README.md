@@ -1,5 +1,9 @@
 # Producción Argentina de Hidrocarburos
 
+## Objetivo
+
+Identificar cambios en las políticas de exploración, extracción e inversión de las empresas del sector en las principales cuencas del país (Golfo San Jorge y Neuquina).
+
 ## Integrantes
 
 | Nombre y apellido | Nro. de registro |
@@ -7,10 +11,6 @@
 | Ariana Patricia Tello Senmache | 916327 |
 | Carolina Alejandra Rios Otoya | 903196 |
 | Victor Adrian Ortiz Solis | 895568 |
-
-## Objetivo
-
-Identificar cambios en las políticas de exploración, extracción e inversión de las empresas del sector en las principales cuencas del país (Golfo San Jorge y Neuquina).
 
 ## Datos
 
@@ -88,7 +88,7 @@ A partir de 2017, la reasignación de inversiones hacia la cuenca Neuquina por p
 
 ## Descripción de ETL (Extract, Transform, Load)
 
-Luego de extraer los datos en su formato crudo *(raw)*, se filtran los datasets con las variables relevantes para el análisis, es decir, eliminando variables redundantes. Los datos originales ya se hallan en formato tidy, por lo cual no requieren transformación extra para su manipulación, aunque posteriormente se agruparán las variables en una sola base.
+Tras extraer los datos en su forma original o cruda *(raw)*, se filtraron los datasets solo con las variables consideradas relevantes para el análisis, es decir, obviando aquellas redundantes. Dichos datos se hallan en formato tidy, por lo cual no necesitaron transformaciones extras para su manipulación, con excepción de las siguientes para combinar los datasets:
 
 ## Variables principales
 
