@@ -157,8 +157,6 @@ Tras extraer los datos en su forma original o cruda *—raw—*, se filtraron lo
 
 Nivel de producción de las principales empresas en los años previos a 2015. Siendo que el boom de inversiones en Vaca Muerta comenzó tras los descubrimientos de 2010–2011 y se consolidó entre 2012 y 2014 (con la nacionalización de YPF en 2012 y grandes acuerdos/inversiones de compañías como Chevron y *rig contracts* en 2014).
 
----
-
 ## Estructura del repositorio
 
 ```
