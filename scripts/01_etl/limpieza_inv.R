@@ -213,7 +213,7 @@ glimpse(inv_prev_y_real)
 # creación de csv con datasets combinados
 write.csv(
   inv_prev_y_real,
-  file = "input/inversion_prev_y_real.csv",
+  file = "input/inv_prev_y_real.csv",
   quote = TRUE, # importante porque algunos nombres de empresas incluyen "," y eso causa problemas en la lectura del csv
   row.names = FALSE,
   fileEncoding = "UTF-8"
