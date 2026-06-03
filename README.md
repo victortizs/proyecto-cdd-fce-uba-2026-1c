@@ -1,9 +1,5 @@
 # Producción Argentina de Hidrocarburos
 
-## Objetivo
-
-Identificar cambios en las políticas de exploración, extracción e inversión de las empresas del sector en las principales cuencas del país (Golfo San Jorge y Neuquina).
-
 ## Integrantes
 
 | Nombre y apellido | Nro. de registro |
@@ -11,6 +7,10 @@ Identificar cambios en las políticas de exploración, extracción e inversión 
 | Ariana Patricia Tello Senmache | 916327 |
 | Carolina Alejandra Rios Otoya | 903196 |
 | Victor Adrian Ortiz Solis | 895568 |
+
+## Objetivo
+
+Identificar cambios en las políticas de exploración, extracción e inversión de las empresas del sector en las principales cuencas del país (Golfo San Jorge y Neuquina).
 
 ## Datos
 
@@ -97,24 +97,23 @@ Luego de extraer los datos en su formato crudo *(raw)*, se filtran los datasets 
 
 | Nombre | Clase | Detalle | Dataset(s) |
 |:---|:---:|:---:|:---:|
-| `anio` | `numeric` | `n/a` | pozos y producción |
-| `mes` | `numeric` | `n/a` | pozos y producción |
-| `cuenca` | `character` | aparece como `Cuenca` en datasets de inversión | inversión, pozos y producción |
-| `empresa` | `character` | `n/a` | pozos y producción |
-| `concepto` | `character` | actividad prevista (exploración, explotación, etc.) | pozos en perforación |
-| `tipodepozoterminado` | `character` | actividad prevista (exploración, explotación, etc.) | pozos terminados |
-| `concepto` | `character` | productivos de gas o petróleo | pozos terminados |
-| `cantidad` | `numeric` | en unidades | pozos |
-| `concepto` | `character` | finalidad o uso de recurso | producción |
-| `cantidad` | `numeric` | en Mm3 | producción de gas |
-| `cantidad` | `numeric` | en m3 | producción de petróleo |
 | `Fecha Inicio Tareas` | `date` | `yyyy-MM-dd` | inversiones previstas |
 | `Fecha Fin Tareas` | `date` | `yyyy-MM-dd` | inversiones previstas |
 | `indice_tiempo` | `character` | `yyyy-MM` | inversiones anteriores |
+| `anio` | `numeric` | `n/a` | pozos y producción |
+| `mes` | `numeric` | `n/a` | pozos y producción |
+| `cuenca` | `character` | aparece como `Cuenca` en datasets de inversión | inversión, pozos y producción |
 | `Empresa informante` | `character` | `na` | inversión |
+| `empresa` | `character` | `n/a` | pozos y producción |
 | `Tipo de explotación` | `character` | convencional o no convencional | inversión |
 | `Millones u$s Exploracion` | `numeric` | valores previstos y reales | inversión |
 | `Millones u$s Explotacion` | `numeric` | valores previstos y reales | inversión |
+| `concepto` | `character` | finalidad de recurso en flujo energético | producción |
+| `cantidad` | `numeric` | Mm3 para gas y m3 para petróleo | producción |
+| `concepto` | `character` | actividad prevista (exploración, explotación, etc.) | pozos en perforación |
+| `concepto` | `character` | recurso al que están destinados | pozos terminados |
+| `tipodepozoterminado` | `character` | actividad prevista (exploración, explotación, etc.) | pozos terminados |
+| `cantidad` | `numeric` | unidades | pozos |
 
 </details>
 
@@ -123,26 +122,28 @@ Luego de extraer los datos en su formato crudo *(raw)*, se filtran los datasets 
 
 | Nombre | Clase | Detalle | Dataset(s) |
 |:---|:---:|:---:|:---:|
+| `anio_presentacion_ddjj` | `numeric` | `n/a` | inversión |
 | `anio` | `numeric` | `n/a` | pozos y producción |
 | `mes` | `numeric` | `n/a` | pozos y producción |
-| `anio_presentacion_ddjj` | `numeric` | `n/a` | inversión |
 | `cuenca` | `character` | `n/a` | inversión, pozos y producción |
 | `empresa` | `character` | `n/a` | inversión, pozos y producción |
-| `tipo_actividad` | `character` | exploración, explotación, etc. | pozos |
 | `tipo_explotacion` | `character` | convencional o no convencional | inversión y producción |
-| `cant_pozos_en_perf` | `numeric` | `n/a` | pozos |
-| `cant_pozos_term_gas` | `numeric` | `n/a` | pozos |
-| `cant_pozos_term_petroleo` | `numeric` | `n/a` | pozos |
-| `cant_gas_Mm3` | `numeric` | `n/a` | producción |
-| `cant_petroleo_m3` | `numeric` | `n/a` | producción |
 | `millones_usd_exploracion_prev` | `numeric` | `n/a` | inversión |
 | `millones_usd_exploracion_real` | `numeric` | `n/a` | inversión |
 | `millones_usd_explotacion_prev` | `numeric` | `n/a` | inversión |
 | `millones_usd_explotacion_real` | `numeric` | `n/a` | inversión |
+| `cant_gas_Mm3` | `numeric` | `n/a` | producción |
+| `cant_petroleo_m3` | `numeric` | `n/a` | producción |
+| `tipo_actividad` | `character` | exploración, explotación, etc. | pozos |
+| `cant_pozos_en_perf` | `numeric` | `n/a` | pozos |
+| `cant_pozos_term_gas` | `numeric` | `n/a` | pozos |
+| `cant_pozos_term_petroleo` | `numeric` | `n/a` | pozos |
 
 <!-- TODO: agregar total de variables de ambas tablas antes o después de ellas -->
+<!-- ? ¿Cambiar de lugar columnas "Dataset(s)" y "Detalle" en tablas? -->
+<!-- TODO: cambiar columnas de lugar para probar y decidir -->
 <!-- TODO: agregar cambios/transformaciones posteriores a sección de ETL -->
-<!-- ? Deberíamos filtrar solo exploración y explotación en `tipo_actividad`? -->
+<!-- ? ¿Deberíamos filtrar solo exploración y explotación en `tipo_actividad`? -->
 <!-- TODO: si se filtra solo exploración y explotación debemos cambiar el detalle en la tabla de 'input' -->
 
 </details>
