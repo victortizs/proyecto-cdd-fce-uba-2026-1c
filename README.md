@@ -75,8 +75,6 @@ Identificar cambios en las políticas de exploración, extracción e inversión 
     </li>
 </ul>
 
----
-
 ## Hipótesis
 
 ### Principal
