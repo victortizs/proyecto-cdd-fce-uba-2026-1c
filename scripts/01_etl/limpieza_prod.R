@@ -149,7 +149,7 @@ glimpse(prod_gas_y_pretro)
 # creación de csv con datasets combinados
 write.csv(
   prod_gas_y_pretro,
-  file = "input/produccion_gas_y_petro.csv",
+  file = "input/prod_gas_y_petro.csv",
   quote = TRUE, # importante porque algunos nombres de empresas incluyen "," y eso causa problemas en la lectura del csv
   row.names = FALSE,
   fileEncoding = "UTF-8"
