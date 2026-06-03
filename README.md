@@ -71,7 +71,7 @@ Identificar cambios en las políticas de extracción y exploración a nivel empr
     </li>
     <li>
         <b>Unidad de análisis:</b>
-        empresas y cuencas
+        cuencas y empresas
     </li>
 </ul>
 
