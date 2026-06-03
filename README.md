@@ -71,7 +71,7 @@ Identificar cambios en las políticas de exploración, extracción e inversión 
     </li>
     <li>
         <strong>Unidad de análisis:</strong>
-            Cuencas y empresas
+            cuencas y empresas
     </li>
 </ul>
 
