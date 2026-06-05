@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Identificar cambios en las políticas de extracción y exploración a nivel empresarial, su presencia en las principales cuencas del país (Golfo San Jorge y Neuquina) y la evolución de la producción en ellas.
+Identificar cambios en las políticas de exploración, extracción e inversión de las empresas del sector en las principales cuencas del país (Golfo San Jorge y Neuquina).
 
 ## Integrantes
 
@@ -16,7 +16,7 @@ Identificar cambios en las políticas de extracción y exploración a nivel empr
 
 <ul>
     <li>
-        <b>Fuente principal:</b><br>
+        <strong>Fuente principal:</strong>
             <a href="https://datos.gob.ar/dataset/energia-perforacion-pozos-petroleo-gas" target="_blank" rel="noopener noreferrer">Perforación de pozos de petróleo y gas</a>
             <details>
                 <summary>Datasets</summary>
@@ -31,7 +31,7 @@ Identificar cambios en las políticas de extracción y exploración a nivel empr
             </details>
     </li>
     <li>
-        <b>Fuentes complementarias:</b>
+        <strong>Fuentes complementarias:</strong>
             <details>
                 <summary>Datasets</summary>
                 <ul>
@@ -66,12 +66,12 @@ Identificar cambios en las políticas de extracción y exploración a nivel empr
             </details>
     </li>
     <li>
-        <b>Período:</b>
-        2009–2025
+        <strong>Período:</strong>
+            2009–2025
     </li>
     <li>
-        <b>Unidad de análisis:</b>
-        cuencas y empresas
+        <strong>Unidades de análisis:</strong>
+            cuencas y empresas
     </li>
 </ul>
 
@@ -79,70 +79,76 @@ Identificar cambios en las políticas de extracción y exploración a nivel empr
 
 ### Principal
 
-A partir de 2017, la reasignación de inversiones hacia la cuenca Neuquina por parte de las principales empresas del sector hidrocarburífero se asocia con una tendencia descendente en la producción de la cuenca del Golfo San Jorge y con un crecimiento diferencial de la producción en la cuenca Neuquina.
+A partir de 2017, la reasignación de inversiones hacia la cuenca Neuquina por parte de las principales empresas del sector hidrocarburífero se asocia con una tendencia descendente en la producción de la cuenca del Golfo San Jorge y con un crecimiento diferencial en la producción de la cuenca Neuquina.
 
 ### Complementarias
 
-1. Se propone comparar la evolución de los niveles de producción de la cuenca Neuquina tras la recepción de mayores inversiones con los niveles de producción observados en la cuenca GSJ durante el mismo período, con el objetivo de identificar los impactos diferenciales del desvío de inversiones sobre ambas cuencas.
-2. Los cambios en las tendencias de producción de las cuencas y empresas hidrocarburíferas pueden atribuirse a su relación de dependencia con el tipo de explotación predominante hacia el cual se orientan las inversiones, ya sea convencional o no convencional.
+1. El desvío de inversiones puede reflejarse en una mayor concentración de la inversión empresarial y en cambios en la composición de la producción y de la inversión en la cuenca Neuquina a lo largo del tiempo.
+2. Los cambios en las tendencias de producción de las cuencas y empresas hidrocarburíferas se relacionan con el tipo de explotación predominante hacia el cual se orientan las inversiones, convencional o no convencional.
 
 ## Descripción de ETL (Extract, Transform, Load)
 
-Luego de extraer los datos en su formato crudo *(raw)*, se filtran los datasets con las variables relevantes para el análisis, es decir, eliminando variables redundantes. Los datos originales ya se hallan en formato tidy, por lo cual no requieren transformación extra para su manipulación, aunque posteriormente se agruparán las variables en una sola base.
+Tras extraer los datos en su forma original o cruda *—raw—*, se filtraron los datasets solo con las variables consideradas relevantes para el análisis, es decir, obviando aquellas redundantes. Dichos datos se hallan en formato tidy, por lo cual no necesitaron transformaciones extras para su manipulación, con excepción de las siguientes para combinar los datasets:
 
 ## Variables principales
 
 <details>
-    <summary>Selección inicial (<code>raw</code>)</summary>
+    <summary>Selección inicial (<code>raw</code>)</summary><br>
 
 | Nombre | Clase | Detalle | Dataset(s) |
 |:---|:---:|:---:|:---:|
-| `anio` | `numeric` | `n/a` | pozos y producción |
-| `mes` | `numeric` | `n/a` | pozos y producción |
-| `cuenca` | `character` | aparece como `Cuenca` en datasets de inversión | inversión, pozos y producción |
-| `empresa` | `character` | `n/a` | pozos y producción |
-| `concepto` | `character` | actividad prevista (exploración, explotación, etc.) | pozos en perforación |
-| `tipodepozoterminado` | `character` | actividad prevista (exploración, explotación, etc.) | pozos terminados |
-| `concepto` | `character` | productivos de gas o petróleo | pozos terminados |
-| `cantidad` | `numeric` | en unidades | pozos |
-| `concepto` | `character` | finalidad o uso de recurso | producción |
-| `cantidad` | `numeric` | en Mm3 | producción de gas |
-| `cantidad` | `numeric` | en m3 | producción de petróleo |
 | `Fecha Inicio Tareas` | `date` | `yyyy-MM-dd` | inversiones previstas |
 | `Fecha Fin Tareas` | `date` | `yyyy-MM-dd` | inversiones previstas |
 | `indice_tiempo` | `character` | `yyyy-MM` | inversiones anteriores |
-| `Empresa informante` | `character` | `na` | inversión |
+| `anio` | `numeric` | `n/a` | pozos y producción |
+| `mes` | `numeric` | `n/a` | pozos y producción |
+| `Cuenca` | `character` | `n/a` | inversión |
+| `cuenca` | `character` | `n/a` | pozos y producción |
+| `Empresa informante` | `character` | `n/a` | inversión |
+| `empresa` | `character` | `n/a` | pozos y producción |
 | `Tipo de explotación` | `character` | convencional o no convencional | inversión |
+| `concepto` | `character` | finalidad de recurso en flujo energético | producción |
+| `concepto` | `character` | actividad prevista (exploración, explotación, etc.) | pozos en perforación |
+| `concepto` | `character` | recurso al que están destinados | pozos terminados |
+| `tipodepozoterminado` | `character` | actividad prevista (exploración, explotación, etc.) | pozos terminados |
 | `Millones u$s Exploracion` | `numeric` | valores previstos y reales | inversión |
 | `Millones u$s Explotacion` | `numeric` | valores previstos y reales | inversión |
+| `cantidad` | `numeric` | Mm3 para gas y m3 para petróleo | producción |
+| `cantidad` | `numeric` | unidades | pozos |
 
 </details>
 
 <details>
-    <summary>Selección post-ETL (<code>input</code>)</summary>
+    <summary>Selección post-ETL (<code>input</code>)</summary><br>
 
-| Nombre | Clase | Detalle | Dataset |
+| Nombre | Clase | Detalle | Dataset(s) |
 |:---|:---:|:---:|:---:|
+| `anio_presentacion_ddjj` | `numeric` | `n/a` | inversión |
 | `anio` | `numeric` | `n/a` | pozos y producción |
 | `mes` | `numeric` | `n/a` | pozos y producción |
-| `anio_presentacion_ddjj` | `numeric` | `n/a` | inversión |
 | `cuenca` | `character` | `n/a` | inversión, pozos y producción |
 | `empresa` | `character` | `n/a` | inversión, pozos y producción |
-| `tipo_actividad` | `character` | exploración, explotación, etc. | pozos |
 | `tipo_explotacion` | `character` | convencional o no convencional | inversión y producción |
-| `cant_pozos_en_perf` | `numeric` | `n/a` | pozos |
-| `cant_pozos_term_gas` | `numeric` | `n/a` | pozos |
-| `cant_pozos_term_petroleo` | `numeric` | `n/a` | pozos |
-| `cant_gas_Mm3` | `numeric` | `n/a` | producción |
-| `cant_petroleo_m3` | `numeric` | `n/a` | producción |
+| `tipo_actividad` | `character` | exploración, explotación, etc. | pozos |
 | `millones_usd_exploracion_prev` | `numeric` | `n/a` | inversión |
 | `millones_usd_exploracion_real` | `numeric` | `n/a` | inversión |
 | `millones_usd_explotacion_prev` | `numeric` | `n/a` | inversión |
 | `millones_usd_explotacion_real` | `numeric` | `n/a` | inversión |
+| `cant_gas_Mm3` | `numeric` | `n/a` | producción |
+| `cant_petroleo_m3` | `numeric` | `n/a` | producción |
+| `cant_pozos_en_perf` | `numeric` | unidades | pozos |
+| `cant_pozos_term_gas` | `numeric` | unidades | pozos |
+| `cant_pozos_term_petroleo` | `numeric` | unidades | pozos |
 
-<!-- TODO: agregar total de variables de ambas tablas antes o después de ellas -->
+
+<!-- ? ¿usar `n/a` o `NA` en tablas de la sección "Variables principales"? -->
+<!-- TODO: cambiar la palabra "petroleo" a "petro" en el nombre de las variables que la contengan -->
+<!-- TODO: agregar total de variables de cada tabla antes o después de ellas -->
+<!-- TODO: agregar criterio usado para diferenciar variables (nombre, tipo y/o naturaleza del dato que describen)-->
+<!-- ? ¿cambiar de lugar columnas "Dataset(s)" y "Detalle" en tablas? -->
+<!-- TODO: cambiar columnas de lugar para probar y decidir -->
 <!-- TODO: agregar cambios/transformaciones posteriores a sección de ETL -->
-<!-- ? Deberíamos filtrar solo exploración y explotación en `tipo_actividad`? -->
+<!-- ? ¿deberíamos filtrar solo exploración y explotación en `tipo_actividad`? -->
 <!-- TODO: si se filtra solo exploración y explotación debemos cambiar el detalle en la tabla de 'input' -->
 
 </details>
