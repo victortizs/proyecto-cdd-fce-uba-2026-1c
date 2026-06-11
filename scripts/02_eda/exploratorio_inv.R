@@ -2,6 +2,7 @@ library(readr)
 library(dplyr)
 library(tidyr)
 
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------
 # lectura de input file de inversiones
 df = read_csv(r"(input\inv_prev_y_real.csv)")
 glimpse(df)
@@ -34,7 +35,7 @@ print.data.frame(exploracion)
 # https://www.mejorenergia.com.ar/noticias/2025/11/04/4781-como-sigue-la-hoja-de-ruta-del-lng-argentina-tras-el-acuerdo-con-adnoc/
 
 df[which.max(df$millones_usd_exploracion_real), ]
-arg_lng = df |>
+proy_arg_lng = df |>
     filter(empresa %in% c("ENI ARGENTINA EXPLORACION Y EXPLOTACION S.A.", "YPF S.A.")) |>
     group_by(empresa, anio_presentacion_ddjj, cuenca) |>
     summarise(
@@ -53,12 +54,9 @@ arg_lng = df |>
 # , con profundidades marinas que alcanzan los 4.100 metros. quizá esto explique la inversión, de la filial argentina de ENI,
 #  en la exploración de un área próxima. de todos modos, los valores son incoherentes.
 # https://www.mejorenergia.com.ar/noticias/2025/11/25/4859-ypf-y-eni-avanzan-en-la-exploracion-offshore-con-un-acuerdo-clave-en-uruguay
-print(as.data.frame(arg_lng))
-
-
+print(as.data.frame(proy_arg_lng))
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------
-
 # estadísticos originales explotación real
 explotacion = df |>
     filter(millones_usd_explotacion_real > 0) |>

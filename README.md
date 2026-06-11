@@ -141,7 +141,7 @@ Tras extraer los datos en su forma original o cruda *—raw—*, se filtraron lo
 | `cant_pozos_term_gas` | `numeric` | unidades | pozos |
 | `cant_pozos_term_petro` | `numeric` | unidades | pozos |
 
-<!-- ? ¿usar `n/a` o `NA` en tablas de la sección "Variables principales"? -->
+<!-- ? ¿usar `n/a` o `na` o `NA` en tablas de la sección "Variables principales"? -->
 <!-- TODO: agregar total de variables de cada tabla antes o después de ellas -->
 <!-- TODO: agregar criterio usado para diferenciar variables (nombre, tipo y/o naturaleza del dato que describen) -->
 <!-- ? ¿cambiar de lugar columnas "Dataset(s)" y "Detalle" en tablas? -->
