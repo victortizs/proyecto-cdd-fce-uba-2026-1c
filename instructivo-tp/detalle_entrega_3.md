@@ -1,5 +1,6 @@
 # Checklist instancia #3
 
+Deadline: 2026-06-12 23:59 h<br>
 Actualizado: 2026-06-10
 
 1. [ ] Dos archivos png o jpg con las visualizaciones.
