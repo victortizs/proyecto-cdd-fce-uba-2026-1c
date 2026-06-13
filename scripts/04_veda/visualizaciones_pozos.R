@@ -2,13 +2,38 @@ library(readr)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
-library(lubridate)
+library(ggtext)
+library(scales)
 
-pozos_term_y_en_perf = read_csv(r"(input\pozos_term_y_en_perf.csv)")
-glimpse(pozos_term_y_en_perf)
-head(pozos_term_y_en_perf, 10)
-  
-head(df, 10)
+# -------------------------------------------------------------------------
+rojo = "#F54927"
+celeste = "#27D3F5"
+
+theme_owid <- function(base_size = 13, base_family = "") {
+  theme_minimal(base_size = base_size, base_family = base_family) +
+    theme(
+      plot.title.position   = "plot",
+      plot.caption.position = "plot",
+      plot.title    = element_markdown(face = "bold", size = rel(1.35),
+                                       colour = "#1d1d1d", lineheight = 1.2,
+                                       margin = margin(b = 4)),
+      plot.subtitle = element_markdown(size = rel(1.0), colour = "#5b5b5b",
+                                       margin = margin(b = 16)),
+      plot.caption  = element_markdown(hjust = 0, size = rel(0.72),
+                                       colour = "#8a8a8a", margin = margin(t = 14)),
+      axis.title    = element_blank(),         # OWID casi no usa titulos de eje
+      axis.text     = element_text(colour = "#5b5b5b"),
+      axis.ticks    = element_blank(),
+      panel.grid.major.y = element_line(colour = "#e6e6e6", linewidth = 0.4),
+      panel.grid.major.x = element_blank(),    # solo grilla horizontal
+      panel.grid.minor   = element_blank(),
+      legend.position    = "none",             # usamos etiquetas directas
+      plot.margin = margin(t = 14, r = 110, b = 10, l = 16)  # der.: espacio etiquetas
+    )
+}
+
+# -------------------------------------------------------------------------
+df = read_csv(r"(input\pozos_term_y_en_perf.csv)")
 
 df_long <- pozos_term_y_en_perf |>
   filter(concepto == "Explotación") |> # mezclar con | concepto == "Exploración" o cambiar filtro
