@@ -1,6 +1,7 @@
 library(readr)
 library(dplyr)
 library(tidyr)
+library(tibble)
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------
 # lectura de input file de inversiones
@@ -461,3 +462,58 @@ print.data.frame(outliers_neu_explot_no_conv)
 
 # lim_inf_v2 = q1 - 1.5 * iqr
 # lim_sup_v2 = q3 + 1.5 * iqr
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------
+# resumen de outliers:
+resumen_outliers = tibble(
+    cuenca = c(
+        "GOLFO SAN JORGE", "GOLFO SAN JORGE",
+        "GOLFO SAN JORGE", "GOLFO SAN JORGE",
+        "NEUQUINA", "NEUQUINA",
+        "NEUQUINA", "NEUQUINA"
+    ),
+    tipo_inversion = c(
+        "Exploración", "Exploración",
+        "Explotación", "Explotación",
+        "Exploración", "Exploración",
+        "Explotación", "Explotación"
+    ),
+    tipo_explotacion = c(
+        "Convencional", "No Convencional",
+        "Convencional", "No Convencional",
+        "Convencional", "No Convencional",
+        "Convencional", "No Convencional"
+    ),
+    lim_inf = c(
+        li_gsj_explor_conv,
+        li_gsj_explor_no_conv,
+        li_gsj_explot_conv,
+        li_gsj_explot_no_conv,
+        li_neu_explor_conv,
+        li_neu_explor_no_conv,
+        li_neu_explot_conv,
+        li_neu_explot_no_conv
+    ),
+    lim_sup = c(
+        ls_gsj_explor_conv,
+        ls_gsj_explor_no_conv,
+        ls_gsj_explot_conv,
+        ls_gsj_explot_no_conv,
+        ls_neu_explor_conv,
+        ls_neu_explor_no_conv,
+        ls_neu_explot_conv,
+        ls_neu_explot_no_conv
+    ),
+    cant_outliers = c(
+        nrow(outliers_gsj_explor_conv),
+        nrow(outliers_gsj_explor_no_conv),
+        nrow(outliers_gsj_explot_conv),
+        nrow(outliers_gsj_explot_no_conv),
+        nrow(outliers_neu_explor_conv),
+        nrow(outliers_neu_explor_no_conv),
+        nrow(outliers_neu_explot_conv),
+        nrow(outliers_neu_explot_no_conv)
+    )
+)
+
+print.data.frame(resumen_outliers)

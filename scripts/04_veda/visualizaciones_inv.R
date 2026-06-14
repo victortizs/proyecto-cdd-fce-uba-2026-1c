@@ -50,13 +50,13 @@ n_grupos =
     df_plot |>
     count(cuenca, tipo_explotacion)
 
+# -------------------------------------------------------------------------
 titulo = sprintf(
   "La explotación no convencional de la cuenca <span style='color:%s'>**Neuquina**</span> concentra<br>las mayores inversiones en gas y petróleo",
   celeste
 )
 
 subtitulo = "Las observaciones parten de DDJJ registradas entre 2013–2025 con base en la Resolución<br>2057/2005."
-
 colores <- c("Convencional" = rojo, "No Convencional" = celeste)
 
 # -------------------------------------------------------------------------
@@ -92,7 +92,7 @@ ggplot(
         ),
         size = 3,
         color = "#6e6e6e",
-        vjust = 23.0,
+        vjust = 30.0,
         inherit.aes = FALSE
     ) +
     facet_wrap(~ cuenca) +
