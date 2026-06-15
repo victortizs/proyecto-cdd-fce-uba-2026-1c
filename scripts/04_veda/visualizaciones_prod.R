@@ -131,9 +131,9 @@ print.data.frame(df_plot)
 # -------------------------------------------------------------------------
 titulo = sprintf(
   paste0(
-    "La transición hacia el petróleo no convencional en las principales empresas",
+    "La transición hacia el petróleo no convencional en las principales",
     "<br>",
-    "productoras"
+    "empresas productoras"
     )
 )
 
@@ -185,9 +185,9 @@ ggplot(
     caption = paste(
         "**Nota:** Se consolidaron las series de PAN AMERICAN ENERGY (SUCURSAL ARGENTINA) LLC y PAN AMERICAN ENERGY SL",
         "<br>",
-        "en PAE (SUCURSALES ARG), para mostrar continuidad tras su cambio de denominación.",
+        "en PAE (SUCURSALES ARG), para mostrar continuidad tras su cambio de denominación social.",
         "<br>",
-        "**Fuente:** Secretaría de Energía. Subsecretaría de Hidrocarburos."
+        "**Fuente:** Secretaría de Energía. Subsecretaría de Hidrocarburos"
         )
     ) +
     theme_owid()

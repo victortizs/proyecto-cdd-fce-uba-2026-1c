@@ -114,7 +114,7 @@ ggplot(
             "**Nota:** La línea central representa la mediana,",
             "el rombo blanco la media y el ancho de cada caja",
             "es proporcional al tamaño muestral.<br>",
-            "**Fuente:** Secretaría de Energía. Subsecretaría de Hidrocarburos."
+            "**Fuente:** Secretaría de Energía. Subsecretaría de Hidrocarburos"
         )
     ) +
     theme_owid() +
