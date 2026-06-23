@@ -52,11 +52,15 @@ n_grupos =
 
 # -------------------------------------------------------------------------
 titulo = sprintf(
-  "La explotación no convencional de la cuenca <span style='color:%s'>**Neuquina**</span> concentra<br>las mayores inversiones en gas y petróleo",
-  celeste
+    paste0(
+        "La explotación no convencional de la cuenca <span style='color:%s'>**Neuquina**</span> concentra las",
+        "<br>",
+        "mayores inversiones en gas y petróleo"
+    ),
+    celeste
 )
 
-subtitulo = "Las observaciones parten de DDJJ registradas entre 2013–2025 con base en la Resolución<br>2057/2005."
+subtitulo = "Las observaciones parten de DDJJ registradas entre 2013–2025 con base en la Resolución 2057/2005."
 colores <- c("Convencional" = rojo, "No Convencional" = celeste)
 
 # -------------------------------------------------------------------------
