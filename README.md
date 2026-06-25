@@ -113,6 +113,7 @@ Tras extraer los datos en su forma original o cruda *—raw—*, se filtraron lo
 | `tipodepozoterminado` | `character` | actividad prevista (exploración, explotación, etc.) | pozos terminados |
 | `Millones u$s Exploracion` | `numeric` | valores previstos y reales | inversión |
 | `Millones u$s Explotacion` | `numeric` | valores previstos y reales | inversión |
+| `Millones u$s Exp. Complementaria` | `numeric` | valores previstos y reales | inversión |
 | `cantidad` | `numeric` | Mm3 para gas y m3 para petróleo | producción |
 | `cantidad` | `numeric` | unidades | pozos |
 
@@ -129,27 +130,23 @@ Tras extraer los datos en su forma original o cruda *—raw—*, se filtraron lo
 | `cuenca` | `character` | `n/a` | inversión, pozos y producción |
 | `empresa` | `character` | `n/a` | inversión, pozos y producción |
 | `tipo_explotacion` | `character` | convencional o no convencional | inversión y producción |
-| `tipo_actividad` | `character` | exploración, explotación, etc. | pozos |
+| `tipo_actividad` | `character` | exploración o explotación | pozos |
 | `millones_usd_exploracion_prev` | `numeric` | `n/a` | inversión |
 | `millones_usd_exploracion_real` | `numeric` | `n/a` | inversión |
 | `millones_usd_explotacion_prev` | `numeric` | `n/a` | inversión |
 | `millones_usd_explotacion_real` | `numeric` | `n/a` | inversión |
 | `cant_gas_Mm3` | `numeric` | `n/a` | producción |
-| `cant_petroleo_m3` | `numeric` | `n/a` | producción |
+| `cant_petro_m3` | `numeric` | `n/a` | producción |
 | `cant_pozos_en_perf` | `numeric` | unidades | pozos |
 | `cant_pozos_term_gas` | `numeric` | unidades | pozos |
-| `cant_pozos_term_petroleo` | `numeric` | unidades | pozos |
+| `cant_pozos_term_petro` | `numeric` | unidades | pozos |
 
-
-<!-- ? ¿usar `n/a` o `NA` en tablas de la sección "Variables principales"? -->
-<!-- TODO: cambiar la palabra "petroleo" a "petro" en el nombre de las variables que la contengan -->
+<!-- ? ¿usar `n/a` o `na` o `NA` en tablas de la sección "Variables principales"? -->
 <!-- TODO: agregar total de variables de cada tabla antes o después de ellas -->
-<!-- TODO: agregar criterio usado para diferenciar variables (nombre, tipo y/o naturaleza del dato que describen)-->
+<!-- TODO: agregar criterio usado para diferenciar variables (nombre, tipo y/o naturaleza del dato que describen) -->
 <!-- ? ¿cambiar de lugar columnas "Dataset(s)" y "Detalle" en tablas? -->
 <!-- TODO: cambiar columnas de lugar para probar y decidir -->
 <!-- TODO: agregar cambios/transformaciones posteriores a sección de ETL -->
-<!-- ? ¿deberíamos filtrar solo exploración y explotación en `tipo_actividad`? -->
-<!-- TODO: si se filtra solo exploración y explotación debemos cambiar el detalle en la tabla de 'input' -->
 
 </details>
 
