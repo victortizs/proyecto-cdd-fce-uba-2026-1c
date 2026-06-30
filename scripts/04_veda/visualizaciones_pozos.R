@@ -52,6 +52,7 @@ ggplot(df_long, aes(x = date, y = value, color = series)) +
   theme_minimal()
 
 
+
 # ggplot(df_long, aes(x = date, y = value, color = series)) +
   # geom_line(size = 0.9) +
   # add a horizontal mean line per series (use linetype to distinguish)

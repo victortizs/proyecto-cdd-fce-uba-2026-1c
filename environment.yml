@@ -1,0 +1,29 @@
+name: uni-r
+channels:
+  - conda-forge
+dependencies:
+  - r-base
+  - r-irkernel
+  - r-dplyr
+  - r-tidyr
+  - r-tibble
+  - r-arrow
+  - r-readr
+  - r-readxl
+  - r-ggplot2
+  - r-plotly
+  - r-purrr
+  - r-stringr
+  - r-lubridate
+  - r-languageserver
+  - radian
+  - jupytext
+  - ipykernel
+  - r-forcats
+  - r-httpgd
+  - r-wdi
+  - r-ggrepel
+  - r-ggtext
+  - r-gapminder
+  - r-svglite
+prefix: C:\Users\victo\miniforge3\envs\uni-r

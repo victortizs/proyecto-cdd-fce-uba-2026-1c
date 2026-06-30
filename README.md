@@ -67,7 +67,7 @@ Identificar cambios en las políticas de exploración, extracción e inversión 
     </li>
     <li>
         <strong>Período:</strong>
-            2009–2025
+            2009–2025 (los datos complementarios de inversión comienzan a partir de 2013)
     </li>
     <li>
         <strong>Unidades de análisis:</strong>
@@ -88,65 +88,135 @@ A partir de 2017, la reasignación de inversiones hacia la cuenca Neuquina por p
 
 ## Descripción de ETL (Extract, Transform, Load)
 
-Tras extraer los datos en su forma original o cruda *—raw—*, se filtraron los datasets solo con las variables consideradas relevantes para el análisis, es decir, obviando aquellas redundantes. Dichos datos se hallan en formato tidy, por lo cual no necesitaron transformaciones extras para su manipulación, con excepción de las siguientes para combinar los datasets:
+Tras extraer los datos en su forma original o cruda *—raw—*, se filtraron los datasets solo con las variables consideradas relevantes para el análisis, es decir, obviando aquellas redundantes. Dichos datos se hallaron en formato tidy, por lo cual en primera instancia no necesitaron transformaciones extras para su manipulación.
 
-## Variables principales
+La siguiente [sección](#var-principales) proporciona un panorama más completo de las variables mencionadas a continuación y consideradas al iniciar el proceso de limpieza, transformación y estandarización (ETL); cuyos códigos respectivos se hallan en la carpeta `scripts\01_etl`. A grandes rasgos, el proceso constó de los siguientes pasos:
+
+1. Restringir los datos al periodo temporal fijado para el análisis:
+    - Inversión prevista > 2013–2025
+    - Inversión realizada > 2013–2025
+    - Pozos en perforación > 2009–2025
+    - Pozos terminados > 2009–2025
+    - Producción de gas > 2009–2025
+    - Producción de petróleo > 2009–2025
+
+    Para la inversión fue necesario considerar la variable original `Año de presentación de la DDJJ` —omitida en un comienzo—, dado que el resto de variables referenciando a fechas presentaban datos incompletos *(missing values)*. Para esto se realizó un chequeo que comprobó que la variable en cuestión efectivamente mantenía coherencia con el resto de variables semejantes. Más detalle se halla en `scripts\01_etl\limpieza_inv.R`.
+    
+2. Agrupar los datos mediante la suma de las variables cuantitativas relativas a cada dataset (cantidad de pozos, millones de dólares, producción, etc.), según las siguientes categorías:
+    - Inversión prevista > `anio_presentacion_ddjj, cuenca, empresa, tipo_explotacion`
+    - Inversión realizada > `anio_presentacion_ddjj, cuenca, empresa, tipo_explotacion`
+    - Pozos en perforación > `anio, mes, cuenca, empresa, concepto`
+    - Pozos terminados > `anio, mes, cuenca, empresa, concepto, finalidad`
+    - Producción de gas > `anio, mes, cuenca, empresa, tipo_explotacion`
+    - Producción de petróleo > `anio, mes, cuenca, empresa, tipo_explotacion`
+
+    La variable `finalidad` en pozos terminados es un paso **temporal** para la transformación de la variable original `cantidad` en `cant_pozos_term_petro` y `cant_pozos_term_gas`, y surge tras renombrar la variable `concepto`, que, cabe mencionar, no representa lo mismo en este caso que para pozos en perforación. Algo similar sucede con la variable `tipo_explotacion` en los datasets de producción, que surge de una transformación que requirió de la variable temporal `categoria_flujo`. Más detalle se halla en `scripts\01_etl\limpieza_inv.R` y `scripts\01_etl\limpieza_prod.R`, respectivamente.
+
+3. Consolidar los datasets mediante un `full_join()`, según las siguientes *keys* en común:
+    - Inversión prevista y realizada > `anio_presentacion_ddjj", cuenca, empresa, tipo_explotacion`
+    - Pozos en perforación y terminados > `anio, mes, cuenca, empresa, tipo_actividad`
+    - Producción de gas y petróleo > `anio, mes, cuenca, empresa, tipo_explotacion`
+
+    Ahora bien, al unir dos tablas provenientes de dos datasets distintos, las variables cuantitativas que no están presentes en una de ellas aparecen como `NA`. Por ejemplo, dadas las siguientes tablas:
+
+    | tipo_inmueble | nro_inquilinos | nivel_comodidad |
+    |:---|---:|---:|
+    | casa | 3 | bueno |
+    | hotel | 160 | excelente |
+    
+    | tipo_inmueble | nro_inquilinos | precio_calidad |
+    |:---|---:|---:|
+    | casa | 3 | excelente |
+    | hotel | 160 | regular |
+    | pensión | 24 | bueno |
+    
+    ---
+    
+    Al unir ambas tablas por `tipo_inmueble` y `nro_inquilinos` se llega a:
+
+    | tipo_inmueble | nro_inquilinos | nivel_comodidad |  precio_calidad |
+    |:---|---:|---:|---:|
+    | casa | 3 | bueno | excelente |
+    | hotel | 160 | excelente | regular |
+    | pensión | 24 | `NA` | bueno |
+    
+    Por ello, se decidió reemplazar los valores faltantes (`NA`) con cero (0), considerando que para los análisis posteriores es necesario, en ciertas ocasiones, filtrar por valores mayores a cero para no generar resultados malinterpretados o estadísticamente erróneos —como podría ser el caso si se usaran regresiones—.
+
+Otras operaciones como filtros y transformaciones de formato (de largo a ancho) fueron ejecutadas con el fin de lograr consolidar y, por tanto, reducir el número de insumos *—inputs—* a analizar. Por último, la elección de filtrar las cuencas `GOLFO SAN JORGE` y `NEUQUINA`, posteriormente en cada análisis, es puramente funcional: se busca que los archivos procesados sean útiles a más de un estudio.
+
+
+<h2 id="var-principales">Variables principales</h2>
 
 <details>
     <summary>Selección inicial (<code>raw</code>)</summary><br>
 
-| Nombre | Clase | Detalle | Dataset(s) |
+Corresponde a las variables presentes en los archivos originales descargados de la fuente de datos, antes del proceso de limpieza y estandarización.
+
+| Variable | Clase | Dataset(s) | Descripción |
 |:---|:---:|:---:|:---:|
-| `Fecha Inicio Tareas` | `date` | `yyyy-MM-dd` | inversiones previstas |
-| `Fecha Fin Tareas` | `date` | `yyyy-MM-dd` | inversiones previstas |
-| `indice_tiempo` | `character` | `yyyy-MM` | inversiones anteriores |
-| `anio` | `numeric` | `n/a` | pozos y producción |
-| `mes` | `numeric` | `n/a` | pozos y producción |
-| `Cuenca` | `character` | `n/a` | inversión |
-| `cuenca` | `character` | `n/a` | pozos y producción |
-| `Empresa informante` | `character` | `n/a` | inversión |
-| `empresa` | `character` | `n/a` | pozos y producción |
-| `Tipo de explotación` | `character` | convencional o no convencional | inversión |
-| `concepto` | `character` | finalidad de recurso en flujo energético | producción |
-| `concepto` | `character` | actividad prevista (exploración, explotación, etc.) | pozos en perforación |
-| `concepto` | `character` | recurso al que están destinados | pozos terminados |
-| `tipodepozoterminado` | `character` | actividad prevista (exploración, explotación, etc.) | pozos terminados |
-| `Millones u$s Exploracion` | `numeric` | valores previstos y reales | inversión |
-| `Millones u$s Explotacion` | `numeric` | valores previstos y reales | inversión |
-| `Millones u$s Exp. Complementaria` | `numeric` | valores previstos y reales | inversión |
-| `cantidad` | `numeric` | Mm3 para gas y m3 para petróleo | producción |
-| `cantidad` | `numeric` | unidades | pozos |
+| `Fecha Inicio Tareas` | `date` | inversiones previstas | formato `yyyy-MM-dd` |
+| `Fecha Fin Tareas` | `date` | inversiones previstas | formato `yyyy-MM-dd` |
+| `indice_tiempo` | `character` | inversiones anteriores | formato `yyyy-MM` |
+| `anio` | `numeric` | pozos, producción | año calendario |
+| `mes` | `numeric` | pozos, producción | mes calendario (1–12) |
+| `Cuenca` | `character` | inversión | cuenca hidrocarburífera |
+| `cuenca` | `character` | pozos, producción | cuenca hidrocarburífera |
+| `Empresa informante` | `character` | inversión | empresa operadora |
+| `empresa` | `character` | pozos, producción | empresa operadora |
+| `Tipo de explotación` | `character` | inversión | convencional o no convencional |
+| `concepto` | `character` | producción | finalidad de recurso en flujo energético |
+| `concepto` | `character` | pozos en perforación | actividad prevista (exploración, explotación, etc.) |
+| `concepto` | `character` | pozos terminados | recurso al que están destinados |
+| `tipodepozoterminado` | `character` | pozos terminados | actividad prevista (exploración, explotación, etc.) |
+| `Millones u$s Exploracion` | `numeric` | inversión | montos previstos y reales |
+| `Millones u$s Explotacion` | `numeric` | inversión | montos previstos y reales |
+| `Millones u$s Exp. Complementaria` | `numeric` | inversión | montos previstos y reales |
+| `cantidad` | `numeric` | producción | gas: Mm³; petróleo: m³ |
+| `cantidad` | `numeric` | pozos | unidades |
+
+> **Nota(s):**
+> - Esta instancia considera los siguientes archivos de la carpeta `raw`:
+>   - pozos-en-perforacin.csv
+>   - pozos-terminados.csv
+>   - produccin-de-gas-por-yacimiento.csv
+>   - produccin-de-petrleo-por-yacimiento.csv
+>   - resolucin-2057-inversiones-previstas-ao-actual.csv
+>   - resolucin-2057-inversiones-realizadas-ao-anterior.csv
+> - La descripción de la variable `cantidad`, presente en los datasets de producción, refiere a que la producción de gas se expresa en millones de metros cúbicos (Mm³), mientras que la de petróleo se expresa en metros cúbicos (m³). A su vez, esta variable incluye también unidades no indicativas del volumen de producción, las cuales fueron excluidas durante el proceso de limpieza.
 
 </details>
 
 <details>
     <summary>Selección post-ETL (<code>input</code>)</summary><br>
 
-| Nombre | Clase | Detalle | Dataset(s) |
-|:---|:---:|:---:|:---:|
-| `anio_presentacion_ddjj` | `numeric` | `n/a` | inversión |
-| `anio` | `numeric` | `n/a` | pozos y producción |
-| `mes` | `numeric` | `n/a` | pozos y producción |
-| `cuenca` | `character` | `n/a` | inversión, pozos y producción |
-| `empresa` | `character` | `n/a` | inversión, pozos y producción |
-| `tipo_explotacion` | `character` | convencional o no convencional | inversión y producción |
-| `tipo_actividad` | `character` | exploración o explotación | pozos |
-| `millones_usd_exploracion_prev` | `numeric` | `n/a` | inversión |
-| `millones_usd_exploracion_real` | `numeric` | `n/a` | inversión |
-| `millones_usd_explotacion_prev` | `numeric` | `n/a` | inversión |
-| `millones_usd_explotacion_real` | `numeric` | `n/a` | inversión |
-| `cant_gas_Mm3` | `numeric` | `n/a` | producción |
-| `cant_petro_m3` | `numeric` | `n/a` | producción |
-| `cant_pozos_en_perf` | `numeric` | unidades | pozos |
-| `cant_pozos_term_gas` | `numeric` | unidades | pozos |
-| `cant_pozos_term_petro` | `numeric` | unidades | pozos |
+Corresponde a las variables presentes en los datasets consolidados luego del proceso principal de ETL.
 
-<!-- ? ¿usar `n/a` o `na` o `NA` en tablas de la sección "Variables principales"? -->
-<!-- TODO: agregar total de variables de cada tabla antes o después de ellas -->
-<!-- TODO: agregar criterio usado para diferenciar variables (nombre, tipo y/o naturaleza del dato que describen) -->
-<!-- ? ¿cambiar de lugar columnas "Dataset(s)" y "Detalle" en tablas? -->
-<!-- TODO: cambiar columnas de lugar para probar y decidir -->
-<!-- TODO: agregar cambios/transformaciones posteriores a sección de ETL -->
+| Variable | Clase | Dataset(s) | Descripción |
+|:---|:---:|:---:|:---:|
+| `anio_presentacion_ddjj` | `numeric` | inversión | año calendario |
+| `anio` | `numeric` | pozos, producción | año calendario |
+| `mes` | `numeric` | pozos, producción | mes calendario (1–12) |
+| `cuenca` | `character` | inversión, pozos, producción | cuenca hidrocarburífera |
+| `empresa` | `character` | inversión, pozos, producción | empresa operadora |
+| `tipo_explotacion` | `character` | inversión, producción | convencional o no convencional |
+| `tipo_actividad` | `character` | pozos | exploración o explotación |
+| `millones_usd_exploracion_prev` | `numeric` | inversión | inversión prevista en exploración (millones de USD) |
+| `millones_usd_exploracion_real` | `numeric` | inversión | inversión realizada en exploración (millones de USD) |
+| `millones_usd_explotacion_prev` | `numeric` | inversión | inversión prevista en explotación (millones de USD) |
+| `millones_usd_explotacion_real` | `numeric` | inversión | inversión realizada en explotación (millones de USD) |
+| `cant_gas_Mm3` | `numeric` | producción | producción de gas (Mm³) |
+| `cant_petro_m3` | `numeric` | producción | producción de petróleo (m³) |
+| `cant_pozos_en_perf` | `numeric` | pozos | unidades |
+| `cant_pozos_term_gas` | `numeric` | pozos | unidades |
+| `cant_pozos_term_petro` | `numeric` | pozos | unidades |
+
+> **Nota(s):**
+> - Esta instancia considera los siguientes archivos de la carpeta `input`:
+>   - inv_prev_y_real.csv
+>   - pozos_en_perf_y_term.csv
+>   - prod_gas_y_petro.csv
+> - Se utilizan los sufijos `prev` y `real` para distinguir los montos de inversión previstos de los efectivamente realizados.
+> - Las variables `millones_usd_exploracion_prev` y `millones_usd_exploracion_real` se obtuvieron sumando `Millones u$s Exploración` y `Millones u$s Exp. Complementaria`, para sus montos previstos y reales, respectivamente, dado que esta última corresponde mayoritariamente a actividades de perforación de pozos exploratorios.
 
 </details>
 
@@ -157,24 +227,49 @@ Nivel de producción de las principales empresas en los años previos a 2015. Si
 ## Estructura del repositorio
 
 ```
-proyecto/
-├── raw/                     # Bases originales de (completar)
-├── auxiliar/                # Proyecciones de (completar)
-├── input/                   # Bases procesadas y listas para análisis
-├── output/
-│   ├── tablas/              # Tablas de resultados exportadas
-│   └── graficos/            # Visualizaciones generadas
-├── scripts/                 # Instrucciones (código) con objetivo específico
-│   ├── 01_limpieza.R
-│   ├── 02_exploratorio.R
-│   ├── 03_analisis.R
-│   └── 04_visualizaciones.R
-├── utils/                   # Funciones propias (un script por función)
-│   └── prueba_filtro_empresa.R
-├── instructivo-tp/          # Info sobre lo solicitado para el TP
-│   ├── checklist_entregas.md 
-│   ├── consignas_trabajo_final.md
-│   ├── cronograma_cdd_econ_y_neg_2026_1c.xlsx
-│   └── guia_readme.md
-└── README.md                # Descripción del proyecto y guía del repositorio
+proyecto-cdd-fce-uba-2026-1c/
+├── environment.yml          # snapshot de entorno usado en conda (gestor de paquetes y entornos)
+├── README.md                
+├── environment/             # archivos auxiliares para reproducir el entorno de software del proyecto
+│   └── conda/
+│       └── conda-lock.yml   # lockfile multiplataforma (Windows, MacOs, GNU/Linux)
+├── input/                   # bases procesadas y consolidadas
+├── raw/                     # bases originales publicadas por la Secretaría de Energía
+├── output/                  
+│   ├── graficos/            # visualizaciones generadas   
+│   ├── presentacion/        # entrega final en formato .Rmd y .pdf  
+│   └── tablas/              # tablas de resultados generadas
+├── scripts/
+│   ├── 01_etl/              # proceso de limpieza, transformación y estandarización
+│   ├── 02_eda/              # análisis exploratorio de datos
+│   ├── 03_tests/            # tests de hipótesis y métodos estadísticos
+│   └── 04_veda/             # análisis visual exploratorio de datos   
+└── utils/                   # funciones/snippets reiterativos (boilerplate)
 ```
+
+<!-- TODO: agregar reproducción (H2) con paquetes necesarios (H3) y orden de ejecución (H3) -->
+
+## Reproducción
+
+### Paquetes necesarios
+
+#### Conda
+
+Los paquetes necesarios para la reproducción se hallan en `environment.yml` detro del *root directory*, los mismos están dirigidos a usuarios que prefieren usar `conda` como gestor de paquetes y entornos de desarrollo (*environments*).
+
+Además, se pone a disposición un ***lockfile*** (*snaphot* del entorno con versiones de paquetes y dependencias, *checksums* y multiplataforma) adaptable a usuarios que usen `conda` tanto en Windows, MacOs o Linux; el mismo se halla en `environment\conda\conda-lock.yml`.
+
+#### R y RStudio
+
+Para usuarios nativos de R se pone a disposición `renv.lock` en el *root directory*, y una lista de los paquetes instalados en `environment\paquetes_instalados.csv`.
+
+### Orden de ejecución
+
+1. `scripts\01_etl` > Lee los archivos en `raw` y genera los archivos estandarizados en `input`.
+2. `scripts\02_eda` > Lee los archivos en `input` y obtiene estadísticas descriptivas.
+3. `scripts\03_tests` > Lee los archivos en `input` y realiza tests de hipótesis, más cálculos adicionales.
+4. `scripts\04_veda` > Lee los archivos en `input`, genera gráficos editorializados y los guarda en `output\graficos`.
+
+> **Notas(s):**
+>
+> Cada carpeta dentro de `scripts` contiene tres (3) archivos correspondientes a la temática del o de los datasets: inversión, pozos en perforación y terminados, producción de gas y petróleo.

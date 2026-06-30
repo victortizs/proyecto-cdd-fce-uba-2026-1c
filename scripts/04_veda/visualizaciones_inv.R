@@ -6,31 +6,9 @@ library(ggtext)
 library(scales)
 
 # -------------------------------------------------------------------------
-rojo = "#F54927"
+source(r"(utils\tema_owid.R)")
 celeste = "#27D3F5"
-
-theme_owid <- function(base_size = 13, base_family = "") {
-  theme_minimal(base_size = base_size, base_family = base_family) +
-    theme(
-      plot.title.position   = "plot",
-      plot.caption.position = "plot",
-      plot.title    = element_markdown(face = "bold", size = rel(1.35),
-                                       colour = "#1d1d1d", lineheight = 1.2,
-                                       margin = margin(b = 4)),
-      plot.subtitle = element_markdown(size = rel(1.0), colour = "#5b5b5b",
-                                       margin = margin(b = 16)),
-      plot.caption  = element_markdown(hjust = 0, size = rel(0.72),
-                                       colour = "#8a8a8a", margin = margin(t = 14)),
-      axis.title    = element_blank(),         # OWID casi no usa titulos de eje
-      axis.text     = element_text(colour = "#5b5b5b"),
-      axis.ticks    = element_blank(),
-      panel.grid.major.y = element_line(colour = "#e6e6e6", linewidth = 0.4),
-      panel.grid.major.x = element_blank(),    # solo grilla horizontal
-      panel.grid.minor   = element_blank(),
-      legend.position    = "none",             # usamos etiquetas directas
-      plot.margin = margin(t = 14, r = 110, b = 10, l = 16)  # der.: espacio etiquetas
-    )
-}
+rojo = "#F54927"
 
 # -------------------------------------------------------------------------
 df = read_csv(r"(input\inv_prev_y_real.csv)")
@@ -64,7 +42,7 @@ subtitulo = "Las observaciones parten de DDJJ registradas entre 2013–2025 con 
 colores <- c("Convencional" = rojo, "No Convencional" = celeste)
 
 # -------------------------------------------------------------------------
-ggplot(
+boxplots_inv_explot = ggplot(
     df_plot,
     aes(
         x = tipo_explotacion,
@@ -96,7 +74,7 @@ ggplot(
         ),
         size = 3,
         color = "#6e6e6e",
-        vjust = 30.0,
+        vjust = 27,
         inherit.aes = FALSE
     ) +
     facet_wrap(~ cuenca) +
@@ -153,3 +131,13 @@ boxplot.stats(
 )$stats
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------
+# guardar gráfico en output
+ggsave(
+    filename = "output/graficos/boxplots_inv_explot.png",
+    plot = boxplots_inv_explot,
+    width = 10,
+    height = 6,
+    units = "in",
+    dpi = 600,
+    bg = "white"
+)

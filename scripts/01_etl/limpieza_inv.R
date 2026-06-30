@@ -155,11 +155,11 @@ dim(filter(temp_2, coincide_anio_ddjj_con_indice_tiempo == "sí"))[1] # check do
 # 3. No es necesario
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------
-# dado que "Millones u$s Exp. Complementaria" refiere principalmente a perforación de
-# pozos exploratorios, se agrupará con "Millones u$s Exploración en una sola variable"
+# dado que "Millones u$s Exp. Complementaria" refiere principalmente a la perforación de
+# pozos exploratorios, se agrupará con "Millones u$s Exploración" en una sola variable
 cols = c("Millones u$s Exploracion", "Millones u$s Exp. Complementaria")
 
-# filtro inversiones previstas
+# filtro de inversiones previstas
 filtro_inv_prev = inv_prev_anio_actual |>
   select(-"Fecha Inicio Tareas", -"Fecha Fin Tareas") |>
   mutate(
@@ -185,7 +185,7 @@ glimpse(filtro_inv_prev)
 dim(filter(filtro_inv_prev, millones_usd_exploracion_prev == 0 & millones_usd_explotacion_prev == 0))[1]
 dim(filter(filtro_inv_prev, millones_usd_exploracion_prev > 0 | millones_usd_explotacion_prev > 0))[1]
 
-# filtro inversiones reales/anteriores
+# filtro de inversiones realizadas
 filtro_inv_real = inv_anios_ant |>
   select(-"indice_tiempo") |>
   mutate(
