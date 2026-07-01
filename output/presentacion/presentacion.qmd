@@ -1,6 +1,6 @@
 ---
 title: "Producción de Hidrocarburos en Argentina"
-subtitle: "Trabajo Final"
+subtitle: "Entrega Final"
 author:
   - Ariana P. Tello Senmache
   - Carolina A. Rios Otoya
@@ -34,7 +34,7 @@ format:
 
 Nos propusimos investigar las tendencias de exploración, explotación e inversión en las principales cuencas hidrocarburíferas del país,
 con el objeto de identificar el momento en que ocurre el cambio y qué datos lo respaldan. ¿Representan
-un quiebre en la matriz productiva del sector?, de ser así, ¿a qué velocidad está ocurriendo?
+un quiebre en la matriz productiva del sector? De ser así, ¿a qué velocidad están ocurriendo?
 
 Para ello, centralizamos nuestro análisis en datos disponibles para las cuencas Golfo San Jorge y Neuquina; publicados por la Subsecretaría de
 Hidrocarburos, de la Secretaría de Energía.
@@ -58,14 +58,14 @@ Hidrocarburos, de la Secretaría de Energía.
 - Secretaría de Energía
 - frecuencia mensual
 - 2009–2025
-   
-> Nota:
->
-> - Los datos complementarios de inversión comienzan a partir de 2013 y su frecuencia es anual.
+
+\smallskip
+
+\footnotesize \textit{Nota: Los datos complementarios de inversión comienzan a partir de 2013 y su frecuencia es anual.}
 
 ## Metodología
 - índices base 2016 = 100 (promedio mensual de 2016);
-- descomposición STL (Seasonal and Trend decomposition using Loess);
+- descomposición STL *(Seasonal and Trend decomposition using Loess);*
 - pruebas t de Welch.
 
 # Hipótesis
@@ -93,7 +93,7 @@ Gas:
 
 | Comparación | Resultado |
 |:---|:---:|
-| 2009 vs 2017 | ∄ diferencia significativa |
+| 2009 vs 2017 | no hay diferencia significativa |
 | 2017 vs 2025 | diferencia significativa |
 
 Petróleo:
@@ -126,7 +126,7 @@ Petróleo:
 
 ## Hipótesis Complementarias
 
-2.1. Cambios en la composición de la inversión de la cuenca NEU.
+2.1. Cambios en la composición de la **inversión** en la cuenca NEU (%).
 
 | Año | Share explotación no convencional |
 |:---|:---:|
@@ -142,7 +142,7 @@ Petróleo:
 
 ## Hipótesis Complementarias
 
-2.2. Cambios en la composición de la producción de la cuenca NEU.
+2.2. Cambios en la composición de la **producción** en la cuenca NEU (%).
 
 | Año | Share gas no convencional | Share petróleo no convencional |
 |:---|:---:|:---:|
@@ -158,24 +158,26 @@ Petróleo:
 
 # Conclusiones principales
 
-- La inversión se concentró crecientemente en la explotación no convencional, cuya participación se aproximó al 50 % en 2025, consolidándose como el principal motor del sector.
+- La inversión se concentró crecientemente en la explotación no convencional, cuya participación se aproximó al 50% en 2025, presentándose como el futuro del sector.
+
 - YPF lideró esta transición, impulsando el desarrollo de proyectos no convencionales en la Cuenca Neuquina a partir de 2014.
+
 - La actividad exploratoria mostró una divergencia entre cuencas: mientras la Neuquina incrementó la perforación y terminación de pozos, la Golfo San Jorge evidenció una pérdida de dinamismo.
+
 - El aumento de la inversión no se tradujo en una mayor producción de forma inmediata; la Cuenca Neuquina registró un crecimiento gradual con un punto de inflexión hacia 2016–2017, que se consolidó en los años siguientes.
 
-# Otras líneas de invertigación
+# Otras líneas de investigación
 
-Algunos de los métodos estadísticos que pueden complementar el análisis y/o profundizar otras líneas de investigación
-son:
+Algunos métodos estadísticos que pueden complementar y/o profundizar el análisis son:
 
-- HHI: medir la concentración de la inversión en ambas cuencas (si está diversificada en más o menos empresas).
+- HHI: mide la concentración de la inversión en ambas cuencas (si está diversificada en más o menos empresas).
 Esto complementaría la hipótesis principal al evaluar quién o quiénes (y cuántos actores) empujan el crecimento
 de la inversión en la cuenca Neuquina; o, análogamente, si la cantidad de empresas operando en la cuenca GSJ disminuyó.
 
-- GINI: relacionado al punto anterior, amplía el conocimiento sobre quiénes concentran la inversión en ambas cuencas
-y su preponderancia e influencia sobre ellas. En especial, en comparación al resto de empresas.
+- GINI: relacionado al ítem anterior, amplía el conocimiento sobre quiénes concentran la inversión en ambas cuencas
+y su preponderancia e influencia sobre ellas, en especial, en comparación al resto de empresas.
 
 - Chi-cuadrado: en este trabajo decidimos abordar la relación entre el tipo de explotación (convencional o no convencional)
-predominante, y el nivel de producción e inversión en las empresas, de manera descriptiva (composición) dada la dificultad que
+y el nivel de producción e inversión de las empresas de manera descriptiva (composición), dada la dificultad que
 plantea la necesidad de conteos y variables categóricas. Sin embargo, no descartamos su posibilidad ni su potencial
-contribución para evaluar la dependencia de las variables económicas.
+para contribuir a evaluar la independencia de las variables económicas.
