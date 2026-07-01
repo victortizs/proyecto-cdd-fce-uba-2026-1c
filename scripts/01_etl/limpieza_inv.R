@@ -30,6 +30,7 @@ glimpse(inv_prev_anio_actual)
 # necesito saber si puedo usar el año de presentación de la ddjj para reemplazar esos valores
 # entonces, chequeo que el año de 'Fecha Inicio Tareas' coincida con el de ddjj en aquellas filas cuyo año en 'Fecha Inicio Tareas'
 # sea distinto a 1900 para saber si es un buen proxy y no estoy reemplazando con algo que no suele cumplirse
+
 temp_1 = inv_prev_anio_actual |>
     select("Año de presentación de la DDJJ", "Fecha Inicio Tareas") |>
     rename(
@@ -155,11 +156,12 @@ dim(filter(temp_2, coincide_anio_ddjj_con_indice_tiempo == "sí"))[1] # check do
 # 3. No es necesario
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------
-# dado que "Millones u$s Exp. Complementaria" refiere principalmente a perforación de
-# pozos exploratorios, se agrupará con "Millones u$s Exploración en una sola variable"
+# dado que "Millones u$s Exp. Complementaria" refiere principalmente a la perforación de
+# pozos exploratorios, se agrupará con "Millones u$s Exploración" en una sola variable
+
 cols = c("Millones u$s Exploracion", "Millones u$s Exp. Complementaria")
 
-# filtro inversiones previstas
+# filtro de inversiones previstas
 filtro_inv_prev = inv_prev_anio_actual |>
   select(-"Fecha Inicio Tareas", -"Fecha Fin Tareas") |>
   mutate(
@@ -185,7 +187,7 @@ glimpse(filtro_inv_prev)
 dim(filter(filtro_inv_prev, millones_usd_exploracion_prev == 0 & millones_usd_explotacion_prev == 0))[1]
 dim(filter(filtro_inv_prev, millones_usd_exploracion_prev > 0 | millones_usd_explotacion_prev > 0))[1]
 
-# filtro inversiones reales/anteriores
+# filtro de inversiones realizadas
 filtro_inv_real = inv_anios_ant |>
   select(-"indice_tiempo") |>
   mutate(
@@ -241,12 +243,3 @@ write.csv(
   row.names = FALSE,
   fileEncoding = "UTF-8"
 )
-
-# ------------------------------------------------------------------------------------------------------------------------------------------------------------
-# dudas:
-# 1. ¿deberíamos omitir las variables de inversión prevista y quedarnos solo con las reales (realizadas en año anterior)?
-# ¿o vale la pena investigar un posible desvío y tendencias a sobreestimar o subestimar, a nivel cuenca o empresa?
-# 2. ¿hacer un detalle en base a los comentarios de los datasets raw para separar exactamente los valores de exploración 
-# y explotación, más allá del nombre de las variables, es posible y/o necesario? ¿y si hay filas sin comentarios/observaciones?
-# 
-# ------------------------------------------------------------------------------------------------------------------------------------------------------------
