@@ -2,63 +2,111 @@ library(readr)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
+library(ggrepel)
 library(ggtext)
 library(scales)
 
 # -------------------------------------------------------------------------
-rojo = "#F54927"
-celeste = "#27D3F5"
+# ejecuto las fuentes y los helpers necesarios
+source(r"(scripts\03_tests\analisis_pozos.R)") # llamo a los índices para graficar
+source(r"(utils\tema_owid.R)") # contiene función para editorializar gráficos símil a Our World in Data
+source(r"(utils\graficar_indices.R)") # contiene función para graficar índices (usa la función contenida en tema_owid.R)
 
-theme_owid <- function(base_size = 13, base_family = "") {
-  theme_minimal(base_size = base_size, base_family = base_family) +
-    theme(
-      plot.title.position   = "plot",
-      plot.caption.position = "plot",
-      plot.title    = element_markdown(face = "bold", size = rel(1.35),
-                                       colour = "#1d1d1d", lineheight = 1.2,
-                                       margin = margin(b = 4)),
-      plot.subtitle = element_markdown(size = rel(1.0), colour = "#5b5b5b",
-                                       margin = margin(b = 16)),
-      plot.caption  = element_markdown(hjust = 0, size = rel(0.72),
-                                       colour = "#8a8a8a", margin = margin(t = 14)),
-      axis.title    = element_blank(),         # OWID casi no usa titulos de eje
-      axis.text     = element_text(colour = "#5b5b5b"),
-      axis.ticks    = element_blank(),
-      panel.grid.major.y = element_line(colour = "#e6e6e6", linewidth = 0.4),
-      panel.grid.major.x = element_blank(),    # solo grilla horizontal
-      panel.grid.minor   = element_blank(),
-      legend.position    = "none",             # usamos etiquetas directas
-      plot.margin = margin(t = 14, r = 110, b = 10, l = 16)  # der.: espacio etiquetas
-    )
-}
+# la función para graficar los índices tiene la siguiente estructura:
+# graficar_indices <- function(df, tipo, cuenca, colores)
+# el argumento "df" hace referencia a una tabla con las siguientes cuatro columnas:
+# fecha, original, desestacionalizada, tendencia
+# el argumento "tipo" refiere al tipo de pozos: en perforación o terminados
+# y es útil solo para el título del gráfico, al igual que el argumento "cuenca"
+# por último, el argumento "colores" es un vector (paleta de colores) definido
+# por el usuario
+
+mis_colores <- c(
+  "Serie original"           = "#B5B5B5",
+  "Desestacionalizada (STL)" = "#406BC7",
+  "Tendencia"                = "#222222"
+)
 
 # -------------------------------------------------------------------------
-df = read_csv(r"(input\pozos_term_y_en_perf.csv)")
+# generación y exportación de gráficos
+# (uno por tipo de pozo y cuenca relevante)
 
-df_long <- pozos_term_y_en_perf |>
-  filter(concepto == "Explotación") |> # mezclar con | concepto == "Exploración" o cambiar filtro
-  pivot_longer(cols = c(cant_pozos_term_gas, cant_pozos_term_petroleo, cant_pozos_en_perf), names_to = "series", values_to = "value") |>
-  filter(series == "cant_pozos_term_petroleo" & cuenca == "GOLFO SAN JORGE") |> # cambiar filtro con cant_pozos_term_gas o cant_pozos_en_perf y otras cuencas
-  filter(anio == 2016) |>
-  group_by(anio, mes, cuenca, concepto, series) |>
-  summarise(value = sum(value)) |>
-  mutate(date = make_date(year = anio, month = mes, day = 1))
-
-head(df_long, 10)
-
-ggplot(df_long, aes(x = date, y = value, color = series)) +
-  geom_line(size = 1) +
-  labs(x = "Date", y = "Value", color = "Series") +
-  theme_minimal()
-
+g_perf_gsj = graficar_indices(
+  ind_pozos_en_perf_gsj,
+  "en perforación",
+  "Golfo San Jorge",
+  mis_colores
+) |>
+  ggsave(
+    filename = "output/graficos/ind_pozos_en_perf_gsj.png",
+    width = 10,
+    height = 6,
+    units = "in",
+    dpi = 600,
+    bg = "white"
+  )
 
 
-# ggplot(df_long, aes(x = date, y = value, color = series)) +
-  # geom_line(size = 0.9) +
-  # add a horizontal mean line per series (use linetype to distinguish)
-  # geom_hline(data = hlines, aes(yintercept = y, color = series), linetype = "dashed", size = 0.6, show.legend = FALSE) +
-  # geom_hline(yintercept = 0, color = "black", linetype = "solid", size = 0.4) +
-  # scale_x_date(date_labels = "%Y-%m", date_breaks = "6 months") +
-  # labs(x = "Month", y = "Count", color = "Series", title = "Time series of pozos (monthly)") +
-  # theme_minimal() +
-  # theme(axis.text.x = element_text(angle = 45, hjust = 1))
+g_term_gsj = graficar_indices(
+  ind_pozos_term_gsj,
+  "terminados",
+  "Golfo San Jorge",
+  mis_colores
+) |>
+  ggsave(
+    filename = "output/graficos/ind_pozos_term_gsj.png",
+    width = 10,
+    height = 6,
+    units = "in",
+    dpi = 600,
+    bg = "white"
+  )
+
+g_perf_neu = graficar_indices(
+  ind_pozos_en_perf_neu,
+  "en perforación",
+  "Neuquina",
+  mis_colores
+) |>
+  ggsave(
+    filename = "output/graficos/ind_pozos_en_perf_neu.png",
+    width = 10,
+    height = 6,
+    units = "in",
+    dpi = 600,
+    bg = "white"
+  )
+
+g_term_neu = graficar_indices(
+  ind_pozos_term_neu,
+  "terminados",
+  "Neuquina",
+  mis_colores
+) |>
+  ggsave(
+    filename = "output/graficos/ind_pozos_term_neu.png",
+    width = 10,
+    height = 6,
+    units = "in",
+    dpi = 600,
+    bg = "white"
+  )
+
+# -------------------------------------------------------------------------
+# # forma manual básica
+# ind_pozos_en_perf_gsj |>
+#   pivot_longer(
+#     -fecha,
+#     names_to = "serie",
+#     values_to = "indice"
+#   ) |>
+#   ggplot(aes(fecha, indice, color = serie)) +
+#   geom_line(linewidth = 0.7) +
+#   labs(
+#     title = "Índice de pozos en perforación",
+#     x = NULL,
+#     y = "Base = 100",
+#     color = NULL
+#   ) +
+#   theme_minimal() +
+#   tema_owid()
