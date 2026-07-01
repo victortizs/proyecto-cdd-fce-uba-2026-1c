@@ -166,10 +166,9 @@ Petróleo:
 
 - El aumento de la inversión no se tradujo en una mayor producción de forma inmediata; la Cuenca Neuquina registró un crecimiento gradual con un punto de inflexión hacia 2016–2017, que se consolidó en los años siguientes.
 
-# Otras líneas de invertigación
+# Otras líneas de investigación
 
-Algunos de los métodos estadísticos que pueden complementar el análisis y/o profundizar otras líneas de investigación
-son:
+Algunos métodos estadísticos que pueden complementar y/o profundizar el análisis son:
 
 - HHI: mide la concentración de la inversión en ambas cuencas (si está diversificada en más o menos empresas).
 Esto complementaría la hipótesis principal al evaluar quién o quiénes (y cuántos actores) empujan el crecimento
