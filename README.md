@@ -142,7 +142,7 @@ La siguiente [sección](#var-principales) proporciona un panorama más completo 
     
     Por ello, se decidió reemplazar los valores faltantes (`NA`) con cero (0), considerando que para los análisis posteriores es necesario, en ciertas ocasiones, filtrar por valores mayores a cero para no generar resultados malinterpretados o estadísticamente erróneos —como podría ser el caso si se usaran regresiones—.
 
-Otras operaciones como filtros y transformaciones de formato (de largo a ancho) fueron ejecutadas con el fin de lograr consolidar y, por tanto, reducir el número de insumos *—inputs—* a analizar. Por último, la elección de filtrar las cuencas `GOLFO SAN JORGE` y `NEUQUINA`, posteriormente en cada análisis, es puramente funcional: se busca que los archivos procesados sean útiles a más de un estudio.
+Otras operaciones como filtros y transformaciones de formato (de largo a ancho) fueron ejecutadas con el fin de lograr consolidar y, por tanto, reducir el número de insumos *—inputs—* a analizar. Por último, la elección de filtrar las cuencas `GOLFO SAN JORGE` y `NEUQUINA` posteriormente en cada análisis es puramente funcional: se busca que los archivos procesados sean útiles a más de un estudio.
 
 
 <h2 id="var-principales">Variables principales</h2>
@@ -237,8 +237,7 @@ proyecto-cdd-fce-uba-2026-1c/
 ├── raw/                     # bases originales publicadas por la Secretaría de Energía
 ├── output/                  
 │   ├── graficos/            # visualizaciones generadas   
-│   ├── presentacion/        # entrega final en formato .Rmd y .pdf  
-│   └── tablas/              # tablas de resultados generadas
+│   └── presentacion/        # entrega final en formato .pdf
 ├── scripts/
 │   ├── 01_etl/              # proceso de limpieza, transformación y estandarización
 │   ├── 02_eda/              # análisis exploratorio de datos
@@ -246,8 +245,6 @@ proyecto-cdd-fce-uba-2026-1c/
 │   └── 04_veda/             # análisis visual exploratorio de datos   
 └── utils/                   # funciones/snippets reiterativos (boilerplate)
 ```
-
-<!-- TODO: agregar reproducción (H2) con paquetes necesarios (H3) y orden de ejecución (H3) -->
 
 ## Reproducción
 
@@ -257,11 +254,7 @@ proyecto-cdd-fce-uba-2026-1c/
 
 Los paquetes necesarios para la reproducción se hallan en `environment.yml` detro del *root directory*, los mismos están dirigidos a usuarios que prefieren usar `conda` como gestor de paquetes y entornos de desarrollo (*environments*).
 
-Además, se pone a disposición un ***lockfile*** (*snaphot* del entorno con versiones de paquetes y dependencias, *checksums* y multiplataforma) adaptable a usuarios que usen `conda` tanto en Windows, MacOs o Linux; el mismo se halla en `environment\conda\conda-lock.yml`.
-
-#### R y RStudio
-
-Para usuarios nativos de R se pone a disposición `renv.lock` en el *root directory*, y una lista de los paquetes instalados en `environment\paquetes_instalados.csv`.
+Además, se pone a disposición un ***lockfile*** (*snaphot* del entorno con versiones de paquetes y dependencias, *checksums* y multiplataforma) adaptable a usuarios que usen `conda` tanto en Windows, Linux o MacOs; el mismo se halla en `environment\conda\conda-lock.yml`.
 
 ### Orden de ejecución
 
@@ -272,4 +265,28 @@ Para usuarios nativos de R se pone a disposición `renv.lock` en el *root direct
 
 > **Notas(s):**
 >
-> Cada carpeta dentro de `scripts` contiene tres (3) archivos correspondientes a la temática del o de los datasets: inversión, pozos en perforación y terminados, producción de gas y petróleo.
+> Cada carpeta dentro de `scripts` contiene tres (3) archivos correspondientes a la temática del o de los datasets: inversión, pozos en perforación y terminados, producción de gas y petróleo. Sin embargo, para la exploración analítica de los datos y sus distribuciones (más outliers), se priorizó la inversión.
+
+## Conclusiones principales
+
+A través de los datos observados y la exploración de las variables, notamos que en el caso de las inversiones,
+cuyo registro —del que se dispone en este trabajo— comienza en 2013, no hubo un desvío sino una profundización
+en el caudal de fondos destinados hacia la explotación no convencional en el caso de las principales empresas.
+Dicho de otra forma, la composición o predominancia del tipo no convencional alcanzó niveles cercanos al 50%
+en 2025 y si la tendencia continúa, como otras variables dependientes de la inversión parecen indicar, pronto
+este tipo de explotación será el principal motor del sector hidrocarburífero.
+
+Focalizando en los jugadores del sector, analizamos puntualmente el comportamiento de las siete principales
+empresas productoras de petróleo sumando ambas cuencas. Quien lideró transición fue YPF, casi de inmediato a la
+puesta en marcha de los proyectos de inversión y *rig contracts* (contratos entre el dueño de un yacimiento —el Estado
+representado en YPF en este caso— y compañías perforadoras) ejecutados en 2014 con empresas como Chevron.
+
+Los índices recabados sobre los pozos en perforación hablan claramente de un fenónemo que llegó para quedarse,
+en desmedro de la actividad económica y reducción flujo operativo (exploración, servicio, mantenimiento, almacenamiento)
+en la cuenca Golfo San Jorge. A su vez, estos índices pueden tomarse como proxy o indicador futuro de los pozos terminados
+"mañana" (uno sucede al otro), acentuando esta tendencia.
+
+Yendo al apartado productivo es de notar que si bien la inversión en la cuenca Neuquina siempre fue a mayor a la
+del Golfo San Jorge desde que comenzó su registro, esto no se trasladó a los niveles de producción de inmediato,
+sino que hubo un crecimiento gradual en la cuenca Neuquina que en 2016—2017 marcó un quiebre que se confirmó en
+los años venideros.

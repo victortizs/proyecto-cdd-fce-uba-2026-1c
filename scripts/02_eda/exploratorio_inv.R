@@ -451,7 +451,7 @@ print.data.frame(outliers_neu_explot_no_conv)
 # eliminarlos sería obviar datos reales y relacionados con eventos importantes
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------
-# sintaxis alternativa:
+# # sintaxis alternativa
 # millones_usd_exploracion_real_vec = df |>
 #     filter(cuenca %in% cuencas_relevantes & millones_usd_exploracion_real > 0) |>
 #     pull(millones_usd_exploracion_real)

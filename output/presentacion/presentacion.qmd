@@ -1,0 +1,198 @@
+---
+title: "Producción de Hidrocarburos en Argentina"
+subtitle: "Trabajo Final"
+author:
+  - Ariana P. Tello Senmache
+  - Carolina A. Rios Otoya
+  - Victor A. Ortiz Solis
+date: 2026-06-30
+format:
+  beamer:
+    theme: Madrid
+    colortheme: dolphin
+    aspectratio: 169
+    toc: false
+    include-in-header:
+      - text: |
+          \setbeamertemplate{footline}{
+            \leavevmode%
+            \hbox{%
+            \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+              \usebeamerfont{author in head/foot}Grupo 08
+            \end{beamercolorbox}%
+            \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+              \usebeamerfont{title in head/foot}Ciencia de Datos — FCE UBA
+            \end{beamercolorbox}%
+            \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+              \usebeamerfont{date in head/foot}Primer Cuatrimestre 2026\hspace*{2em}
+              \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+            \end{beamercolorbox}}%
+            \vbox{}%
+          }
+---
+# Contexto y motivación
+
+Nos propusimos investigar las tendencias de exploración, explotación e inversión en las principales cuencas hidrocarburíferas del país,
+con el objeto de identificar el momento en que ocurre el cambio y qué datos lo respaldan. ¿Representan
+un quiebre en la matriz productiva del sector?, de ser así, ¿a qué velocidad está ocurriendo?
+
+Para ello, centralizamos nuestro análisis en datos disponibles para las cuencas Golfo San Jorge y Neuquina; publicados por la Subsecretaría de
+Hidrocarburos, de la Secretaría de Energía.
+
+<img src="/output/presentacion/img/cuencas_mapa.jpg" width="200" height="100">
+
+# Objetivos
+
+## Objetivo general
+- Determinar si hubo un cambio en la composición de la inversión y explotación.
+
+## Objetivos específicos
+- estudiar la inversión;
+- analizar la actividad exploratoria;
+- comparar la evolución productiva;
+- evaluar evidencia estadística.
+
+# Datos y metodología
+
+## Datos
+- Secretaría de Energía
+- frecuencia mensual
+- 2009–2025
+   
+> Nota:
+>
+> - Los datos complementarios de inversión comienzan a partir de 2013 y su frecuencia es anual.
+
+## Metodología
+- índices base 2016 = 100 (promedio mensual de 2016);
+- descomposición STL (Seasonal and Trend decomposition using Loess);
+- pruebas t de Welch.
+
+# Hipótesis
+
+## Principal
+A partir de 2017, la reasignación de inversiones hacia la cuenca Neuquina por parte
+de las principales empresas del sector hidrocarburífero se asocia con una tendencia
+descendente en la producción de la cuenca del Golfo San Jorge y con un crecimiento
+diferencial en la producción de la cuenca Neuquina.
+
+## Complementarias
+1. El desvío de inversiones puede reflejarse en una mayor concentración de la inversión
+empresarial y en cambios en la composición de la producción y de la inversión en la
+cuenca Neuquina a lo largo del tiempo.
+2. Los cambios en las tendencias de producción de las cuencas y empresas hidrocarburíferas
+se relacionan con el tipo de explotación predominante hacia el cual se orientan las inversiones,
+convencional o no convencional.
+
+# Resultados estadísticos
+
+## Hipótesis principal
+Comparar los niveles de producción en la cuenca GSJ en distintos momentos (alfa = 5%).
+
+Gas:
+
+| Comparación | Resultado |
+|:---|:---:|
+| 2009 vs 2017 | ∄ diferencia significativa |
+| 2017 vs 2025 | diferencia significativa |
+
+Petróleo:
+
+| Comparación | Resultado |
+|:---|:---:|
+| 2009 vs 2017 | diferencia significativa |
+| 2017 vs 2025 | diferencia significativa |
+
+# Resultados estadísticos
+
+## Hipótesis Complementarias
+
+1. Comparar los niveles de producción de las cuenca GSJ y NEU en 2025 (alfa = 5%).
+
+Gas:
+
+| Comparación | Resultado |
+|:---|:---:|
+| GSJ vs NEU | diferencia significativa |
+
+
+Petróleo:
+
+| Comparación | Resultado |
+|:---|:---:|
+| GSJ vs NEU | diferencia significativa |
+
+# Resultados estadísticos
+
+## Hipótesis Complementarias
+
+2.1. Cambios en la composición de la inversión de la cuenca NEU.
+
+| Año | Share explotación no convencional |
+|:---|:---:|
+| 2013 | 29.4 |
+| 2015 | 52.2 |
+| 2017 | 70.4 |
+| 2019 | 85.4 |
+| 2021 | 90.4 |
+| 2023 | 83.8 |
+| 2025 | 89.2 |
+
+# Resultados estadísticos
+
+## Hipótesis Complementarias
+
+2.2. Cambios en la composición de la producción de la cuenca NEU.
+
+| Año | Share gas no convencional | Share petróleo no convencional |
+|:---|:---:|:---:|
+| 2009 | 0 | 0 |  
+| 2011 | 0 | 0 |  
+| 2013 | 0 | 0 |  
+| 2015 | 0 | 0 |  
+| 2017 | 0.01 | 0.2 |
+| 2019 | 39.5 | 32.0 |
+| 2021 | 41.3 | 40.4 |
+| 2023 | 44.8 | 44.7 |
+| 2025 | 46.4 | 48.1 |
+
+# Conclusiones principales
+
+A través de los datos observados y la exploración de las variables, notamos que en el caso de las inversiones,
+cuyo registro —del que se dispone en este trabajo— comienza en 2013, no hubo un desvío sino una profundización
+en el caudal de fondos destinados hacia la explotación no convencional en el caso de las principales empresas.
+Dicho de otra forma, la composición o predominancia del tipo no convencional alcanzó niveles cercanos al 50%
+en 2025 y si la tendencia continúa, como otras variables dependientes de la inversión parecen indicar, pronto
+este tipo de explotación será el principal motor del sector hidrocarburífero.
+
+Focalizando en los jugadores del sector, analizamos puntualmente el comportamiento de las siete principales
+empresas productoras de petróleo sumando ambas cuencas. Quien lideró transición fue YPF, casi de inmediato a la
+puesta en marcha de los proyectos de inversión y *rig contracts* (contratos entre el dueño de un yacimiento —el Estado
+representado en YPF en este caso— y compañías perforadoras) ejecutados en 2014 con empresas como Chevron.
+
+Los índices recabados sobre los pozos en perforación hablan claramente de un fenónemo que llegó para quedarse,
+en desmedro de la actividad económica y reducción flujo operativo (exploración, servicio, mantenimiento, almacenamiento)
+en la cuenca Golfo San Jorge. A su vez, estos índices pueden tomarse como proxy o indicador futuro de los pozos terminados
+"mañana" (uno sucede al otro), acentuando esta tendencia.
+
+Yendo al apartado productivo es de notar que si bien la inversión en la cuenca Neuquina siempre fue a mayor a la
+del Golfo San Jorge desde que comenzó su registro, esto no se trasladó a los niveles de producción de inmediato,
+sino que hubo un crecimiento gradual en la cuenca Neuquina que en 2016—2017 marcó un quiebre que se confirmó en
+los años venideros.
+
+# Otras líneas de invertigación
+
+Algunos de los métodos estadísticos que pueden complementar el análisis y/o profundizar otras líneas de investigación
+son:
+
+- HHI: medir la concentración de la inversión en ambas cuencas (si está diversificada en más o menos empresas).
+Esto complementaría la hipótesis principal al evaluar quién o quiénes (y cuántos actores) empujan el crecimento
+de la inversión en la cuenca Neuquina; o, análogamente, si la cantidad de empresas operando en la cuenca GSJ disminuyó.
+
+- GINI: relacionado al punto anterior, amplía el conocimiento sobre quiénes concentran la inversión en ambas cuencas
+y su preponderancia e influencia sobre ellas. En especial, en comparación al resto de empresas.
+
+- Chi-cuadrado: en este trabajo decidimos abordar la relación entre el tipo de explotación (convencional o no convencional)
+predominante, y el nivel de producción e inversión en las empresas, de manera descriptiva (composición) dada la dificultad que
+plantea la necesidad de conteos y variables categóricas. Sin embargo, no descartamos su posibilidad ni su potencial
+contribución para evaluar la dependencia de las variables económicas con el tipo de explotación que predomina en una cuenca.

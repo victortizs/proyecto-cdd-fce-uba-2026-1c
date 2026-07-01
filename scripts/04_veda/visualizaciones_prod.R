@@ -6,7 +6,9 @@ library(ggtext)
 library(scales)
 
 # -------------------------------------------------------------------------
-source(r"(utils\tema_owid.R)")
+# ejecuto las fuentes y los helpers necesarios
+source(r"(utils\tema_owid.R)") # contiene función para editorializar gráficos símil a Our World in Data
+
 celeste = "#27D3F5"
 rojo = "#F54927"
 
@@ -168,7 +170,7 @@ share_no_conv_petro_empresa = ggplot(
         "**Fuente:** Secretaría de Energía. Subsecretaría de Hidrocarburos"
         )
     ) +
-    theme_owid()
+    tema_owid()
 
 # -------------------------------------------------------------------------
 # guardar gráfico en output
