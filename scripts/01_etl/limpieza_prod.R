@@ -11,7 +11,8 @@ unique(df_1$concepto)
 # selección de variables relevantes, acotación de período y transformación inicial
 prod_gas_yacim = df_1 |>
     select(anio, mes, empresa, cuenca, concepto, cantidad) |>
-    filter(anio < 2026 & concepto != "Equivalente calórico del gas (Kcal/m3)") |> # exclusión de indicador del contenido de energía, no indica volumen de producción y su unidad de medida es distinta
+    filter(anio < 2026 & concepto != "Equivalente calórico del gas (Kcal/m3)") |> # exclusión de indicador del contenido de energía,
+    # no indica volumen de producción y su unidad de medida es distinta
     mutate(
         categoria_flujo = case_when(
             concepto %in% c(
@@ -72,7 +73,8 @@ unique(df_2$concepto)
 # selección de variables relevantes, acotación de período y transformación inicial
 prod_petro_yacim = df_2 |>
     select(anio, mes, empresa, cuenca, concepto, cantidad) |>
-    filter(anio < 2026 & concepto != "Densidad Media (Ton/m3)") |> # exclusión de indicador físico, no indica volumen de producción y su unidad de medida es distinta
+    filter(anio < 2026 & concepto != "Densidad Media (Ton/m3)") |> # exclusión de indicador físico,
+    # no indica volumen de producción y su unidad de medida es distinta
     mutate(
         categoria_flujo = case_when(
             concepto %in% c(

@@ -89,10 +89,3 @@ write.csv(
   row.names = FALSE,
   fileEncoding = "UTF-8"
 )
-
-# ------------------------------------------------------------------------------------------------------------------------------------------------------------
-# dudas:
-# 1. ¿deberíamos omitir la variable 'pozos_en_perf', ya que no especifica si son de gas o petróleo?
-# ¿o vale la pena considerarla como proxy de la producción y/o inversión? ¿tiene otro fin posible?
-# 
-# ------------------------------------------------------------------------------------------------------------------------------------------------------------

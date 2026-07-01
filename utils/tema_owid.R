@@ -1,4 +1,4 @@
-theme_owid <- function(base_size = 13, base_family = "") {
+tema_owid <- function(base_size = 13, base_family = "") {
   theme_minimal(base_size = base_size, base_family = base_family) +
     theme(
       plot.title.position   = "plot",
