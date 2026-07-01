@@ -158,27 +158,10 @@ Petróleo:
 
 # Conclusiones principales
 
-A través de los datos observados y la exploración de las variables, notamos que en el caso de las inversiones,
-cuyo registro —del que se dispone en este trabajo— comienza en 2013, no hubo un desvío sino una profundización
-en el caudal de fondos destinados hacia la explotación no convencional en el caso de las principales empresas.
-Dicho de otra forma, la composición o predominancia del tipo no convencional alcanzó niveles cercanos al 50%
-en 2025 y si la tendencia continúa, como otras variables dependientes de la inversión parecen indicar, pronto
-este tipo de explotación será el principal motor del sector hidrocarburífero.
-
-Focalizando en los jugadores del sector, analizamos puntualmente el comportamiento de las siete principales
-empresas productoras de petróleo sumando ambas cuencas. Quien lideró transición fue YPF, casi de inmediato a la
-puesta en marcha de los proyectos de inversión y *rig contracts* (contratos entre el dueño de un yacimiento —el Estado
-representado en YPF en este caso— y compañías perforadoras) ejecutados en 2014 con empresas como Chevron.
-
-Los índices recabados sobre los pozos en perforación hablan claramente de un fenónemo que llegó para quedarse,
-en desmedro de la actividad económica y reducción flujo operativo (exploración, servicio, mantenimiento, almacenamiento)
-en la cuenca Golfo San Jorge. A su vez, estos índices pueden tomarse como proxy o indicador futuro de los pozos terminados
-"mañana" (uno sucede al otro), acentuando esta tendencia.
-
-Yendo al apartado productivo es de notar que si bien la inversión en la cuenca Neuquina siempre fue a mayor a la
-del Golfo San Jorge desde que comenzó su registro, esto no se trasladó a los niveles de producción de inmediato,
-sino que hubo un crecimiento gradual en la cuenca Neuquina que en 2016—2017 marcó un quiebre que se confirmó en
-los años venideros.
+- La inversión se concentró crecientemente en la explotación no convencional, cuya participación se aproximó al 50 % en 2025, consolidándose como el principal motor del sector.
+- YPF lideró esta transición, impulsando el desarrollo de proyectos no convencionales en la Cuenca Neuquina a partir de 2014.
+- La actividad exploratoria mostró una divergencia entre cuencas: mientras la Neuquina incrementó la perforación y terminación de pozos, la Golfo San Jorge evidenció una pérdida de dinamismo.
+- El aumento de la inversión no se tradujo en una mayor producción de forma inmediata; la Cuenca Neuquina registró un crecimiento gradual con un punto de inflexión hacia 2016–2017, que se consolidó en los años siguientes.
 
 # Otras líneas de invertigación
 
@@ -195,4 +178,4 @@ y su preponderancia e influencia sobre ellas. En especial, en comparación al re
 - Chi-cuadrado: en este trabajo decidimos abordar la relación entre el tipo de explotación (convencional o no convencional)
 predominante, y el nivel de producción e inversión en las empresas, de manera descriptiva (composición) dada la dificultad que
 plantea la necesidad de conteos y variables categóricas. Sin embargo, no descartamos su posibilidad ni su potencial
-contribución para evaluar la dependencia de las variables económicas con el tipo de explotación que predomina en una cuenca.
+contribución para evaluar la dependencia de las variables económicas.

@@ -2,5 +2,7 @@
 /input/check_variables_y_clases.R
 /instructivo-tp/*
 /scripts/01_etl/limpieza.R
+/scripts/02_eda/exploratorio_pozos.R
+/scripts/02_eda/exploratorio_prod.R
 /utils/prueba_filtro_empresa.R
 README.html
