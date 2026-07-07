@@ -1,4 +1,4 @@
-# Producción Argentina de Hidrocarburos
+# Producción de Hidrocarburos en Argentina
 
 ## Objetivo
 
@@ -103,19 +103,19 @@ La siguiente [sección](#var-principales) proporciona un panorama más completo 
     Para la inversión fue necesario considerar la variable original `Año de presentación de la DDJJ` —omitida en un comienzo—, dado que el resto de variables referenciando a fechas presentaban datos incompletos *(missing values)*. Para esto se realizó un chequeo que comprobó que la variable en cuestión efectivamente mantenía coherencia con el resto de variables semejantes. Más detalle se halla en `scripts\01_etl\limpieza_inv.R`.
     
 2. Agrupar los datos mediante la suma de las variables cuantitativas relativas a cada dataset (cantidad de pozos, millones de dólares, producción, etc.), según las siguientes categorías:
-    - Inversión prevista > `anio_presentacion_ddjj, cuenca, empresa, tipo_explotacion`
-    - Inversión realizada > `anio_presentacion_ddjj, cuenca, empresa, tipo_explotacion`
-    - Pozos en perforación > `anio, mes, cuenca, empresa, concepto`
-    - Pozos terminados > `anio, mes, cuenca, empresa, concepto, finalidad`
-    - Producción de gas > `anio, mes, cuenca, empresa, tipo_explotacion`
-    - Producción de petróleo > `anio, mes, cuenca, empresa, tipo_explotacion`
+    - Inversión prevista > `anio_presentacion_ddjj`, `cuenca`, `empresa`, `tipo_explotacion`
+    - Inversión realizada > `anio_presentacion_ddjj`, `cuenca`, `empresa`, `tipo_explotacion`
+    - Pozos en perforación > `anio`, `mes`, `cuenca`, `empresa`, `concepto`
+    - Pozos terminados > `anio`, `mes`, `cuenca`, `empresa`, `concepto`, `finalidad`
+    - Producción de gas > `anio`, `mes`, `cuenca`, `empresa`, `tipo_explotacion`
+    - Producción de petróleo > `anio`, `mes`, `cuenca`, `empresa`, `tipo_explotacion`
 
-    La variable `finalidad` en pozos terminados es un paso **temporal** para la transformación de la variable original `cantidad` en `cant_pozos_term_petro` y `cant_pozos_term_gas`, y surge tras renombrar la variable `concepto`, que, cabe mencionar, no representa lo mismo en este caso que para pozos en perforación. Algo similar sucede con la variable `tipo_explotacion` en los datasets de producción, que surge de una transformación que requirió de la variable temporal `categoria_flujo`. Más detalle se halla en `scripts\01_etl\limpieza_inv.R` y `scripts\01_etl\limpieza_prod.R`, respectivamente.
+    La variable `finalidad` en pozos terminados es un paso **temporal** para la transformación de la variable original `cantidad` en `cant_pozos_term_petro` y `cant_pozos_term_gas`, y surge tras renombrar la variable `concepto`, que, cabe mencionar, no representa lo mismo en este caso que para pozos en perforación. Algo similar sucede con la variable `tipo_explotacion` en los datasets de producción, que surge de una transformación que requirió de la variable temporal `categoria_flujo`. Más detalle se halla en `scripts\01_etl\limpieza_pozos.R` y `scripts\01_etl\limpieza_prod.R`, respectivamente.
 
 3. Consolidar los datasets mediante un `full_join()`, según las siguientes *keys* en común:
-    - Inversión prevista y realizada > `anio_presentacion_ddjj", cuenca, empresa, tipo_explotacion`
-    - Pozos en perforación y terminados > `anio, mes, cuenca, empresa, tipo_actividad`
-    - Producción de gas y petróleo > `anio, mes, cuenca, empresa, tipo_explotacion`
+    - Inversión prevista y realizada > `anio_presentacion_ddjj`, `cuenca`, `empresa`, `tipo_explotacion`
+    - Pozos en perforación y terminados > `anio`, `mes`, `cuenca`, `empresa`, `tipo_actividad`
+    - Producción de gas y petróleo > `anio`, `mes`, `cuenca`, `empresa`, `tipo_explotacion`
 
     Ahora bien, al unir dos tablas provenientes de dos datasets distintos, las variables cuantitativas que no están presentes en una de ellas aparecen como `NA`. Por ejemplo, dadas las siguientes tablas:
 
@@ -130,9 +130,7 @@ La siguiente [sección](#var-principales) proporciona un panorama más completo 
     | hotel | 160 | regular |
     | pensión | 24 | bueno |
     
-    ---
-    
-    Al unir ambas tablas por `tipo_inmueble` y `nro_inquilinos` se llega a:
+    Al unirlas por `tipo_inmueble` y `nro_inquilinos` se llega a:
 
     | tipo_inmueble | nro_inquilinos | nivel_comodidad |  precio_calidad |
     |:---|---:|---:|---:|
@@ -252,9 +250,9 @@ proyecto-cdd-fce-uba-2026-1c/
 
 #### Conda
 
-Los paquetes necesarios para la reproducción se hallan en `environment.yml` detro del *root directory*, los mismos están dirigidos a usuarios que prefieren usar `conda` como gestor de paquetes y entornos de desarrollo (*environments*).
+Los paquetes necesarios para la reproducción se hallan en `environment.yml` detro del *root directory*, los mismos están dirigidos a usuarios que prefieren usar `conda` como gestor de paquetes y entornos de desarrollo.
 
-Además, se pone a disposición un ***lockfile*** (*snaphot* del entorno con versiones de paquetes y dependencias, *checksums* y multiplataforma) adaptable a usuarios que usen `conda` tanto en Windows, Linux o MacOs; el mismo se halla en `environment\conda\conda-lock.yml`.
+Además, se pone a disposición un *lockfile* —*snapshot* del entorno con versiones de paquetes y dependencias, *checksums* de verificación y compatibilidad multiplataforma— adaptable a usuarios que usen `conda` tanto en Windows, Linux o MacOs. El mismo se halla en `environment\conda\conda-lock.yml`.
 
 ### Orden de ejecución
 
@@ -266,6 +264,8 @@ Además, se pone a disposición un ***lockfile*** (*snaphot* del entorno con ver
 > **Notas(s):**
 >
 > Cada carpeta dentro de `scripts` contiene tres (3) archivos correspondientes a la temática del o de los datasets: inversión, pozos en perforación y terminados, producción de gas y petróleo. Sin embargo, para la exploración analítica de los datos y sus distribuciones (más outliers), se priorizó la inversión.
+
+---
 
 ## Conclusiones principales
 
