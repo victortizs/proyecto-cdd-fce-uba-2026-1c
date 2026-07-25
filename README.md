@@ -250,7 +250,7 @@ proyecto-cdd-fce-uba-2026-1c/
 
 La especificación del entorno Conda necesaria para reproducir el proyecto se encuentra en `environment.yml`, ubicado en el directorio principal del repositorio.
 
-Además, se incluye el *lockfile* `environment/conda/conda-lock.yml`[^1], compatible con GNU/Linux, macOS y Windows.
+Además, se incluye el *lockfile*[^1] `environment/conda/conda-lock.yml`, compatible con GNU/Linux, macOS y Windows.
 
 [^1]: Contiene una instantánea completa del entorno, incluyendo versiones exactas de los paquetes y sus dependencias, para garantizar una reproducción consistente entre plataformas.
 
