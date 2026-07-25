@@ -226,22 +226,22 @@ Nivel de producción de las principales empresas en los años previos a 2015. Si
 
 ```
 proyecto-cdd-fce-uba-2026-1c/
-├── environment.yml          # snapshot de entorno usado en conda (gestor de paquetes y entornos)
-├── README.md                
-├── environment/             # archivos auxiliares para reproducir el entorno de software del proyecto
+├── environment/             # Archivos auxiliares para reproducir el entorno de software del proyecto
 │   └── conda/
-│       └── conda-lock.yml   # lockfile multiplataforma (Windows, MacOs, GNU/Linux)
-├── input/                   # bases procesadas y consolidadas
-├── raw/                     # bases originales publicadas por la Secretaría de Energía
+│       └── conda-lock.yml   # Lockfile multiplataforma (Windows, MacOs, GNU/Linux)
+├── input/                   # Bases procesadas y consolidadas
 ├── output/                  
-│   ├── graficos/            # visualizaciones generadas   
-│   └── presentacion/        # entrega final en formato .pdf
+│   ├── graficos/            # Visualizaciones generadas   
+│   └── presentacion/        # Entrega final en formato pdf
+├── raw/                     # Bases originales publicadas por la Secretaría de Energía
 ├── scripts/
-│   ├── 01_etl/              # proceso de limpieza, transformación y estandarización
-│   ├── 02_eda/              # análisis exploratorio de datos
-│   ├── 03_tests/            # tests de hipótesis y métodos estadísticos
-│   └── 04_veda/             # análisis visual exploratorio de datos   
-└── utils/                   # funciones/snippets reiterativos (boilerplate)
+│   ├── 01_etl/              # Proceso de limpieza, transformación y estandarización
+│   ├── 02_eda/              # Análisis exploratorio de datos
+│   ├── 03_tests/            # Tests de hipótesis y métodos estadísticos
+│   └── 04_veda/             # Análisis visual exploratorio de datos   
+├── utils/                   # Funciones/snippets reiterativos (boilerplate)
+├── README.md                
+└── environment.yml          # Snapshot de entorno usado en conda (gestor de paquetes y entornos)
 ```
 
 ## Reproducción
@@ -252,7 +252,7 @@ proyecto-cdd-fce-uba-2026-1c/
 
 Los paquetes necesarios para la reproducción se hallan en `environment.yml` detro del *root directory*, los mismos están dirigidos a usuarios que prefieren usar `conda` como gestor de paquetes y entornos de desarrollo.
 
-Además, se pone a disposición un *lockfile* —*snapshot* del entorno con versiones de paquetes y dependencias, *checksums* de verificación y compatibilidad multiplataforma— adaptable a usuarios que usen `conda` tanto en Windows, Linux o MacOs. El mismo se halla en `environment\conda\conda-lock.yml`.
+Además, se pone a disposición un *lockfile* (*snapshot* del entorno con versiones de paquetes y dependencias, *checksums* de verificación y compatibilidad multiplataforma) adaptable a usuarios que usen `conda` tanto en Windows, Linux o MacOs. El mismo se halla en `environment\conda\conda-lock.yml`.
 
 ### Orden de ejecución
 
@@ -261,7 +261,7 @@ Además, se pone a disposición un *lockfile* —*snapshot* del entorno con vers
 3. `scripts\03_tests` > Lee los archivos en `input` y realiza tests de hipótesis, más cálculos adicionales.
 4. `scripts\04_veda` > Lee los archivos en `input`, genera gráficos editorializados y los guarda en `output\graficos`.
 
-> **Notas(s):**
+> **Nota(s):**
 >
 > Cada carpeta dentro de `scripts` contiene tres (3) archivos correspondientes a la temática del o de los datasets: inversión, pozos en perforación y terminados, producción de gas y petróleo. Sin embargo, para la exploración analítica de los datos y sus distribuciones (más outliers), se priorizó la inversión.
 
