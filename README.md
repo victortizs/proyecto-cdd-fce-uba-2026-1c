@@ -256,7 +256,7 @@ Además, se incluye el *lockfile*[^1] `environment/conda/conda-lock.yml`, compat
 
 ### Orden de ejecución
 
-1. `scripts\01_etl`: lee los archivos en `raw` y genera los archivos estandarizados en `input`.
+1. `scripts\01_etl`: lee los archivos en `raw` y genera archivos estandarizados en `input`.
 2. `scripts\02_eda`: lee los archivos en `input` y obtiene estadísticas descriptivas.
 3. `scripts\03_tests`: lee los archivos en `input` y realiza tests de hipótesis, más cálculos adicionales.
 4. `scripts\04_veda`: lee los archivos en `input`, genera gráficos editorializados y los guarda en `output\graficos`.
