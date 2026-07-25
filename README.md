@@ -1,4 +1,4 @@
-# Producción de Hidrocarburos en Argentina
+# Producción de hidrocarburos en Argentina
 
 ## Objetivo
 
@@ -93,54 +93,33 @@ Tras extraer los datos en su forma original o cruda *—raw—*, se filtraron lo
 La siguiente [sección](#var-principales) proporciona un panorama más completo de las variables mencionadas a continuación y consideradas al iniciar el proceso de limpieza, transformación y estandarización (ETL); cuyos códigos respectivos se hallan en la carpeta `scripts\01_etl`. A grandes rasgos, el proceso constó de los siguientes pasos:
 
 1. Restringir los datos al periodo temporal fijado para el análisis:
-    - Inversión prevista > 2013–2025
-    - Inversión realizada > 2013–2025
-    - Pozos en perforación > 2009–2025
-    - Pozos terminados > 2009–2025
-    - Producción de gas > 2009–2025
-    - Producción de petróleo > 2009–2025
+    - Inversión prevista: 2013–2025
+    - Inversión realizada: 2013–2025
+    - Pozos en perforación: 2009–2025
+    - Pozos terminados: 2009–2025
+    - Producción de gas: 2009–2025
+    - Producción de petróleo: 2009–2025
 
     Para la inversión fue necesario considerar la variable original `Año de presentación de la DDJJ` —omitida en un comienzo—, dado que el resto de variables referenciando a fechas presentaban datos incompletos *(missing values)*. Para esto se realizó un chequeo que comprobó que la variable en cuestión efectivamente mantenía coherencia con el resto de variables semejantes. Más detalle se halla en `scripts\01_etl\limpieza_inv.R`.
     
 2. Agrupar los datos mediante la suma de las variables cuantitativas relativas a cada dataset (cantidad de pozos, millones de dólares, producción, etc.), según las siguientes categorías:
-    - Inversión prevista > `anio_presentacion_ddjj`, `cuenca`, `empresa`, `tipo_explotacion`
-    - Inversión realizada > `anio_presentacion_ddjj`, `cuenca`, `empresa`, `tipo_explotacion`
-    - Pozos en perforación > `anio`, `mes`, `cuenca`, `empresa`, `concepto`
-    - Pozos terminados > `anio`, `mes`, `cuenca`, `empresa`, `concepto`, `finalidad`
-    - Producción de gas > `anio`, `mes`, `cuenca`, `empresa`, `tipo_explotacion`
-    - Producción de petróleo > `anio`, `mes`, `cuenca`, `empresa`, `tipo_explotacion`
+    - Inversión prevista: `anio_presentacion_ddjj`, `cuenca`, `empresa`, `tipo_explotacion`
+    - Inversión realizada: `anio_presentacion_ddjj`, `cuenca`, `empresa`, `tipo_explotacion`
+    - Pozos en perforación: `anio`, `mes`, `cuenca`, `empresa`, `concepto`
+    - Pozos terminados: `anio`, `mes`, `cuenca`, `empresa`, `concepto`, `finalidad`
+    - Producción de gas: `anio`, `mes`, `cuenca`, `empresa`, `tipo_explotacion`
+    - Producción de petróleo: `anio`, `mes`, `cuenca`, `empresa`, `tipo_explotacion`
 
-    La variable `finalidad` en pozos terminados es un paso **temporal** para la transformación de la variable original `cantidad` en `cant_pozos_term_petro` y `cant_pozos_term_gas`, y surge tras renombrar la variable `concepto`, que, cabe mencionar, no representa lo mismo en este caso que para pozos en perforación. Algo similar sucede con la variable `tipo_explotacion` en los datasets de producción, que surge de una transformación que requirió de la variable temporal `categoria_flujo`. Más detalle se halla en `scripts\01_etl\limpieza_pozos.R` y `scripts\01_etl\limpieza_prod.R`, respectivamente.
+    La variable `finalidad` en pozos terminados es un paso temporal para la transformación de la variable original `cantidad` en `cant_pozos_term_petro` y `cant_pozos_term_gas`, y surge tras renombrar la variable `concepto`, que, cabe mencionar, no representa lo mismo en este caso que para pozos en perforación. Algo similar sucede con la variable `tipo_explotacion` en los datasets de producción, que surge de una transformación que requirió de la variable temporal `categoria_flujo`. Más detalle se halla en `scripts\01_etl\limpieza_pozos.R` y `scripts\01_etl\limpieza_prod.R`, respectivamente.
 
 3. Consolidar los datasets mediante un `full_join()`, según las siguientes *keys* en común:
-    - Inversión prevista y realizada > `anio_presentacion_ddjj`, `cuenca`, `empresa`, `tipo_explotacion`
-    - Pozos en perforación y terminados > `anio`, `mes`, `cuenca`, `empresa`, `tipo_actividad`
-    - Producción de gas y petróleo > `anio`, `mes`, `cuenca`, `empresa`, `tipo_explotacion`
+    - Inversión prevista y realizada: `anio_presentacion_ddjj`, `cuenca`, `empresa`, `tipo_explotacion`
+    - Pozos en perforación y terminados: `anio`, `mes`, `cuenca`, `empresa`, `tipo_actividad`
+    - Producción de gas y petróleo: `anio`, `mes`, `cuenca`, `empresa`, `tipo_explotacion`
 
-    Ahora bien, al unir dos tablas provenientes de dos datasets distintos, las variables cuantitativas que no están presentes en una de ellas aparecen como `NA`. Por ejemplo, dadas las siguientes tablas:
+    Ahora bien, al unir dos tablas provenientes de dos datasets distintos, las variables cuantitativas que no están presentes en una de ellas aparecen como `NA`. Por ello, se decidió reemplazar esos valores faltantes con cero (0); considerando que para los análisis posteriores en ocasiones es necesario filtrar por valores mayores a cero para no generar resultados malinterpretados o estadísticamente erróneos, como sería el caso si se usaran regresiones.
 
-    | tipo_inmueble | nro_inquilinos | nivel_comodidad |
-    |:---|---:|---:|
-    | casa | 3 | bueno |
-    | hotel | 160 | excelente |
-    
-    | tipo_inmueble | nro_inquilinos | precio_calidad |
-    |:---|---:|---:|
-    | casa | 3 | excelente |
-    | hotel | 160 | regular |
-    | pensión | 24 | bueno |
-    
-    Al unirlas por `tipo_inmueble` y `nro_inquilinos` se llega a:
-
-    | tipo_inmueble | nro_inquilinos | nivel_comodidad |  precio_calidad |
-    |:---|---:|---:|---:|
-    | casa | 3 | bueno | excelente |
-    | hotel | 160 | excelente | regular |
-    | pensión | 24 | `NA` | bueno |
-    
-    Por ello, se decidió reemplazar los valores faltantes (`NA`) con cero (0), considerando que para los análisis posteriores es necesario, en ciertas ocasiones, filtrar por valores mayores a cero para no generar resultados malinterpretados o estadísticamente erróneos —como podría ser el caso si se usaran regresiones—.
-
-Otras operaciones como filtros y transformaciones de formato (de largo a ancho) fueron ejecutadas con el fin de lograr consolidar y, por tanto, reducir el número de insumos *—inputs—* a analizar. Por último, la elección de filtrar las cuencas `GOLFO SAN JORGE` y `NEUQUINA` posteriormente en cada análisis es puramente funcional: se busca que los archivos procesados sean útiles a más de un estudio.
+Otras operaciones como filtros y transformaciones de formato (de largo a ancho) fueron ejecutadas con el fin de lograr consolidar y, por tanto, reducir el número de insumos *(inputs)* a analizar. Por último, la elección de filtrar las cuencas `GOLFO SAN JORGE` y `NEUQUINA` posteriormente en cada análisis es puramente funcional: se busca que los archivos procesados sean útiles a más de un estudio.
 
 
 <h2 id="var-principales">Variables principales</h2>
@@ -220,50 +199,50 @@ Corresponde a las variables presentes en los datasets consolidados luego del pro
 
 ## Benchmark
 
-Nivel de producción de las principales empresas en los años previos a 2015. Siendo que el boom de inversiones en Vaca Muerta comenzó tras los descubrimientos de 2010–2011 y se consolidó entre 2012 y 2014 (con la nacionalización de YPF en 2012 y grandes acuerdos/inversiones de compañías como Chevron y *rig contracts* en 2014).
+Nivel de producción de las principales empresas en los años previos a 2015. Se toma este período como referencia, dado que el auge de las inversiones en Vaca Muerta comenzó tras los descubrimientos de 2010–2011 y se consolidó entre 2012 y 2014 con la nacionalización de YPF, los acuerdos de inversión con compañías como Chevron y la firma de *rig contracts*.
 
 ## Estructura del repositorio
 
 ```
 proyecto-cdd-fce-uba-2026-1c/
-├── environment.yml          # snapshot de entorno usado en conda (gestor de paquetes y entornos)
-├── README.md                
-├── environment/             # archivos auxiliares para reproducir el entorno de software del proyecto
+├── environment/             # Archivos auxiliares para reproducibilidad
 │   └── conda/
-│       └── conda-lock.yml   # lockfile multiplataforma (Windows, MacOs, GNU/Linux)
-├── input/                   # bases procesadas y consolidadas
-├── raw/                     # bases originales publicadas por la Secretaría de Energía
+│       └── conda-lock.yml   # Lockfile multiplataforma (GNU/Linux, macOS, Windows)
+├── input/                   # Bases procesadas y consolidadas
 ├── output/                  
-│   ├── graficos/            # visualizaciones generadas   
-│   └── presentacion/        # entrega final en formato .pdf
+│   ├── graficos/            # Visualizaciones generadas   
+│   └── presentacion/        # Entrega final en formato pdf
+├── raw/                     # Bases originales publicadas por la Secretaría de Energía
 ├── scripts/
-│   ├── 01_etl/              # proceso de limpieza, transformación y estandarización
-│   ├── 02_eda/              # análisis exploratorio de datos
-│   ├── 03_tests/            # tests de hipótesis y métodos estadísticos
-│   └── 04_veda/             # análisis visual exploratorio de datos   
-└── utils/                   # funciones/snippets reiterativos (boilerplate)
+│   ├── 01_etl/              # Proceso de limpieza, transformación y estandarización
+│   ├── 02_eda/              # Análisis exploratorio de datos
+│   ├── 03_tests/            # Tests de hipótesis y métodos estadísticos
+│   └── 04_veda/             # Análisis visual exploratorio de datos   
+├── utils/                   # Funciones/snippets reiterativos (boilerplate)
+├── README.md                
+└── environment.yml          # Snapshot del entorno usado en conda (gestor de paquetes y entornos)
 ```
 
 ## Reproducción
 
 ### Paquetes necesarios
 
-#### Conda
+La especificación del entorno Conda necesaria para reproducir el proyecto se encuentra en `environment.yml`, ubicado en el directorio principal del repositorio.
 
-Los paquetes necesarios para la reproducción se hallan en `environment.yml` detro del *root directory*, los mismos están dirigidos a usuarios que prefieren usar `conda` como gestor de paquetes y entornos de desarrollo.
+Además, se incluye el *lockfile*[^1] `environment/conda/conda-lock.yml`, compatible con GNU/Linux, macOS y Windows.
 
-Además, se pone a disposición un *lockfile* —*snapshot* del entorno con versiones de paquetes y dependencias, *checksums* de verificación y compatibilidad multiplataforma— adaptable a usuarios que usen `conda` tanto en Windows, Linux o MacOs. El mismo se halla en `environment\conda\conda-lock.yml`.
+[^1]: Contiene una instantánea del entorno con las versiones exactas de los paquetes, sus dependencias y la información necesaria para reproducirlo de forma consistente en distintas plataformas.
 
 ### Orden de ejecución
 
-1. `scripts\01_etl` > Lee los archivos en `raw` y genera los archivos estandarizados en `input`.
-2. `scripts\02_eda` > Lee los archivos en `input` y obtiene estadísticas descriptivas.
-3. `scripts\03_tests` > Lee los archivos en `input` y realiza tests de hipótesis, más cálculos adicionales.
-4. `scripts\04_veda` > Lee los archivos en `input`, genera gráficos editorializados y los guarda en `output\graficos`.
+1. `scripts\01_etl`: lee los archivos en `raw` y genera archivos estandarizados en `input`.
+2. `scripts\02_eda`: lee los archivos en `input` y obtiene estadísticas descriptivas.
+3. `scripts\03_tests`: lee los archivos en `input` y realiza tests de hipótesis, más cálculos adicionales.
+4. `scripts\04_veda`: lee los archivos en `input`, genera gráficos editorializados y los guarda en `output\graficos`.
 
-> **Notas(s):**
+> **Nota(s):**
 >
-> Cada carpeta dentro de `scripts` contiene tres (3) archivos correspondientes a la temática del o de los datasets: inversión, pozos en perforación y terminados, producción de gas y petróleo. Sin embargo, para la exploración analítica de los datos y sus distribuciones (más outliers), se priorizó la inversión.
+> Cada carpeta dentro de `scripts` contiene tres (3) archivos correspondientes a la temática de los datasets: inversión, pozos en perforación y terminados, producción de gas y petróleo. Sin embargo, para la exploración analítica de los datos y sus distribuciones con outliers, se priorizó la inversión.
 
 ---
 
@@ -290,3 +269,27 @@ Yendo al apartado productivo es de notar que si bien la inversión en la cuenca 
 del Golfo San Jorge desde que comenzó su registro, esto no se trasladó a los niveles de producción de inmediato,
 sino que hubo un crecimiento gradual en la cuenca Neuquina que en 2016—2017 marcó un quiebre que se confirmó en
 los años venideros.
+
+## Releases
+
+En el apartado de *releases* ("liberaciones") se halla el snapshot del repositorio en el momento exacto de la entrega final de este proyecto para su evaluación por el docente, titulado **Entrega final 2026-06-30**, bajo el **tag v1.0.0**.
+
+No obstante, este proyecto continuará a fin de servir como material de portfolio, siguiendo una metodología basada en la convención ***Semantic Versioning (SemVer):***
+
+```
+v1.0.0
+ │ │ └── Patch: corrección de bugs, pequeñas mejoras en general (documentación, formato, etc.)
+ │ └──── Minor: nuevos análisis y/o funcionalidades (scripts, gráficos, dashboards, etc.), mejor compatibilidad
+ └────── Major: cambios de enfoque y/o rediseño del proyecto importantes
+```
+
+Por ejemplo:
+
+```
+v1.0.0   # Entrega final para la materia
+v1.0.1   # Corrección de error de tipeo en README
+v1.0.2   # Mejores instrucciones de reproducibilidad
+v1.1.0   # Nuevas visualizaciones y análisis
+v1.2.0   # Web App
+v2.0.0   # Rediseño grande del proyecto
+```
