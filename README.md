@@ -117,28 +117,7 @@ La siguiente [sección](#var-principales) proporciona un panorama más completo 
     - Pozos en perforación y terminados: `anio`, `mes`, `cuenca`, `empresa`, `tipo_actividad`
     - Producción de gas y petróleo: `anio`, `mes`, `cuenca`, `empresa`, `tipo_explotacion`
 
-    Ahora bien, al unir dos tablas provenientes de dos datasets distintos, las variables cuantitativas que no están presentes en una de ellas aparecen como `NA`. Por ejemplo, dadas las siguientes tablas:
-
-    | tipo_inmueble | nro_inquilinos | nivel_comodidad |
-    |:---|---:|---:|
-    | casa | 3 | bueno |
-    | hotel | 160 | excelente |
-    
-    | tipo_inmueble | nro_inquilinos | precio_calidad |
-    |:---|---:|---:|
-    | casa | 3 | excelente |
-    | hotel | 160 | regular |
-    | pensión | 24 | bueno |
-    
-    Al unirlas por `tipo_inmueble` y `nro_inquilinos` se llega a:
-
-    | tipo_inmueble | nro_inquilinos | nivel_comodidad |  precio_calidad |
-    |:---|---:|---:|---:|
-    | casa | 3 | bueno | excelente |
-    | hotel | 160 | excelente | regular |
-    | pensión | 24 | `NA` | bueno |
-    
-    Por ello, se decidió reemplazar los valores faltantes (`NA`) con cero (0), considerando que para los análisis posteriores es necesario, en ciertas ocasiones, filtrar por valores mayores a cero para no generar resultados malinterpretados o estadísticamente erróneos —como podría ser el caso si se usaran regresiones—.
+    Ahora bien, al unir dos tablas provenientes de dos datasets distintos, las variables cuantitativas que no están presentes en una de ellas aparecen como `NA`. Por ello, se decidió reemplazar esos valores faltantes con cero (0); considerando que para los análisis posteriores es necesario, en ocasiones, filtrar por valores mayores a cero para no generar resultados malinterpretados o estadísticamente erróneos, como sería el caso si se usaran regresiones.
 
 Otras operaciones como filtros y transformaciones de formato (de largo a ancho) fueron ejecutadas con el fin de lograr consolidar y, por tanto, reducir el número de insumos *—inputs—* a analizar. Por último, la elección de filtrar las cuencas `GOLFO SAN JORGE` y `NEUQUINA` posteriormente en cada análisis es puramente funcional: se busca que los archivos procesados sean útiles a más de un estudio.
 
@@ -260,8 +239,6 @@ Además, se incluye el *lockfile*[^1] `environment/conda/conda-lock.yml`, compat
 2. `scripts\02_eda`: lee los archivos en `input` y obtiene estadísticas descriptivas.
 3. `scripts\03_tests`: lee los archivos en `input` y realiza tests de hipótesis, más cálculos adicionales.
 4. `scripts\04_veda`: lee los archivos en `input`, genera gráficos editorializados y los guarda en `output\graficos`.
-
-<br>
 
 > **Nota(s):**
 >
