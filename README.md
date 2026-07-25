@@ -252,7 +252,7 @@ La especificación del entorno Conda necesaria para reproducir el proyecto se en
 
 Además, se incluye el *lockfile*[^1] `environment/conda/conda-lock.yml`, compatible con GNU/Linux, macOS y Windows.
 
-[^1]: Contiene una instantánea completa del entorno, incluyendo versiones exactas de los paquetes y sus dependencias, para garantizar una reproducción consistente entre plataformas.
+[^1]: Contiene una instantánea del entorno con las versiones exactas de los paquetes, sus dependencias y la información necesaria para reproducirlo de forma consistente en distintas plataformas.
 
 ### Orden de ejecución
 
