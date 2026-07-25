@@ -119,7 +119,7 @@ La siguiente [sección](#var-principales) proporciona un panorama más completo 
 
     Ahora bien, al unir dos tablas provenientes de dos datasets distintos, las variables cuantitativas que no están presentes en una de ellas aparecen como `NA`. Por ello, se decidió reemplazar esos valores faltantes con cero (0); considerando que para los análisis posteriores en ocasiones es necesario filtrar por valores mayores a cero para no generar resultados malinterpretados o estadísticamente erróneos, como sería el caso si se usaran regresiones.
 
-Otras operaciones como filtros y transformaciones de formato (de largo a ancho) fueron ejecutadas con el fin de lograr consolidar y, por tanto, reducir el número de insumos *—inputs—* a analizar. Por último, la elección de filtrar las cuencas `GOLFO SAN JORGE` y `NEUQUINA` posteriormente en cada análisis es puramente funcional: se busca que los archivos procesados sean útiles a más de un estudio.
+Otras operaciones como filtros y transformaciones de formato (de largo a ancho) fueron ejecutadas con el fin de lograr consolidar y, por tanto, reducir el número de insumos *(inputs)* a analizar. Por último, la elección de filtrar las cuencas `GOLFO SAN JORGE` y `NEUQUINA` posteriormente en cada análisis es puramente funcional: se busca que los archivos procesados sean útiles a más de un estudio.
 
 
 <h2 id="var-principales">Variables principales</h2>
@@ -199,7 +199,7 @@ Corresponde a las variables presentes en los datasets consolidados luego del pro
 
 ## Benchmark
 
-Nivel de producción de las principales empresas en los años previos a 2015. Siendo que el boom de inversiones en Vaca Muerta comenzó tras los descubrimientos de 2010–2011 y se consolidó entre 2012 y 2014 (con la nacionalización de YPF en 2012 y grandes acuerdos/inversiones de compañías como Chevron y *rig contracts* en 2014).
+Nivel de producción de las principales empresas en los años previos a 2015. Se toma este período como referencia, dado que el auge de las inversiones en Vaca Muerta comenzó tras los descubrimientos de 2010–2011 y se consolidó entre 2012 y 2014 con la nacionalización de YPF, los acuerdos de inversión con compañías como Chevron y la firma de *rig contracts*.
 
 ## Estructura del repositorio
 
@@ -239,8 +239,6 @@ Además, se incluye el *lockfile*[^1] `environment/conda/conda-lock.yml`, compat
 2. `scripts\02_eda`: lee los archivos en `input` y obtiene estadísticas descriptivas.
 3. `scripts\03_tests`: lee los archivos en `input` y realiza tests de hipótesis, más cálculos adicionales.
 4. `scripts\04_veda`: lee los archivos en `input`, genera gráficos editorializados y los guarda en `output\graficos`.
-
-<br>
 
 > **Nota(s):**
 >
