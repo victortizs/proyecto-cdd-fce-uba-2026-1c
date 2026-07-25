@@ -110,7 +110,7 @@ La siguiente [sección](#var-principales) proporciona un panorama más completo 
     - Producción de gas > `anio`, `mes`, `cuenca`, `empresa`, `tipo_explotacion`
     - Producción de petróleo > `anio`, `mes`, `cuenca`, `empresa`, `tipo_explotacion`
 
-    La variable `finalidad` en pozos terminados es un paso **temporal** para la transformación de la variable original `cantidad` en `cant_pozos_term_petro` y `cant_pozos_term_gas`, y surge tras renombrar la variable `concepto`, que, cabe mencionar, no representa lo mismo en este caso que para pozos en perforación. Algo similar sucede con la variable `tipo_explotacion` en los datasets de producción, que surge de una transformación que requirió de la variable temporal `categoria_flujo`. Más detalle se halla en `scripts\01_etl\limpieza_pozos.R` y `scripts\01_etl\limpieza_prod.R`, respectivamente.
+    La variable `finalidad` en pozos terminados es un paso temporal para la transformación de la variable original `cantidad` en `cant_pozos_term_petro` y `cant_pozos_term_gas`, y surge tras renombrar la variable `concepto`, que, cabe mencionar, no representa lo mismo en este caso que para pozos en perforación. Algo similar sucede con la variable `tipo_explotacion` en los datasets de producción, que surge de una transformación que requirió de la variable temporal `categoria_flujo`. Más detalle se halla en `scripts\01_etl\limpieza_pozos.R` y `scripts\01_etl\limpieza_prod.R`, respectivamente.
 
 3. Consolidar los datasets mediante un `full_join()`, según las siguientes *keys* en común:
     - Inversión prevista y realizada > `anio_presentacion_ddjj`, `cuenca`, `empresa`, `tipo_explotacion`
@@ -256,16 +256,16 @@ Además, se incluye el *lockfile*[^1] `environment/conda/conda-lock.yml`, compat
 
 ### Orden de ejecución
 
-1. `scripts\01_etl` > Lee los archivos en `raw` y genera los archivos estandarizados en `input`.
-2. `scripts\02_eda` > Lee los archivos en `input` y obtiene estadísticas descriptivas.
-3. `scripts\03_tests` > Lee los archivos en `input` y realiza tests de hipótesis, más cálculos adicionales.
-4. `scripts\04_veda` > Lee los archivos en `input`, genera gráficos editorializados y los guarda en `output\graficos`.
+1. `scripts\01_etl` — Lee los archivos en `raw` y genera los archivos estandarizados en `input`.
+2. `scripts\02_eda` — Lee los archivos en `input` y obtiene estadísticas descriptivas.
+3. `scripts\03_tests` — Lee los archivos en `input` y realiza tests de hipótesis, más cálculos adicionales.
+4. `scripts\04_veda` — Lee los archivos en `input`, genera gráficos editorializados y los guarda en `output\graficos`.
 
 <br>
 
 > **Nota(s):**
 >
-> Cada carpeta dentro de `scripts` contiene tres (3) archivos correspondientes a la temática del o de los datasets: inversión, pozos en perforación y terminados, producción de gas y petróleo. Sin embargo, para la exploración analítica de los datos y sus distribuciones (más outliers), se priorizó la inversión.
+> Cada carpeta dentro de `scripts` contiene tres (3) archivos correspondientes a la temática de los datasets: inversión, pozos en perforación y terminados, producción de gas y petróleo. Sin embargo, para la exploración analítica de los datos y sus distribuciones —con outliers—, se priorizó la inversión.
 
 ---
 
