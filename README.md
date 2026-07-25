@@ -228,7 +228,7 @@ Nivel de producción de las principales empresas en los años previos a 2015. Si
 proyecto-cdd-fce-uba-2026-1c/
 ├── environment/             # Archivos auxiliares para reproducibilidad
 │   └── conda/
-│       └── conda-lock.yml   # Lockfile multiplataforma (Windows, MacOs, GNU/Linux)
+│       └── conda-lock.yml   # Lockfile multiplataforma (GNU/Linux, macOS, Windows)
 ├── input/                   # Bases procesadas y consolidadas
 ├── output/                  
 │   ├── graficos/            # Visualizaciones generadas   
@@ -248,9 +248,11 @@ proyecto-cdd-fce-uba-2026-1c/
 
 ### Paquetes necesarios
 
-Los paquetes necesarios para la reproducción se hallan en `environment.yml`, detro del directorio principal del repo. Los mismos están dirigidos a usuarios que prefieren usar `conda` como gestor de paquetes y entornos de desarrollo.
+La especificación del entorno Conda necesaria para reproducir el proyecto se encuentra en `environment.yml`, ubicado en el directorio principal del repositorio.
 
-Además, se pone a disposición un *lockfile* (*snapshot* del entorno con versiones de paquetes y dependencias, *checksums* de verificación y compatibilidad multiplataforma) adaptable a usuarios que usen `conda` tanto en Windows, Linux o MacOs. El mismo se halla en `environment\conda\conda-lock.yml`.
+Además, se incluye el *lockfile* `environment/conda/conda-lock.yml`[^1], compatible con GNU/Linux, macOS y Windows.
+
+[^1]: Contiene una instantánea completa del entorno, incluyendo versiones exactas de los paquetes y sus dependencias, para garantizar una reproducción consistente entre plataformas.
 
 ### Orden de ejecución
 
