@@ -1,4 +1,4 @@
-# Producción de Hidrocarburos en Argentina
+# Producción de hidrocarburos en Argentina
 
 ## Objetivo
 
@@ -226,7 +226,7 @@ Nivel de producción de las principales empresas en los años previos a 2015. Si
 
 ```
 proyecto-cdd-fce-uba-2026-1c/
-├── environment/             # Archivos auxiliares para reproducir el entorno de software del proyecto
+├── environment/             # Archivos auxiliares para reproducibilidad
 │   └── conda/
 │       └── conda-lock.yml   # Lockfile multiplataforma (Windows, MacOs, GNU/Linux)
 ├── input/                   # Bases procesadas y consolidadas
@@ -252,7 +252,7 @@ proyecto-cdd-fce-uba-2026-1c/
 
 Los paquetes necesarios para la reproducción se hallan en `environment.yml` detro del *root directory*, los mismos están dirigidos a usuarios que prefieren usar `conda` como gestor de paquetes y entornos de desarrollo.
 
-Además, se pone a disposición un *lockfile* (*snapshot* del entorno con versiones de paquetes y dependencias, *checksums* de verificación y compatibilidad multiplataforma) adaptable a usuarios que usen `conda` tanto en Windows, Linux o MacOs. El mismo se halla en `environment\conda\conda-lock.yml`.
+Además, se pone a disposición un *lockfile* —*snapshot* del entorno con versiones de paquetes y dependencias, *checksums* de verificación y compatibilidad multiplataforma— adaptable a usuarios que usen `conda` tanto en Windows, Linux o MacOs. El mismo se halla en `environment\conda\conda-lock.yml`.
 
 ### Orden de ejecución
 
