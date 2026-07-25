@@ -290,3 +290,27 @@ Yendo al apartado productivo es de notar que si bien la inversión en la cuenca 
 del Golfo San Jorge desde que comenzó su registro, esto no se trasladó a los niveles de producción de inmediato,
 sino que hubo un crecimiento gradual en la cuenca Neuquina que en 2016—2017 marcó un quiebre que se confirmó en
 los años venideros.
+
+## Releases
+
+En el apartado de *releases* ("liberaciones") se halla el snapshot del repositorio en el momento exacto de la entrega final de este proyecto para su evaluación por el docente, titulado **Entrega final 2026-06-30**, bajo el **tag v1.0.0**.
+
+No obstante, este proyecto continuará a fin de servir como material de portfolio, siguiendo una metodología basada en la convención ***Semantic Versioning (SemVer):***
+
+```
+v1.0.0
+ │ │ └── Patch: corrección de bugs, pequeñas mejoras en general (documentación, formato, etc.)
+ │ └──── Minor: nuevos análisis y/o funcionalidades (scripts, gráficos, dashboards, etc.), mejor compatibilidad
+ └────── Major: cambios de enfoque y/o rediseño del proyecto importantes
+```
+
+Por ejemplo:
+
+```
+v1.0.0   # Entrega final para la materia
+v1.0.1   # Corrección de error de tipeo en README
+v1.0.2   # Mejores instrucciones de reproducibilidad
+v1.1.0   # Nuevas visualizaciones y análisis
+v1.2.0   # Web App
+v2.0.0   # Rediseño grande del proyecto
+```
