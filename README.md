@@ -240,6 +240,8 @@ Además, se incluye el *lockfile*[^1] `environment/conda/conda-lock.yml`, compat
 3. `scripts\03_tests`: lee los archivos en `input` y realiza tests de hipótesis, más cálculos adicionales.
 4. `scripts\04_veda`: lee los archivos en `input`, genera gráficos editorializados y los guarda en `output\graficos`.
 
+<br>  
+
 > **Nota(s):**
 >
 > Cada carpeta dentro de `scripts` contiene tres (3) archivos correspondientes a la temática de los datasets: inversión, pozos en perforación y terminados, producción de gas y petróleo. Sin embargo, para la exploración analítica de los datos y sus distribuciones con outliers, se priorizó la inversión.
