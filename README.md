@@ -117,7 +117,7 @@ La siguiente [sección](#var-principales) proporciona un panorama más completo 
     - Pozos en perforación y terminados: `anio`, `mes`, `cuenca`, `empresa`, `tipo_actividad`
     - Producción de gas y petróleo: `anio`, `mes`, `cuenca`, `empresa`, `tipo_explotacion`
 
-    Ahora bien, al unir dos tablas provenientes de dos datasets distintos, las variables cuantitativas que no están presentes en una de ellas aparecen como `NA`. Por ello, se decidió reemplazar esos valores faltantes con cero (0); considerando que para los análisis posteriores es necesario, en ocasiones, filtrar por valores mayores a cero para no generar resultados malinterpretados o estadísticamente erróneos, como sería el caso si se usaran regresiones.
+    Ahora bien, al unir dos tablas provenientes de dos datasets distintos, las variables cuantitativas que no están presentes en una de ellas aparecen como `NA`. Por ello, se decidió reemplazar esos valores faltantes con cero (0); considerando que para los análisis posteriores en ocasiones es necesario filtrar por valores mayores a cero para no generar resultados malinterpretados o estadísticamente erróneos, como sería el caso si se usaran regresiones.
 
 Otras operaciones como filtros y transformaciones de formato (de largo a ancho) fueron ejecutadas con el fin de lograr consolidar y, por tanto, reducir el número de insumos *—inputs—* a analizar. Por último, la elección de filtrar las cuencas `GOLFO SAN JORGE` y `NEUQUINA` posteriormente en cada análisis es puramente funcional: se busca que los archivos procesados sean útiles a más de un estudio.
 
@@ -220,7 +220,7 @@ proyecto-cdd-fce-uba-2026-1c/
 │   └── 04_veda/             # Análisis visual exploratorio de datos   
 ├── utils/                   # Funciones/snippets reiterativos (boilerplate)
 ├── README.md                
-└── environment.yml          # Snapshot de entorno usado en conda (gestor de paquetes y entornos)
+└── environment.yml          # Snapshot del entorno usado en conda (gestor de paquetes y entornos)
 ```
 
 ## Reproducción
@@ -240,9 +240,11 @@ Además, se incluye el *lockfile*[^1] `environment/conda/conda-lock.yml`, compat
 3. `scripts\03_tests`: lee los archivos en `input` y realiza tests de hipótesis, más cálculos adicionales.
 4. `scripts\04_veda`: lee los archivos en `input`, genera gráficos editorializados y los guarda en `output\graficos`.
 
+<br>
+
 > **Nota(s):**
 >
-> Cada carpeta dentro de `scripts` contiene tres (3) archivos correspondientes a la temática de los datasets: inversión, pozos en perforación y terminados, producción de gas y petróleo. Sin embargo, para la exploración analítica de los datos y sus distribuciones —con outliers—, se priorizó la inversión.
+> Cada carpeta dentro de `scripts` contiene tres (3) archivos correspondientes a la temática de los datasets: inversión, pozos en perforación y terminados, producción de gas y petróleo. Sin embargo, para la exploración analítica de los datos y sus distribuciones con outliers, se priorizó la inversión.
 
 ---
 
