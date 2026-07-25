@@ -248,11 +248,9 @@ proyecto-cdd-fce-uba-2026-1c/
 
 ### Paquetes necesarios
 
-#### Conda
-
 Los paquetes necesarios para la reproducción se hallan en `environment.yml` detro del *root directory*, los mismos están dirigidos a usuarios que prefieren usar `conda` como gestor de paquetes y entornos de desarrollo.
 
-Además, se pone a disposición un *lockfile* —*snapshot* del entorno con versiones de paquetes y dependencias, *checksums* de verificación y compatibilidad multiplataforma— adaptable a usuarios que usen `conda` tanto en Windows, Linux o MacOs. El mismo se halla en `environment\conda\conda-lock.yml`.
+Además, se pone a disposición un *lockfile* (*snapshot* del entorno con versiones de paquetes y dependencias, *checksums* de verificación y compatibilidad multiplataforma) adaptable a usuarios que usen `conda` tanto en Windows, Linux o MacOs. El mismo se halla en `environment\conda\conda-lock.yml`.
 
 ### Orden de ejecución
 
