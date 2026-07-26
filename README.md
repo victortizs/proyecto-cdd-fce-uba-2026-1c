@@ -1,5 +1,21 @@
 # Producción de hidrocarburos en Argentina
 
+Proyecto final de la materia Ciencia de Datos para Economía y Negocios de la Facultad de Ciencias Económicas (UBA), desarrollado por el Grupo 08.
+
+## Contenido
+
+- [Objetivo](#objetivo)
+- [Integrantes](#integrantes)
+- [Datos](#datos)
+- [Hipótesis](#hipótesis)
+- [Descripción de ETL (Extract, Transform, Load)](#descripción-de-etl-extract-transform-load)
+- [Variables principales](#variables-principales)
+- [Benchmark](#benchmark)
+- [Estructura del repositorio](#estructura-del-repositorio)
+- [Reproducción](#reproducción)
+- [Conclusiones principales](#conclusiones-principales)
+- [Releases](#releases)
+
 ## Objetivo
 
 Identificar cambios en las políticas de exploración, extracción e inversión de las empresas del sector en las principales cuencas del país (Golfo San Jorge y Neuquina).
@@ -90,7 +106,7 @@ A partir de 2017, la reasignación de inversiones hacia la cuenca Neuquina por p
 
 Tras extraer los datos en su forma original o cruda *—raw—*, se filtraron los datasets solo con las variables consideradas relevantes para el análisis, es decir, obviando aquellas redundantes. Dichos datos se hallaron en formato tidy, por lo cual en primera instancia no necesitaron transformaciones extras para su manipulación.
 
-La siguiente [sección](#var-principales) proporciona un panorama más completo de las variables mencionadas a continuación y consideradas al iniciar el proceso de limpieza, transformación y estandarización (ETL); cuyos códigos respectivos se hallan en la carpeta `scripts\01_etl`. A grandes rasgos, el proceso constó de los siguientes pasos:
+La siguiente [sección](#variables-principales) proporciona un panorama más completo de las variables mencionadas a continuación y consideradas al iniciar el proceso de limpieza, transformación y estandarización (ETL); cuyos códigos respectivos se hallan en la carpeta `scripts\01_etl`. A grandes rasgos, el proceso constó de los siguientes pasos:
 
 1. Restringir los datos al periodo temporal fijado para el análisis:
     - Inversión prevista: 2013–2025
@@ -121,8 +137,7 @@ La siguiente [sección](#var-principales) proporciona un panorama más completo 
 
 Otras operaciones como filtros y transformaciones de formato (de largo a ancho) fueron ejecutadas con el fin de lograr consolidar y, por tanto, reducir el número de insumos *(inputs)* a analizar. Por último, la elección de filtrar las cuencas `GOLFO SAN JORGE` y `NEUQUINA` posteriormente en cada análisis es puramente funcional: se busca que los archivos procesados sean útiles a más de un estudio.
 
-
-<h2 id="var-principales">Variables principales</h2>
+## Variables principales
 
 <details>
     <summary>Selección inicial (<code>raw</code>)</summary><br>
