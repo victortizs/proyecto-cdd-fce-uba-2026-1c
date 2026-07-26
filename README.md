@@ -104,7 +104,7 @@ A partir de 2017, la reasignación de inversiones hacia la cuenca Neuquina por p
 
 ## Descripción de ETL (Extract, Transform, Load)
 
-Tras extraer los datos en su forma original o cruda *—raw—*, se filtraron los datasets solo con las variables consideradas relevantes para el análisis, es decir, obviando aquellas redundantes. Dichos datos se hallaron en formato tidy, por lo cual en primera instancia no necesitaron transformaciones extras para su manipulación.
+Tras extraer los datos en su forma original o cruda *(raw)*, se filtraron los datasets solo con las variables consideradas relevantes para el análisis. Dichos datos se hallaron en formato *tidy*, por lo cual en primera instancia no necesitaron transformaciones extras para su manipulación.
 
 La siguiente [sección](#variables-principales) proporciona un panorama más completo de las variables mencionadas a continuación y consideradas al iniciar el proceso de limpieza, transformación y estandarización (ETL); cuyos códigos respectivos se hallan en la carpeta `scripts\01_etl`. A grandes rasgos, el proceso constó de los siguientes pasos:
 
@@ -235,7 +235,7 @@ proyecto-cdd-fce-uba-2026-1c/
 │   └── 04_veda/             # análisis visual exploratorio de datos   
 ├── utils/                   # funciones/snippets reiterativos (boilerplate)
 ├── README.md                
-└── environment.yml          # Snapshot del entorno usado en conda (gestor de paquetes y entornos)
+└── environment.yml          # snapshot del entorno usado en conda (gestor de paquetes y entornos)
 ```
 
 ## Reproducción
@@ -287,15 +287,15 @@ los años venideros.
 
 ## Releases
 
-En el apartado de *releases* ("liberaciones") se halla el snapshot del repositorio en el momento exacto de la entrega final de este proyecto para su evaluación por el docente, titulado **Entrega final 2026-06-30**, bajo el **tag v1.0.0**.
+En el apartado de *releases* ("liberaciones") se halla el snapshot del repositorio en el momento exacto de la entrega final de este proyecto para su evaluación por el docente, titulado **Entrega final 2026-06-30**, bajo el [tag v1.0.0](https://github.com/victortizs/proyecto-cdd-fce-uba-2026-1c/tree/v1.0.0).
 
-No obstante, este proyecto continuará a fin de servir como material de portfolio, siguiendo una metodología basada en la convención ***Semantic Versioning (SemVer):***
+No obstante, este proyecto continuará a fin de servir como material de portfolio, siguiendo una metodología basada en la convención *Semantic Versioning (SemVer):*
 
 ```
 v1.0.0
- │ │ └── Patch: corrección de bugs, pequeñas mejoras en general (documentación, formato, etc.)
- │ └──── Minor: nuevos análisis y/o funcionalidades (scripts, gráficos, dashboards, etc.), mejor compatibilidad
- └────── Major: cambios de enfoque y/o rediseño del proyecto importantes
+ │ │ └── patch: corrección de bugs, pequeñas mejoras en general (documentación, formato, etc.)
+ │ └──── minor: nuevos análisis y/o funcionalidades (scripts, gráficos, dashboards, etc.), mejor compatibilidad
+ └────── major: cambios de enfoque y/o rediseño del proyecto importantes
 ```
 
 Por ejemplo:
