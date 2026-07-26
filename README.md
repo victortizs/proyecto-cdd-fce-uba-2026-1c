@@ -1,6 +1,6 @@
 # Producción de hidrocarburos en Argentina
 
-Proyecto final de la materia Ciencia de Datos para Economía y Negocios de la Facultad de Ciencias Económicas (UBA), desarrollado por el Grupo 08.
+Proyecto del grupo 08 para la materia Ciencia de Datos para Economía y Negocios, Facultad de Ciencias Económicas (UBA), primer cuatrimestre de 2026
 
 ## Contenido
 
@@ -133,7 +133,7 @@ La siguiente [sección](#variables-principales) proporciona un panorama más com
     - Pozos en perforación y terminados: `anio`, `mes`, `cuenca`, `empresa`, `tipo_actividad`
     - Producción de gas y petróleo: `anio`, `mes`, `cuenca`, `empresa`, `tipo_explotacion`
 
-    Ahora bien, al unir dos tablas provenientes de dos datasets distintos, las variables cuantitativas que no están presentes en una de ellas aparecen como `NA`. Por ello, se decidió reemplazar esos valores faltantes con cero (0); considerando que para los análisis posteriores en ocasiones es necesario filtrar por valores mayores a cero para no generar resultados malinterpretados o estadísticamente erróneos, como sería el caso si se usaran regresiones.
+    Ahora bien, al unir dos tablas provenientes de datasets distintos, las variables cuantitativas que no están presentes en una de ellas aparecen como `NA`. Dado que esos valores representan la ausencia de la variable en el dataset de origen y no datos faltantes, y que ninguna observación original toma el valor cero, se decidió reemplazarlos por dicho valor. Esto permite filtrar posteriormente observaciones con valores mayores que cero sin introducir resultados estadísticamente erróneos, como podría ocurrir al ajustar modelos de regresión.
 
 Otras operaciones como filtros y transformaciones de formato (de largo a ancho) fueron ejecutadas con el fin de lograr consolidar y, por tanto, reducir el número de insumos *(inputs)* a analizar. Por último, la elección de filtrar las cuencas `GOLFO SAN JORGE` y `NEUQUINA` posteriormente en cada análisis es puramente funcional: se busca que los archivos procesados sean útiles a más de un estudio.
 
@@ -220,20 +220,20 @@ Nivel de producción de las principales empresas en los años previos a 2015. Se
 
 ```
 proyecto-cdd-fce-uba-2026-1c/
-├── environment/             # Archivos auxiliares para reproducibilidad
+├── environment/             # archivos auxiliares para reproducibilidad
 │   └── conda/
-│       └── conda-lock.yml   # Lockfile multiplataforma (GNU/Linux, macOS, Windows)
-├── input/                   # Bases procesadas y consolidadas
+│       └── conda-lock.yml   # lockfile multiplataforma (GNU/Linux, macOS, Windows)
+├── input/                   # bases procesadas y consolidadas
 ├── output/                  
-│   ├── graficos/            # Visualizaciones generadas   
-│   └── presentacion/        # Entrega final en formato pdf
-├── raw/                     # Bases originales publicadas por la Secretaría de Energía
+│   ├── graficos/            # visualizaciones generadas   
+│   └── presentacion/        # entrega final en formato pdf
+├── raw/                     # bases originales publicadas por la Secretaría de Energía
 ├── scripts/
-│   ├── 01_etl/              # Proceso de limpieza, transformación y estandarización
-│   ├── 02_eda/              # Análisis exploratorio de datos
-│   ├── 03_tests/            # Tests de hipótesis y métodos estadísticos
-│   └── 04_veda/             # Análisis visual exploratorio de datos   
-├── utils/                   # Funciones/snippets reiterativos (boilerplate)
+│   ├── 01_etl/              # proceso de limpieza, transformación y estandarización
+│   ├── 02_eda/              # análisis exploratorio de datos
+│   ├── 03_tests/            # tests de hipótesis y métodos estadísticos
+│   └── 04_veda/             # análisis visual exploratorio de datos   
+├── utils/                   # funciones/snippets reiterativos (boilerplate)
 ├── README.md                
 └── environment.yml          # Snapshot del entorno usado en conda (gestor de paquetes y entornos)
 ```
@@ -257,7 +257,7 @@ Además, se incluye el *lockfile*[^1] `environment/conda/conda-lock.yml`, compat
 
 > **Nota(s):**
 >
-> Cada carpeta dentro de `scripts` contiene tres (3) archivos correspondientes a la temática de los datasets: inversión, pozos en perforación y terminados, producción de gas y petróleo. Sin embargo, para la exploración analítica de los datos y sus distribuciones con outliers, se priorizó la inversión.
+> Cada carpeta dentro de `scripts` contiene tres archivos, uno por cada tema: inversión prevista y realizada, pozos en perforación y terminados, y producción de gas y petróleo. Sin embargo, para la exploración analítica de los datos y de sus distribuciones con *outliers*, se priorizó el análisis del dataset de inversión.
 
 ---
 
@@ -301,10 +301,10 @@ v1.0.0
 Por ejemplo:
 
 ```
-v1.0.0   # Entrega final para la materia
-v1.0.1   # Corrección de error de tipeo en README
-v1.0.2   # Mejores instrucciones de reproducibilidad
-v1.1.0   # Nuevas visualizaciones y análisis
-v1.2.0   # Web App
-v2.0.0   # Rediseño grande del proyecto
+v1.0.0   # entrega final para la materia
+v1.0.1   # corrección de error de tipeo en README
+v1.0.2   # mejores instrucciones de reproducibilidad
+v1.1.0   # nuevas visualizaciones y análisis
+v1.2.0   # web app
+v2.0.0   # rediseño grande del proyecto
 ```
